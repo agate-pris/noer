@@ -1,3 +1,5 @@
+﻿#ifndef AGATE_PRIS_NOER_FIXED_POINT_NUMBER_HPP
+#define AGATE_PRIS_NOER_FIXED_POINT_NUMBER_HPP
 
 #include <boost/operators.hpp>
 
@@ -75,3 +77,5 @@ namespace agate_pris
 		}
 	}
 }
+
+#endif // AGATE_PRIS_NOER_FIXED_POINT_NUMBER_HPP
