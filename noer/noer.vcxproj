@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\agate_pris\noer\bbp_formula.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\factorial.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fixed_point_number.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\integer_power.hpp" />
   </ItemGroup>

@@ -35,5 +35,8 @@
     <ClInclude Include="..\include\agate_pris\noer\integer_power.hpp">
       <Filter>hpp</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\factorial.hpp">
+      <Filter>hpp</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
