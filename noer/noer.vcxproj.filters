@@ -21,9 +21,6 @@
     <ClCompile Include="bbp_formula.cpp">
       <Filter>cpp</Filter>
     </ClCompile>
-    <ClCompile Include="integer_power.cpp">
-      <Filter>cpp</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\agate_pris\noer\bbp_formula.hpp">

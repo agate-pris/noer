@@ -7,7 +7,18 @@ namespace agate_pris
 {
 	namespace noer
 	{
-		boost::multiprecision::cpp_int integer_power( int m, unsigned int k );
+		template< typename ReturnType, typename Base >
+		ReturnType integer_power(Base m, unsigned int k)
+		{
+			ReturnType result = 1;
+
+			while (k--)
+			{
+				result *= m;
+			}
+
+			return result;
+		}
 	}
 }
 
