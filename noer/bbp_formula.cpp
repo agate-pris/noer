@@ -9,7 +9,7 @@ namespace agate_pris
 	{
 		boost::multiprecision::cpp_rational bbp_formula( const unsigned int precision )
 		{
-			using cpp_rational = boost::multiprecision::cpp_rational;
+			using namespace boost::multiprecision;
 
 			auto f = [](int k) -> cpp_rational
 			{
@@ -18,7 +18,7 @@ namespace agate_pris
 				const cpp_rational c(1, 8 * k + 5);
 				const cpp_rational d(1, 8 * k + 6);
 
-				return ( a - b - c - d ) / integer_power( 16, k );
+				return ( a - b - c - d ) / integer_power< cpp_int >( 16, k );
 			};
 
 			cpp_rational result = 0;
