@@ -85,7 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bbp_formula.cpp" />
-    <ClCompile Include="integer_power.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\agate_pris\noer\bbp_formula.hpp" />
