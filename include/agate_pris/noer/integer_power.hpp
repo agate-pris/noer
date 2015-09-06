@@ -7,6 +7,18 @@ namespace agate_pris
 {
 	namespace noer
 	{
+		// コンパイル時 pow
+		template< typename ReturnType, long long Base, unsigned long long Exponent >
+		constexpr ReturnType pow()
+		{
+			return Exponent == 0 ?
+			(1) : 
+			( Exponent == 1 ?
+				(Base) :
+				(pow< ReturnType, Base, Exponent / 2 >() * pow< ReturnType, Base, Exponent - Exponent / 2 >())
+			);
+		}
+
 		template< typename ReturnType, typename Base >
 		ReturnType pow(Base m, unsigned int k)
 		{
