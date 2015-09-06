@@ -4,6 +4,7 @@
 #include <agate_pris/noer/pow.hpp>
 #include <agate_pris/noer/bbp_formula.hpp>
 #include <agate_pris/noer/fixed_point_number.hpp>
+#include <agate_pris\noer\degree.hpp>
 
 #include "factorial.hpp"
 
@@ -22,5 +23,6 @@ int main()
 	}
 
 	test::factorial(5);
+	degree<int, 8> d;
 	system("pause");
 }

@@ -43,5 +43,8 @@
     <ClInclude Include="..\include\agate_pris\noer\pow.hpp">
       <Filter>hpp</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\degree.hpp">
+      <Filter>hpp</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
