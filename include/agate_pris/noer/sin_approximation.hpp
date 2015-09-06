@@ -2,7 +2,7 @@
 #define AGATE_PRIS_NOER_SIN_APPROXIMATION_HPP
 
 #include <boost/multiprecision/cpp_int.hpp>
-#include <agate_pris/noer/integer_power.hpp>
+#include <agate_pris/noer/pow.hpp>
 #include <agate_pris/noer/factorial.hpp>
 
 namespace agate_pris

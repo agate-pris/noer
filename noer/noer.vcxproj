@@ -91,8 +91,8 @@
     <ClInclude Include="..\include\agate_pris\noer\bbp_formula.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\factorial.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fixed_point_number.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\integer_power.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\lerp.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\pow.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\sin_approximation.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,6 +1,6 @@
 #include <boost/multiprecision/cpp_int.hpp>
 
-#include <agate_pris/noer/integer_power.hpp>
+#include <agate_pris/noer/pow.hpp>
 #include <agate_pris/noer/bbp_formula.hpp>
 
 namespace agate_pris

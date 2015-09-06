@@ -1,5 +1,6 @@
-ï»¿#ifndef AGATE_PRIS_NOER_INTEGER_POWER_HPP
-#define AGATE_PRIS_NOER_INTEGER_POWER_HPP
+#pragma once
+#ifndef AGATE_PRIS_NOER_POW_HPP
+#define AGATE_PRIS_NOER_POW_HPP
 
 #include <boost/multiprecision/cpp_int.hpp>
 
@@ -7,19 +8,19 @@ namespace agate_pris
 {
 	namespace noer
 	{
-		// ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«æ™‚ pow
+		// ƒRƒ“ƒpƒCƒ‹ pow
 		template< typename ReturnType, long long Base, unsigned long long Exponent >
 		constexpr ReturnType pow()
 		{
 			return Exponent == 0 ?
-			(1) : 
-			( Exponent == 1 ?
-				(Base) :
-				(pow< ReturnType, Base, Exponent / 2 >() * pow< ReturnType, Base, Exponent - Exponent / 2 >())
-			);
+				(1) :
+				(Exponent == 1 ?
+					(Base) :
+					(pow< ReturnType, Base, Exponent / 2 >() * pow< ReturnType, Base, Exponent - Exponent / 2 >())
+					);
 		}
 
-		// å®Ÿè¡Œæ™‚ pow
+		// Às pow
 		template< typename ReturnType, typename Base >
 		ReturnType pow(Base m, unsigned int k)
 		{

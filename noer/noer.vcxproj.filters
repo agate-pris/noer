@@ -29,7 +29,6 @@
     <ClInclude Include="..\include\agate_pris\noer\fixed_point_number.hpp">
       <Filter>hpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\integer_power.hpp">
       <Filter>hpp</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\factorial.hpp">
@@ -39,6 +38,9 @@
       <Filter>hpp</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\lerp.hpp">
+      <Filter>hpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\pow.hpp">
       <Filter>hpp</Filter>
     </ClInclude>
   </ItemGroup>
