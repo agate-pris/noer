@@ -9,7 +9,7 @@ namespace agate_pris
 		enum class interpolation
 		{
 			k_nearest_neighbor,	// 0次補間 最近傍補間
-			linear				// 1次補間 線形補間
+			k_linear			// 1次補間 線形補間
 		};
 	}
 }
