@@ -8,7 +8,7 @@ namespace agate_pris
 	namespace noer
 	{
 		template< typename ReturnType, typename Base >
-		ReturnType integer_power(Base m, unsigned int k)
+		ReturnType pow(Base m, unsigned int k)
 		{
 			ReturnType result = 1;
 

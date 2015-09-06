@@ -15,7 +15,7 @@ namespace agate_pris
 			using namespace boost::multiprecision;
 			auto f = [x](const int k)->cpp_rational
 			{
-				const cpp_rational numerator = integer_power< int >(-1, k) * integer_power< cpp_rational >(x, 2 * k + 1);
+				const cpp_rational numerator = noer::pow< int >(-1, k) * noer::pow< cpp_rational >(x, 2 * k + 1);
 				const cpp_rational denominator = factorial<>(2 * k + 1);
 				return numerator / denominator;
 			};
