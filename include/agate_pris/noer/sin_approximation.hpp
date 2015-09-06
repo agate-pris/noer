@@ -22,7 +22,7 @@ namespace agate_pris
 
 			cpp_rational result = 0;
 
-			for (int k = 0; k < precision; ++k)
+			for (unsigned int k = 0; k < precision; ++k)
 			{
 				result += f(k);
 			}
