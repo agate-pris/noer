@@ -5,6 +5,8 @@
 #include <agate_pris/noer/bbp_formula.hpp>
 #include <agate_pris/noer/fixed_point_number.hpp>
 
+#include "factorial.hpp"
+
 int main()
 {
 	using namespace std;
@@ -18,5 +20,6 @@ int main()
 		cout << fixed << setprecision( 16 ) << result.convert_to< double >() << "(" << result << ")" << endl;
 	}
 
+	test::factorial(5);
 	system("pause");
 }
