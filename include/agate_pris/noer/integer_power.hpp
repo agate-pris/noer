@@ -19,6 +19,7 @@ namespace agate_pris
 			);
 		}
 
+		// 実行時 pow
 		template< typename ReturnType, typename Base >
 		ReturnType pow(Base m, unsigned int k)
 		{
