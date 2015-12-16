@@ -1,9 +1,9 @@
+
+#define NOMINMAX
+
 #include <iostream>
 #include <boost/multiprecision/cpp_int.hpp>
 #include <Windows.h>
-
-#undef max
-#undef min
 
 #include <agate_pris/noer/pow.hpp>
 #include <agate_pris/noer/bbp_formula.hpp>
