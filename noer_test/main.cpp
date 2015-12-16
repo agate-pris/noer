@@ -7,7 +7,7 @@
 
 #include <agate_pris/noer/pow.hpp>
 #include <agate_pris/noer/bbp_formula.hpp>
-#include <agate_pris/noer/fixed_point_number.hpp>
+#include <agate_pris/noer/fixed_point.hpp>
 #include <agate_pris\noer\degree.hpp>
 #include <agate_pris/noer/excess_k.hpp>
 
@@ -23,8 +23,10 @@ int main()
 	cout << static_cast< int >( e ) << endl;
 	cout << static_cast< int >( e.get() ) << endl;
 
-	fixed_point_number< 8, int > fpn;
-	fpn = fpn / fpn;
+	fixed_point< int, 8 > fpn( 1000 );
+	cout << static_cast< int >( fpn ) << endl;
+	cout << static_cast< int >( fpn.get() ) << endl;
+	
 
 	for (int i = 0; i < 10; ++i)
 	{
