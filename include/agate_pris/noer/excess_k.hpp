@@ -1,6 +1,6 @@
 
-#ifndef EXCESS_K_HPP
-#define EXCESS_K_HPP
+#ifndef AGATE_PRIS_NOER_EXCESS_K_HPP
+#define AGATE_PRIS_NOER_EXCESS_K_HPP
 
 #include <utility>
 #include <type_traits>
@@ -241,4 +241,4 @@ namespace agate_pris
 	}
 }
 
-#endif // EXCESS_K_HPP
+#endif // AGATE_PRIS_NOER_EXCESS_K_HPP
