@@ -20,7 +20,10 @@ namespace agate_pris
 		private:
 			Magnitude m_magnitude;
 		public:
-			static constexpr const Magnitude k_pi = pow< Magnitude, 2, Precision - 1 >();
+			static constexpr const Magnitude k_pi   = pow< Magnitude, 2, Precision - 1 >();
+			static constexpr const Magnitude k_pi_2 = pow< Magnitude, 2, Precision - 2 >();
+			static constexpr const Magnitude k_pi_4 = pow< Magnitude, 2, Precision - 3 >();
+
 			inline const Magnitude& get()const
 			{
 				return m_magnitude;
