@@ -14,6 +14,7 @@
     <ClInclude Include="..\include\agate_pris\noer\sin_approximation.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\excess_k.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fixed_point.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\sin_table.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
