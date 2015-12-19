@@ -14,5 +14,6 @@
     <ClInclude Include="factorial.hpp" />
     <ClInclude Include="sin_table.hpp" />
     <ClInclude Include="fixed_point.hpp" />
+    <ClInclude Include="excess_k.hpp" />
   </ItemGroup>
 </Project>
