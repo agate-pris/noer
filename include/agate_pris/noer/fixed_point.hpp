@@ -47,6 +47,10 @@ namespace agate_pris
 			// ----------
 			template< typename T > explicit operator T ()const;
 
+			// unary operator
+			// --------------
+			auto operator - ()const -> fixed_point< typename std::negate< Repr >::result_type, Exp >;
+
 			// binary operator templates
 			// -------------------------
 			template< typename Rhs > fixed_point< Repr, Exp >& operator = ( const Rhs& rhs );
@@ -160,6 +164,15 @@ namespace agate_pris
 		{
 			m_repr /= rhs;
 			return *this;
+		}
+		
+		// unary operator
+		// --------------
+
+		template<typename Repr, int Exp>
+		inline auto fixed_point<Repr, Exp>::operator-() const -> fixed_point< typename std::negate<Repr>::result_type, Exp>
+		{
+			return fixed_point<std::negate<Repr>::result_type, Exp>(*this) *= -1;
 		}
 
 		// binary operator for fixed_point< Repr, Exp >
