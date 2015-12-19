@@ -85,7 +85,7 @@ namespace agate_pris
 		template< typename T >
 		T fixed_point< Repr, Exp >::mul_scaling_factor( T arg )
 		{
-			BOOST_ASSERT( arg <= convertible_max< T >() );
+			BOOST_ASSERT( convertible_max< T >() == 0 || arg <= convertible_max< T >() );
 			return arg *= k_scaling_factor;
 		}
 
