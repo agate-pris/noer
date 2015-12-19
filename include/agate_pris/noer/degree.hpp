@@ -16,7 +16,7 @@ namespace agate_pris
 		class degree
 		{
 			static_assert(std::is_integral< Magnitude >::value, "degree::magnitude_type は整数型でなければなりません。あるいは、degreeを特殊化する必要があります。");
-			static_assert(0 < Precision, "Precisionは0より大きい値でなければなりません。");
+			static_assert(3 < Precision, "Precisionは3より大きい値でなければなりません。");
 		private:
 			Magnitude m_magnitude;
 		public:
