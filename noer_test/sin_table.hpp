@@ -14,6 +14,10 @@ int main()
 
 	sin_table< double, 256 > st( bbp_formula( 10 ), 10 );
 
+	cout << st.k_pi   << endl;
+	cout << st.k_pi_2 << endl;
+	cout << st.k_pi_4 << endl;
+
 	for( int i = 0; i <= 24; ++i )
 	{
 		auto d = 65536 * i / 24;

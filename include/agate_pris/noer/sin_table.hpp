@@ -18,9 +18,18 @@ namespace agate_pris
 		{
 			static_assert( Division % 8 == 0, "Division must be a factor of 8." );
 			public:
+			// constructor
 			sin_table( boost::multiprecision::cpp_rational pi, unsigned int precision );
+
+			// eval sin
 			template< std::size_t Subdivision > inline Element get( std::size_t arg );
 			inline Element get( std::size_t arg );
+
+			// constants
+			static constexpr const std::size_t k_pi   = Division / 2;
+			static constexpr const std::size_t k_pi_2 = Division / 4;
+			static constexpr const std::size_t k_pi_4 = Division / 8;
+
 			private:
 			static constexpr const std::size_t k_size = Division / 4 + 1;
 			std::array< Element, k_size > m_array;
