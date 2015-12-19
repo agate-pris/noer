@@ -16,7 +16,4 @@
     <ClInclude Include="..\include\agate_pris\noer\fixed_point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\sin_table.hpp" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
 </Project>

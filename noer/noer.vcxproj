@@ -82,9 +82,6 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="bbp_formula.cpp" />
   </ItemGroup>
   <ItemGroup>
