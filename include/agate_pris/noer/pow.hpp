@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef AGATE_PRIS_NOER_POW_HPP
 #define AGATE_PRIS_NOER_POW_HPP
 
@@ -36,4 +36,4 @@ namespace agate_pris
 	}
 }
 
-#endif // AGATE_PRIS_NOER_INTEGER_POWER_HPP
+#endif // AGATE_PRIS_NOER_POW_HPP
