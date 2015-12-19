@@ -6,13 +6,14 @@
 
 #include <agate_pris/noer/bbp_formula.hpp>
 #include <agate_pris/noer/sin_table.hpp>
+#include <agate_pris/noer/fixed_point.hpp>
 
 int main()
 {
 	using namespace std;
 	using namespace agate_pris::noer;
 
-	sin_table< double, 256 > st( bbp_formula( 10 ), 10 );
+	sin_table< fixed_point< int, 10 >, 256 > st( bbp_formula( 10 ), 10 );
 
 	cout << st.k_pi   << endl;
 	cout << st.k_pi_2 << endl;
@@ -25,7 +26,7 @@ int main()
 		cout << "sin( ";
 		cout << setw( 5 ) << d;
 		cout << " / 32768 pi rad ) = ";
-		cout << setw( 5 ) << st.get< 256 >( d ) << endl;
+		cout << setw( 5 ) << static_cast< double >( st.get< 256 >( d ) ) << endl;
 	}
 
 	system( "pause" );
