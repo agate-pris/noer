@@ -15,5 +15,6 @@
     <ClInclude Include="sin_table.hpp" />
     <ClInclude Include="fixed_point.hpp" />
     <ClInclude Include="excess_k.hpp" />
+    <ClInclude Include="bbp_formula.hpp" />
   </ItemGroup>
 </Project>
