@@ -22,8 +22,8 @@ namespace agate_pris
 			sin_table( boost::multiprecision::cpp_rational pi, unsigned int precision );
 
 			// eval sin
-			template< std::size_t Subdivision > inline Element get( std::size_t arg );
-			inline Element get( std::size_t arg );
+			template< std::size_t Subdivision > inline Element get( std::size_t arg )const;
+			inline Element get( std::size_t arg )const;
 
 			// constants
 			static constexpr const std::size_t k_pi   = Division / 2;
@@ -49,7 +49,7 @@ namespace agate_pris
 
 		template< typename Element, std::size_t Division >
 		template< std::size_t Subdivision >
-		inline Element sin_table< Element, Division >::get( std::size_t arg )
+		inline Element sin_table< Element, Division >::get( std::size_t arg )const
 		{
 			auto i = arg / Subdivision;
 			auto m = arg % Subdivision;
@@ -58,7 +58,7 @@ namespace agate_pris
 		}
 
 		template< typename Element, std::size_t Division >
-		inline Element sin_table< Element, Division >::get( std::size_t arg )
+		inline Element sin_table< Element, Division >::get( std::size_t arg )const
 		{
 			constexpr int division = static_cast< int >( Division );
 			auto v = static_cast< int >( arg % division );
