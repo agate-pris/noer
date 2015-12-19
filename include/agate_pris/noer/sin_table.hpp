@@ -51,10 +51,15 @@ namespace agate_pris
 		template< std::size_t Subdivision >
 		inline Element sin_table< Element, Division >::get( std::size_t arg )const
 		{
-			auto i = arg / Subdivision;
-			auto m = arg % Subdivision;
+			constexpr int subdivision = static_cast< int >( Subdivision );
+			auto i = arg / subdivision;
+			auto m = arg % subdivision;
 
-			return get( i ) + ( get( i + 1 ) - get( i ) ) * m / Subdivision;
+			auto diff = get( i + 1 ) - get( i );
+			diff *= m;
+			diff /= subdivision;
+
+			return get( i ) + diff;
 		}
 
 		template< typename Element, std::size_t Division >
