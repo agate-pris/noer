@@ -15,5 +15,6 @@
     <ClInclude Include="..\include\agate_pris\noer\excess_k.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fixed_point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\sin_table.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\sin.hpp" />
   </ItemGroup>
 </Project>
