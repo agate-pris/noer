@@ -18,5 +18,6 @@
     <ClInclude Include="bbp_formula.hpp" />
     <ClInclude Include="sin.hpp" />
     <ClInclude Include="cos.hpp" />
+    <ClInclude Include="sqrt.hpp" />
   </ItemGroup>
 </Project>
