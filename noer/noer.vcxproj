@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\agate_pris\noer\bbp_formula.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\cos.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\degree.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\excess_k.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\factorial.hpp" />
