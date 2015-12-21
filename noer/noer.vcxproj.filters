@@ -17,6 +17,7 @@
     <ClInclude Include="..\include\agate_pris\noer\sin_table.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\sin.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\cos.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\atan_approximation.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\sqrt.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\infinity.hpp" />
   </ItemGroup>

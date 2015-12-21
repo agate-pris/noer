@@ -92,6 +92,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="atan_approximation.hpp" />
     <ClInclude Include="bbp_formula.hpp" />
     <ClInclude Include="cos.hpp" />
     <ClInclude Include="sin.hpp" />

@@ -85,6 +85,7 @@
     <ClCompile Include="bbp_formula.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\agate_pris\noer\atan_approximation.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\bbp_formula.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\cos.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\degree.hpp" />
