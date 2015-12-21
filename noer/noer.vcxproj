@@ -92,6 +92,7 @@
     <ClInclude Include="..\include\agate_pris\noer\factorial.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fixed_point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fixed_point_number.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\infinity.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\interpolation.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\lerp.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\pow.hpp" />
