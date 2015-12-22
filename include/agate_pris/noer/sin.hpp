@@ -3,7 +3,7 @@
 #define AGATE_PRIS_NOER_SIN_HPP
 
 #include <agate_pris/noer/sin_table.hpp>
-#include <agate_pris/noer/degree.hpp>
+#include <agate_pris/noer/angle.hpp>
 
 namespace agate_pris
 {
@@ -12,12 +12,12 @@ namespace agate_pris
 		template
 		<
 			typename SinTableElement, std::size_t SinTableDivision,
-			typename DegreeMagnitude, unsigned int DegreePrecision
+			typename AngleMagnitude, unsigned int AnglePrecision
 		>
 		inline auto sin
 		(
 			const sin_table< SinTableElement, SinTableDivision >& st,
-			const degree< DegreeMagnitude, DegreePrecision >& d
+			const angle< AngleMagnitude, AnglePrecision >& d
 		)
 		{
 			return st.get< d.k_pi / st.k_pi >( d.get() );

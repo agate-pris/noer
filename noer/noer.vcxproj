@@ -88,7 +88,7 @@
     <ClInclude Include="..\include\agate_pris\noer\atan_approximation.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\bbp_formula.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\cos.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\degree.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\angle.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\excess_k.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\factorial.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fixed_point.hpp" />

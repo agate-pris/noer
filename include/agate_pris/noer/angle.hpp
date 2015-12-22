@@ -1,6 +1,6 @@
 ﻿
-#ifndef AGATE_PRIS_NOER_DEGREE_HPP
-#define AGATE_PRIS_NOER_DEGREE_HPP
+#ifndef AGATE_PRIS_NOER_ANGLE_HPP
+#define AGATE_PRIS_NOER_ANGLE_HPP
 
 #include <type_traits>
 
@@ -13,9 +13,9 @@ namespace agate_pris
 		// Quantity : 角度の大きさを保持するための型です
 		// Precision : 角度の大きさの精度です。一周を2のPrecision乗に分割します。
 		template< typename Quantity, unsigned int Precision >
-		class degree
+		class angle
 		{
-			static_assert(std::is_integral< Quantity >::value, "degree::quantity_type は整数型でなければなりません。あるいは、degreeを特殊化する必要があります。");
+			static_assert(std::is_integral< Quantity >::value, "angle::quantity_type は整数型でなければなりません。あるいは、angleを特殊化する必要があります。");
 			static_assert(3 < Precision, "Precisionは3より大きい値でなければなりません。");
 		private:
 			Quantity m_quantity;
@@ -40,4 +40,4 @@ namespace agate_pris
 	}
 }
 
-#endif // AGATE_PRIS_NOER_DEGREE_HPP
+#endif // AGATE_PRIS_NOER_ANGLE_HPP

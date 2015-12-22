@@ -5,7 +5,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\agate_pris\noer\bbp_formula.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\degree.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\factorial.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fixed_point_number.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\interpolation.hpp" />
@@ -20,5 +19,6 @@
     <ClInclude Include="..\include\agate_pris\noer\atan_approximation.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\sqrt.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\infinity.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\angle.hpp" />
   </ItemGroup>
 </Project>
