@@ -2,6 +2,10 @@
 #ifndef AGATE_PRIS_NOER_FUNCTION_TRAITS_HPP
 #define AGATE_PRIS_NOER_FUNCTION_TRAITS_HPP
 
+#include <utility>
+#include <type_traits>
+#include <tuple>
+
 namespace agate_pris
 {
 	namespace noer
