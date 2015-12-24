@@ -20,5 +20,6 @@
     <ClInclude Include="cos.hpp" />
     <ClInclude Include="atan_approximation.hpp" />
     <ClInclude Include="sqrt.hpp" />
+    <ClInclude Include="atan_table.hpp" />
   </ItemGroup>
 </Project>
