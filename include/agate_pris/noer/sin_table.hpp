@@ -13,6 +13,8 @@ namespace agate_pris
 {
 	namespace noer
 	{
+		// Element :保持する値の型
+		// Division:円周を何分割するか
 		template< typename Element, std::size_t Division >
 		class sin_table
 		{
