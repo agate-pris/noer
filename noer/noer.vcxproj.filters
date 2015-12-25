@@ -22,5 +22,6 @@
     <ClInclude Include="..\include\agate_pris\noer\infinity.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\angle.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\function_traits.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\duplicate.hpp" />
   </ItemGroup>
 </Project>
