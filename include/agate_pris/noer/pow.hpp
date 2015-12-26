@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef AGATE_PRIS_NOER_POW_HPP
 #define AGATE_PRIS_NOER_POW_HPP
 
@@ -8,7 +8,7 @@ namespace agate_pris
 {
 	namespace noer
 	{
-		// ƒRƒ“ƒpƒCƒ‹ pow
+		// ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«æ™‚ pow
 		template< typename ReturnType, long long Base, unsigned long long Exponent >
 		constexpr ReturnType pow()
 		{
@@ -20,7 +20,7 @@ namespace agate_pris
 					);
 		}
 
-		// Às pow
+		// å®Ÿè¡Œæ™‚ pow
 		template< typename ReturnType, typename Base >
 		ReturnType pow(Base m, unsigned int k)
 		{
