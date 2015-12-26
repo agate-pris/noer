@@ -3,16 +3,20 @@
 #define AGATE_PRIS_NOER_DUPLICATE_HPP
 
 #include <utility>
+#include <type_traits>
 
 namespace agate_pris
 {
 	namespace noer
 	{
 		template< typename Arg >
-		inline Arg duolicate( Arg&& arg )noexcept( noexcept( Arg(Arg&&) ) )
+		inline auto duplicate( Arg&& arg )noexcept
+		(
+			!std::is_reference<        Arg >::value && std::is_nothrow_move_assignable<                  Arg   >::value ||
+			 std::is_lvalue_reference< Arg >::value && std::is_nothrow_copy_constructible< std::decay_t< Arg > >::value
+		)
 		{
-			using std::forward;
-			return forward< Arg >( arg );
+			return std::decay_t< Arg >( std::forward< Arg >( arg ) );
 		}
 	}
 }
