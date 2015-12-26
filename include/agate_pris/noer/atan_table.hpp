@@ -1,9 +1,10 @@
-
+﻿
 #ifndef AGATE_PRIS_NOER_ATAN_TABLE_HPP
 #define AGATE_PRIS_NOER_ATAN_TABLE_HPP
 
 #include <cstddef>
 #include <agate_pris/noer/function_traits.hpp>
+#include <agate_pris/noer/duplicate.hpp>
 
 namespace agate_pris
 {
@@ -24,6 +25,9 @@ namespace agate_pris
 			inline Element const& at(         std::size_t i )const;
 
 			private:
+			Element right()const;
+			Element straight()const;
+			Element full()const;
 			std::array< Element, Size > m_array;
 		};
 
@@ -63,6 +67,27 @@ namespace agate_pris
 		inline Element & atan_table<Element, Size>::at( std::size_t i )
 		{
 			return m_array.at( i );
+		}
+
+		// 直角
+		template<typename Element, std::size_t Size>
+		inline Element atan_table<Element, Size>::right()const
+		{
+			return duplicate( m_array[ Size - 1 ] ) *= 2;
+		}
+
+		// 平角
+		template<typename Element, std::size_t Size>
+		inline Element atan_table<Element, Size>::straight()const
+		{
+			return duplicate( m_array[ Size - 1 ] ) *= 4;
+		}
+
+		// 周角
+		template<typename Element, std::size_t Size>
+		inline Element atan_table<Element, Size>::full()const
+		{
+			return duplicate( m_array[ Size - 1 ] ) *= 8;
 		}
 	}
 }
