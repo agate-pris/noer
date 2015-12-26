@@ -6,6 +6,7 @@
 #include <agate_pris/noer/sqrt.hpp>
 #include <agate_pris/noer/atan_approximation.hpp>
 #include <agate_pris/noer/angle.hpp>
+#include <cmath>
 
 int main()
 {
@@ -19,6 +20,13 @@ int main()
 	for( int i = 0; i < 33; ++i )
 	{
 		cout << at.at( i ) << endl;
+	}
+	cout << "========" << endl;
+	for( int i = 0; i < 50; ++i )
+	{
+		auto x = cos( i * 6.28 / 48 );
+		auto y = sin( i * 6.28 / 48 );
+		cout << at.get( y, x ) << endl;
 	}
 	system( "pause" );
 }

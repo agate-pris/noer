@@ -24,6 +24,30 @@ namespace agate_pris
 			inline Element&       at(         std::size_t i );
 			inline Element const& at(         std::size_t i )const;
 
+			template< typename Arg >
+			Element get( const Arg& arg )const
+			{
+				if( arg < static_cast< Arg >( 0 ) )
+					return straight() - get( -arg );
+				if( arg <= static_cast< Arg >( 1 ) )
+				{
+					auto tmp = arg;
+					return m_array[ static_cast< std::size_t >( tmp *= ( Size - 1 ) ) ];
+				}
+				auto tmp = Arg( 1 );
+				return right() - get( tmp /= arg );
+			}
+
+			template< typename Arg >
+			Element get( const Arg& y, const Arg& x )const
+			{
+				if( y < 0 )
+					return straight() + get( -y, -x );
+				if( x < 0 )
+					return straight() - get(  y, -x );
+				return                  get(  y / x );
+			}
+
 			private:
 			Element right()const;
 			Element straight()const;
