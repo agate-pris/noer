@@ -73,21 +73,24 @@ namespace agate_pris
 		template<typename Element, std::size_t Size>
 		inline Element atan_table<Element, Size>::right()const
 		{
-			return duplicate( m_array[ Size - 1 ] ) *= 2;
+			auto b = m_array.back();
+			return b *= 2;
 		}
 
 		// 平角
 		template<typename Element, std::size_t Size>
 		inline Element atan_table<Element, Size>::straight()const
 		{
-			return duplicate( m_array[ Size - 1 ] ) *= 4;
+			auto b = m_array.back();
+			return b *= 4;
 		}
 
 		// 周角
 		template<typename Element, std::size_t Size>
 		inline Element atan_table<Element, Size>::full()const
 		{
-			return duplicate( m_array[ Size - 1 ] ) *= 8;
+			auto b = m_array.back();
+			return b *= 8;
 		}
 	}
 }
