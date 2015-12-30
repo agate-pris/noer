@@ -265,6 +265,34 @@ namespace agate_pris
 		{
 			return fixed_point< Repr, Exp >::k_scaling_factor;
 		}
+
+		// non-member operators
+		// --------------------
+		template< typename Lhs, typename Repr, int Exp >
+		std::enable_if_t< std::is_arithmetic< Lhs >::value, Lhs >& operator += ( Lhs& lhs, const fixed_point< Repr, Exp >& rhs )
+		{
+			return lhs += static_cast< Lhs >( rhs );
+		}
+
+		template< typename Lhs, typename Repr, int Exp >
+		std::enable_if_t< std::is_arithmetic< Lhs >::value, Lhs >& operator -= ( Lhs& lhs, const fixed_point< Repr, Exp >& rhs )
+		{
+			return lhs -= static_cast< Lhs >( rhs );
+		}
+
+		template< typename Lhs, typename Repr, int Exp >
+		std::enable_if_t< std::is_arithmetic< Lhs >::value, Lhs >& operator *= ( Lhs& lhs, const fixed_point< Repr, Exp >& rhs )
+		{
+			lhs *= numerator( rhs );
+			return lhs /= denominator( rhs );
+		}
+
+		template< typename Lhs, typename Repr, int Exp >
+		std::enable_if_t< std::is_arithmetic< Lhs >::value, Lhs >& operator /= ( Lhs& lhs, const fixed_point< Repr, Exp >& rhs )
+		{
+			lhs *= denominator( rhs );
+			return lhs /= numerator( rhs );
+		}
 	}
 }
 
