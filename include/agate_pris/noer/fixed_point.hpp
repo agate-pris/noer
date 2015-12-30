@@ -237,6 +237,20 @@ namespace agate_pris
 			m_repr /= rhs.get();
 			return *this;
 		}
+
+		// non-member function
+		// -------------------
+		template< typename Repr, int Exp >
+		Repr numerator( const fixed_point< Repr, Exp >& num )
+		{
+			return num.get();
+		}
+
+		template< typename Repr, int Exp >
+		constexpr const int denominator( const fixed_point< Repr, Exp >& )
+		{
+			return fixed_point< Repr, Exp >::k_scaling_factor;
+		}
 	}
 }
 
