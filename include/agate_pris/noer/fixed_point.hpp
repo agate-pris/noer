@@ -42,7 +42,7 @@ namespace agate_pris
 			// constructor
 			// -----------
 			fixed_point()noexcept( std::is_nothrow_default_constructible< Repr >::value ) = default;
-			template< typename Arg > explicit fixed_point( const Arg& arg );
+			template< typename Arg > fixed_point( const Arg& arg );
 
 			// conversion
 			// ----------
