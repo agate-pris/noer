@@ -47,6 +47,8 @@ namespace agate_pris
 			// conversion
 			// ----------
 			template< typename T > explicit operator T ()const;
+			operator std::make_signed_t< Repr >()const;
+			operator std::make_unsigned_t< Repr >()const;
 
 			// unary operator
 			// --------------
@@ -117,6 +119,18 @@ namespace agate_pris
 		fixed_point< Repr, Exp >::operator T ()const
 		{
 			return div_scaling_factor( static_cast< T >( m_repr ) );
+		}
+
+		template<typename Repr, int Exp>
+		inline fixed_point<Repr, Exp>::operator std::make_signed_t<Repr>() const
+		{
+			return div_scaling_factor( m_repr );
+		}
+
+		template<typename Repr, int Exp>
+		inline fixed_point<Repr, Exp>::operator std::make_unsigned_t<Repr>() const
+		{
+			return div_scaling_factor( m_repr );
 		}
 
 		// binary operator templates
