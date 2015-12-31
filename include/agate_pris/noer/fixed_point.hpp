@@ -8,7 +8,7 @@
 #include <boost/assert.hpp>
 #include <boost/operators.hpp>
 #include <boost/multiprecision/cpp_int.hpp>
-#include "pow.hpp"
+#include <agate_pris/noer/pow.hpp>
 
 namespace agate_pris
 {
