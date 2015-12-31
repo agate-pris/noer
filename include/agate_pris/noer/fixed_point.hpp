@@ -43,6 +43,7 @@ namespace agate_pris
 			// -----------
 			fixed_point()noexcept( std::is_nothrow_default_constructible< Repr >::value ) = default;
 			template< typename Arg > fixed_point( const Arg& arg );
+			template< typename Arg > fixed_point( const Arg& num, const Arg& denom );
 
 			// conversion
 			// ----------
@@ -109,6 +110,13 @@ namespace agate_pris
 		template< typename Arg >
 		fixed_point< Repr, Exp >::fixed_point( const Arg& arg )
 			: m_repr( static_cast< Repr >( mul_scaling_factor( arg ) ) )
+		{
+		}
+
+		template<typename Repr, int Exp>
+		template<typename Arg>
+		inline fixed_point<Repr, Exp>::fixed_point( const Arg & num, const Arg & denom )
+			: m_repr( static_cast< Repr >( mul_scaling_factor( num ) / denom ) )
 		{
 		}
 
