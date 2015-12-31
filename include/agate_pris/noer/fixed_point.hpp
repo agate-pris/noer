@@ -66,6 +66,8 @@ namespace agate_pris
 			template< typename Rhs > fixed_point< Repr, Exp >& operator *= ( const Rhs& rhs );
 			template< typename Rhs > fixed_point< Repr, Exp >& operator /= ( const Rhs& rhs );
 
+			template< typename Num, typename Denom > fixed_point< Repr, Exp >& operator = ( const std::tuple< Num, Denom >& fraction );
+
 			// binary operator for fixed_point< Repr, Exp >
 			// --------------------------------------------
 			inline bool operator == ( const fixed_point< Repr, Exp >& rhs )const;
@@ -196,6 +198,15 @@ namespace agate_pris
 		fixed_point< Repr, Exp >& fixed_point< Repr, Exp >::operator /= ( const Rhs& rhs )
 		{
 			m_repr /= rhs;
+			return *this;
+		}
+
+		template<typename Repr, int Exp>
+		template<typename Num, typename Denom>
+		inline fixed_point<Repr, Exp>& fixed_point<Repr, Exp>::operator=( const std::tuple<Num, Denom>& fraction )
+		{
+			using std::get;
+			m_repr = eval::div_l( mul_scaling_factor( get< 0 >( fraction ) ), get< 1 >( fraction ) );
 			return *this;
 		}
 		
