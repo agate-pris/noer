@@ -27,6 +27,12 @@ namespace agate_pris
 			}
 
 			template< typename Lhs, typename Rhs >
+			inline auto sub_r( const Lhs& l, Rhs r )
+			{
+				return -r += l;
+			}
+
+			template< typename Lhs, typename Rhs >
 			inline auto mul_l( Lhs l, const Rhs& r )
 			{
 				return l *= r;
@@ -36,6 +42,12 @@ namespace agate_pris
 			inline auto mul_r( const Lhs& l, Rhs r )
 			{
 				return r *= l;
+			}
+
+			template< typename Lhs, typename Rhs >
+			inline auto div_l( Lhs l, const Rhs& r )
+			{
+				return l /= r;
 			}
 		}
 	}
