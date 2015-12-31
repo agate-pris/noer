@@ -98,7 +98,8 @@ namespace agate_pris
 		template< typename T >
 		T fixed_point< Repr, Exp >::mul_scaling_factor( T arg )
 		{
-			BOOST_ASSERT( convertible_max< T >() == 0 || arg <= convertible_max< T >() );
+			using std::numeric_limits;
+			BOOST_ASSERT( !numeric_limits< T >::is_bounded || arg <= convertible_max< T >() );
 			return arg *= k_scaling_factor;
 		}
 
@@ -260,6 +261,7 @@ namespace agate_pris
 			using boost::multiprecision::cpp_rational;
 			BOOST_ASSERT
 				(
+					!numeric_limits< Repr >::is_bounded ||
 					static_cast< cpp_rational >( numeric_limits< Repr >::lowest() ) <=
 					static_cast< cpp_rational >( m_repr ) *
 					static_cast< cpp_rational >( rhs.get() ) &&
