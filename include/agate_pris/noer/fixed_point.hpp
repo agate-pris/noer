@@ -3,11 +3,13 @@
 #define AGATE_PRIS_NOER_FIXED_POINT_HPP
 
 #include <utility>
+#include <tuple>
 #include <type_traits>
 #include <limits>
 #include <boost/assert.hpp>
 #include <boost/operators.hpp>
 #include <boost/multiprecision/cpp_int.hpp>
+#include <agate_pris/noer/eval.hpp>
 #include <agate_pris/noer/pow.hpp>
 
 namespace agate_pris
@@ -44,6 +46,7 @@ namespace agate_pris
 			fixed_point()noexcept( std::is_nothrow_default_constructible< Repr >::value ) = default;
 			template< typename Arg > fixed_point( const Arg& arg );
 			template< typename Arg > fixed_point( const Arg& num, const Arg& denom );
+			template< typename Num, typename Denom > fixed_point( const std::tuple< Num, Denom >& fraction );
 
 			// conversion
 			// ----------
@@ -117,6 +120,13 @@ namespace agate_pris
 		template<typename Arg>
 		inline fixed_point<Repr, Exp>::fixed_point( const Arg & num, const Arg & denom )
 			: m_repr( static_cast< Repr >( mul_scaling_factor( num ) / denom ) )
+		{
+		}
+
+		template<typename Repr, int Exp>
+		template<typename Num, typename Denom>
+		inline fixed_point<Repr, Exp>::fixed_point( const std::tuple<Num, Denom>& fraction )
+			: m_repr( static_cast< Repr >( eval::div_l( mul_scaling_factor( std::get< 0 >( fraction ) ), std::get< 1 >( fraction ) ) ) )
 		{
 		}
 
