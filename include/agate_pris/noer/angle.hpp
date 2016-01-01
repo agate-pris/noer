@@ -20,9 +20,9 @@ namespace agate_pris
 		private:
 			Quantity m_quantity;
 		public:
-			static constexpr const Quantity k_pi   = pow< Quantity, 2, Precision - 1 >();
-			static constexpr const Quantity k_pi_2 = pow< Quantity, 2, Precision - 2 >();
-			static constexpr const Quantity k_pi_4 = pow< Quantity, 2, Precision - 3 >();
+			static constexpr const Quantity k_full     = pow< Quantity, 2, Precision >();
+			static constexpr const Quantity k_straight = pow< Quantity, 2, Precision - 1 >();
+			static constexpr const Quantity k_right    = pow< Quantity, 2, Precision - 2 >();
 
 			inline const Quantity& get()const
 			{
@@ -34,7 +34,7 @@ namespace agate_pris
 			}
 			inline void normalize()
 			{
-				m_quantity %= k_pi;
+				m_quantity %= k_full;
 			}
 		};
 	}

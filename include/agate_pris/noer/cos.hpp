@@ -21,8 +21,8 @@ namespace agate_pris
 		)
 		{
 			auto tmp = d.get();
-			tmp += d.k_pi_2;
-			return st.get< d.k_pi / st.k_pi >( tmp );
+			tmp += d.k_right;
+			return st.get< d.k_straight / st.k_straight >( tmp );
 		}
 	}
 }

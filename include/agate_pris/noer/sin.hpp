@@ -20,7 +20,7 @@ namespace agate_pris
 			const angle< AngleMagnitude, AnglePrecision >& d
 		)
 		{
-			return st.get< d.k_pi / st.k_pi >( d.get() );
+			return st.get< d.k_straight / st.k_straight >( d.get() );
 		}
 	}
 }
