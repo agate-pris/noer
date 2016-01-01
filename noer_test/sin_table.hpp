@@ -20,10 +20,6 @@ int main()
 	};
 	sin_table< fixed_point< int, 10 >, 256 > st( f );
 
-	cout << st.k_pi   << endl;
-	cout << st.k_pi_2 << endl;
-	cout << st.k_pi_4 << endl;
-
 	for( int i = 0; i <= 24; ++i )
 	{
 		auto d = 65536 * i / 24;

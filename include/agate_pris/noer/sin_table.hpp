@@ -30,12 +30,12 @@ namespace agate_pris
 			inline Element get( std::size_t arg )const;
 
 			// constants
-			static constexpr const std::size_t k_pi   = Division / 2;
-			static constexpr const std::size_t k_pi_2 = Division / 4;
-			static constexpr const std::size_t k_pi_4 = Division / 8;
+			static constexpr const std::size_t k_full     = Division;
+			static constexpr const std::size_t k_straight = Division / 2;
+			static constexpr const std::size_t k_right    = Division / 4;
 
 			private:
-			static constexpr const std::size_t k_size = Division / 4 + 1;
+			static constexpr const std::size_t k_size = k_right + 1;
 			std::array< Element, k_size > m_array;
 			template< typename Func >
 			void initialize( const Func& approximation_func );
