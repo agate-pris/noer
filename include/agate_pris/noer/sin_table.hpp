@@ -37,6 +37,8 @@ namespace agate_pris
 			private:
 			static constexpr const std::size_t k_size = Division / 4 + 1;
 			std::array< Element, k_size > m_array;
+			template< typename Func >
+			void initialize( const Func& approximation_func );
 		};
 
 		// constructor
@@ -44,23 +46,17 @@ namespace agate_pris
 		template< typename Func >
 		sin_table< Element, Division >::sin_table( const Func& approximation_func )
 		{
-			m_array[ 0 ] = static_cast< Element >( 0 );
-			for( int i = 1; i < k_size - 1; ++i )
-			{
-				m_array[ i ] = static_cast< Element >( approximation_func( i ) );
-			}
-			m_array[ k_size - 1 ] = static_cast< Element >( 1 );
+			initialize( approximation_func );
 		}
 
 		template< typename Element, std::size_t Division >
 		inline sin_table< Element, Division >::sin_table( boost::multiprecision::cpp_rational pi, unsigned int precision )
 		{
-			m_array[ 0 ] = static_cast< Element >( 0 );
-			for( int i = 1; i < k_size - 1; ++i )
+			auto l = [ &pi, precisoin ]( int i )
 			{
-				m_array[ i ] = static_cast< Element >( sin_approximation<>( pi * 2 * i / Division, precision ) );
-			}
-			m_array[ k_size - 1 ] = static_cast< Element >( 1 );
+				return static_cast< Element >( sin_approximation<>( pi * 2 * i / Division, precision ) );
+			};
+			initialize( l );
 		}
 
 		template< typename Element, std::size_t Division >
@@ -76,6 +72,18 @@ namespace agate_pris
 			diff /= subdivision;
 
 			return get( i ) + diff;
+		}
+
+		template<typename Element, std::size_t Division>
+		template<typename Func>
+		inline void sin_table<Element, Division>::initialize( const Func & approximation_func )
+		{
+			m_array[ 0 ] = static_cast< Element >( 0 );
+			for( int i = 1; i < k_size - 1; ++i )
+			{
+				m_array[ i ] = static_cast< Element >( approximation_func( i ) );
+			}
+			m_array[ k_size - 1 ] = static_cast< Element >( 1 );
 		}
 
 		template< typename Element, std::size_t Division >
