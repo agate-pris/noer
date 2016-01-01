@@ -16,7 +16,7 @@ namespace agate_pris
 			public:
 			// constructor
 			template< typename Func >
-			atan_table( Func approximation_func );
+			atan_table( const Func& approximation_func );
 
 			// acesss
 			inline Element&       operator[]( std::size_t i );
@@ -58,7 +58,7 @@ namespace agate_pris
 		// constructor
 		template<typename Element, std::size_t Size>
 		template< typename Func >
-		inline atan_table< Element, Size >::atan_table( Func approximation_func )
+		inline atan_table< Element, Size >::atan_table( const Func& approximation_func )
 		{
 			using boost::multiprecision::cpp_rational;
 			using arg_type = typename function_traits< Func >::argument_type;
