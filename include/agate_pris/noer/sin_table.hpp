@@ -52,7 +52,7 @@ namespace agate_pris
 		template< typename Element, std::size_t Division >
 		inline sin_table< Element, Division >::sin_table( boost::multiprecision::cpp_rational pi, unsigned int precision )
 		{
-			auto l = [ &pi, precisoin ]( int i )
+			auto l = [ &pi, precision ]( int i )
 			{
 				return static_cast< Element >( sin_approximation<>( pi * 2 * i / Division, precision ) );
 			};
