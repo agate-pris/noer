@@ -13,7 +13,12 @@ int main()
 	using namespace std;
 	using namespace agate_pris::noer;
 
-	sin_table< fixed_point< int, 10 >, 256 > st( bbp_formula( 10 ), 10 );
+	auto pi = bbp_formula( 10 );
+	auto f = [ &pi ]( std::size_t i )
+	{
+		return sin_approximation<>( pi * 2 * i / 256, 10 );
+	};
+	sin_table< fixed_point< int, 10 >, 256 > st( f );
 
 	cout << st.k_pi   << endl;
 	cout << st.k_pi_2 << endl;

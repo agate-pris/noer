@@ -21,6 +21,8 @@ namespace agate_pris
 			static_assert( Division % 8 == 0, "Division must be a factor of 8." );
 			public:
 			// constructor
+			template< typename Func >
+			sin_table( const Func& approximation_func );
 			sin_table( boost::multiprecision::cpp_rational pi, unsigned int precision );
 
 			// eval sin
@@ -38,6 +40,18 @@ namespace agate_pris
 		};
 
 		// constructor
+		template< typename Element, std::size_t Division >
+		template< typename Func >
+		sin_table< Element, Division >::sin_table( const Func& approximation_func )
+		{
+			m_array[ 0 ] = static_cast< Element >( 0 );
+			for( int i = 1; i < k_size - 1; ++i )
+			{
+				m_array[ i ] = static_cast< Element >( approximation_func( i ) );
+			}
+			m_array[ k_size - 1 ] = static_cast< Element >( 1 );
+		}
+
 		template< typename Element, std::size_t Division >
 		inline sin_table< Element, Division >::sin_table( boost::multiprecision::cpp_rational pi, unsigned int precision )
 		{
