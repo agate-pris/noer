@@ -3,6 +3,7 @@
 #define AGATE_PRIS_NOER_ATAN_TABLE_HPP
 
 #include <cstddef>
+#include <boost/multiprecision/cpp_int.hpp>
 #include <agate_pris/noer/function_traits.hpp>
 #include <agate_pris/noer/duplicate.hpp>
 
@@ -17,6 +18,12 @@ namespace agate_pris
 			// constructor
 			template< typename Func >
 			atan_table( const Func& approximation_func );
+			atan_table
+			(
+				const boost::multiprecision::cpp_rational& sqrt_2,
+				const boost::multiprecision::cpp_rational& pi,
+				const unsigned int precision
+			);
 
 			// acesss
 			inline Element&       operator[]( std::size_t i );
@@ -63,6 +70,21 @@ namespace agate_pris
 		inline atan_table< Element, Size >::atan_table( const Func& approximation_func )
 		{
 			initialize( approximation_func );
+		}
+
+		template<typename Element, std::size_t Size>
+		inline atan_table< Element, Size >::atan_table
+		(
+			const boost::multiprecision::cpp_rational& sqrt_2,
+			const boost::multiprecision::cpp_rational& pi,
+			const unsigned int precision
+		)
+		{
+			auto f = [ &sqrt_2, &pi, precision ]( const boost::multiprecision::cpp_rational& arg )
+			{
+				return atan_approximation( arg, sqrt_2, pi, precision ); 
+			};
+			initialize( f );
 		}
 
 		// access
