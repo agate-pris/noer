@@ -12,13 +12,16 @@ int main()
 {
 	using namespace std;
 	using boost::multiprecision::cpp_int;
+	using boost::multiprecision::cpp_rational;
 	using namespace agate_pris::noer;
-	auto pi = bbp_formula( 8 );
 	auto sqrt_2 = sqrt( 2, 8 );
-	auto f = [ &pi, &sqrt_2 ]( double arg ){ return atan_approximation( arg, sqrt_2, pi, 8 ); };
+	auto pi = bbp_formula( 8 );
+	auto f = [ &pi, &sqrt_2 ]( cpp_rational arg ){ return atan_approximation( arg, sqrt_2, pi, 8 ); };
 	atan_table< double, 33 > at( f );
+	atan_table< double, 33 > at2( sqrt( 2, 8 ), bbp_formula( 8 ), 8 );
 	for( int i = 0; i < 33; ++i )
 	{
+		cout << at2.at( i ) << endl;
 		cout << at.at( i ) << endl;
 	}
 	cout << "========" << endl;
