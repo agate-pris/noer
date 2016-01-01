@@ -50,9 +50,10 @@ namespace agate_pris
 
 			// conversion
 			// ----------
-			template< typename T > explicit operator T ()const;
-			operator std::make_signed_t< Repr >()const;
-			operator std::make_unsigned_t< Repr >()const;
+            template< typename Integer, std::enable_if_t< std::is_integral< Integer >::value >* = nullptr >
+			operator Integer()const;
+			template< typename FloatingPoint, std::enable_if_t< std::is_floating_point< FloatingPoint >::value >* = nullptr >
+			operator FloatingPoint()const;
 
 			// unary operator
 			// --------------
@@ -135,23 +136,19 @@ namespace agate_pris
 
 		// conversion
 		// ----------
-		template< typename Repr, int Exp >
-		template< typename T >
-		fixed_point< Repr, Exp >::operator T ()const
+
+		template<typename Repr, int Exp>
+		template<typename Integer, std::enable_if_t < std::is_integral< Integer >::value >* >
+		inline fixed_point<Repr, Exp>::operator Integer() const
 		{
-			return div_scaling_factor( static_cast< T >( m_repr ) );
+			return static_cast< Integer >( div_scaling_factor( m_repr ) );
 		}
 
 		template<typename Repr, int Exp>
-		inline fixed_point<Repr, Exp>::operator std::make_signed_t<Repr>() const
+		template<typename FloatingPoint, std::enable_if_t < std::is_floating_point< FloatingPoint >::value >*  >
+		inline fixed_point<Repr, Exp>::operator FloatingPoint() const
 		{
-			return div_scaling_factor( m_repr );
-		}
-
-		template<typename Repr, int Exp>
-		inline fixed_point<Repr, Exp>::operator std::make_unsigned_t<Repr>() const
-		{
-			return div_scaling_factor( m_repr );
+			return div_scaling_factor( static_cast< FloatingPoint >( m_repr ) );
 		}
 
 		// binary operator templates
