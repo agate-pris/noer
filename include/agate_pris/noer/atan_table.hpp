@@ -53,6 +53,8 @@ namespace agate_pris
 			Element straight()const;
 			Element full()const;
 			std::array< Element, Size > m_array;
+			template< typename Func >
+			void initialize( const Func& approximation_func );
 		};
 
 		// constructor
@@ -60,15 +62,7 @@ namespace agate_pris
 		template< typename Func >
 		inline atan_table< Element, Size >::atan_table( const Func& approximation_func )
 		{
-			using boost::multiprecision::cpp_rational;
-			using arg_type = typename function_traits< Func >::argument_type;
-
-			for( int i = 0; i < Size; ++i )
-			{
-				arg_type arg( i );
-				arg /= Size - 1;
-				m_array[ i ] = static_cast< Element >( approximation_func( arg ) );
-			}
+			initialize( approximation_func );
 		}
 
 		// access
@@ -115,6 +109,20 @@ namespace agate_pris
 		{
 			auto b = m_array.back();
 			return b *= 8;
+		}
+
+		// 初期化
+		template<typename Element, std::size_t Size>
+		template<typename Func>
+		inline void atan_table<Element, Size>::initialize( const Func & approximation_func )
+		{
+			using arg_type = typename function_traits< Func >::argument_type;
+			for( int i = 0; i < Size; ++i )
+			{
+				arg_type arg( i );
+				arg /= Size - 1;
+				m_array[ i ] = static_cast< Element >( approximation_func( arg ) );
+			}
 		}
 	}
 }
