@@ -116,7 +116,7 @@ namespace agate_pris
 		template<typename Func>
 		inline void atan_table<Element, Size>::initialize( const Func & approximation_func )
 		{
-			using arg_type = typename function_traits< Func >::argument_type;
+			using arg_type = std::decay_t< typename function_traits< Func >::argument_type >;
 			for( int i = 0; i < Size; ++i )
 			{
 				arg_type arg( i );
