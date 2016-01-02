@@ -32,11 +32,23 @@ namespace agate_pris
 			{
 				return m_quantity;
 			}
-			inline void normalize()
-			{
-				m_quantity %= k_full;
-			}
 		};
+
+		template< typename Quantity, unsigned int Precision, 
+			      std::enable_if_t< std::is_signed< Quantity >::value >* = nullptr >
+		void bound_to_minor( angle< Quantity, Precision >& angle )
+		{
+			angle.get() %= angle< Quantity, Precision >::k_full;
+			if( angle< Quantity, Precision >::k_straight <= angle.get() )
+			{
+				angle.get() -= angle< Quantity, Precision >::k_straight;
+				return;
+			}
+			if( -angle< Quantity, Precision >::k_straight > angle.get() )
+			{
+				angle.get() += angle< Quantity, Precision >::k_straight;
+			}
+		}
 	}
 }
 
