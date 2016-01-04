@@ -24,6 +24,9 @@ namespace agate_pris
 			static constexpr const Quantity k_straight = pow< Quantity, 2, Precision - 1 >();
 			static constexpr const Quantity k_right    = pow< Quantity, 2, Precision - 2 >();
 
+			// explicit constructor
+			explicit angle( const Quantity& q ) : m_quantity( q ) {}
+
 			inline const Quantity& get()const
 			{
 				return m_quantity;
