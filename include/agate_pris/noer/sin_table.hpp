@@ -5,6 +5,8 @@
 #include <cstddef>
 #include <array>
 #include <boost/multiprecision/cpp_int.hpp>
+#include <boost/serialization/access.hpp>
+#include <boost/serialization/array.hpp>
 
 #include <agate_pris/noer/sin_approximation.hpp>
 #include <agate_pris/noer/pow.hpp>
@@ -40,6 +42,11 @@ namespace agate_pris
 			std::array< Element, k_size > m_array;
 			template< typename Func >
 			void initialize( const Func& approximation_func );
+
+			// serialize
+			friend boost::serialization::access;
+			template< class Archive >
+			void serialize( Archive& ar, unsigned int ver );
 		};
 
 		// constructor
@@ -96,6 +103,13 @@ namespace agate_pris
 			return  m_array[ division / 4 - std::abs( division     / 4 - v ) ];
 			else
 			return -m_array[ division / 4 - std::abs( division * 3 / 4 - v ) ];
+		}
+
+		template<typename Element, std::size_t Division>
+		template<class Archive>
+		inline void sin_table<Element, Division>::serialize( Archive & ar, unsigned int ver )
+		{
+			ar & boost::serialization::make_array( m_array.data(), m_array.size() );
 		}
 	}
 }
