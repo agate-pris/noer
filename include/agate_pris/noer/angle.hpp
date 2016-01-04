@@ -3,7 +3,7 @@
 #define AGATE_PRIS_NOER_ANGLE_HPP
 
 #include <type_traits>
-
+#include <boost/math/constants/constants.hpp>
 #include <agate_pris\noer\pow.hpp>
 
 namespace agate_pris
@@ -34,6 +34,13 @@ namespace agate_pris
 			inline Quantity& get()
 			{
 				return m_quantity;
+			}
+
+			// conversion to radian
+			template< typename FloatingPoint, std::enable_if_t< std::is_floating_point< FloatingPoint >::value >* = nullptr >
+			operator FloatingPoint()const
+			{
+				return boost::math::constants::pi< FloatingPoint >() * m_quantity / k_straight;
 			}
 		};
 
