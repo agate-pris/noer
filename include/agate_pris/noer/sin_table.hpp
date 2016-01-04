@@ -24,6 +24,7 @@ namespace agate_pris
 			template< typename Func >
 			sin_table( const Func& approximation_func );
 			sin_table( boost::multiprecision::cpp_rational pi, unsigned int precision );
+			sin_table() = default;
 
 			// eval sin
 			template< std::size_t Subdivision > inline Element get( std::size_t arg )const;
