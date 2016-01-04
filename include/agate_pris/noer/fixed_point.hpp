@@ -324,4 +324,16 @@ namespace agate_pris
 	}
 }
 
+namespace boost
+{
+	namespace serialization
+	{
+		template< class Archive, typename Repr, int Exp >
+		void serialize( Archive& ar, agate_pris::noer::fixed_point< Repr, Exp >& data, unsigned int version )
+		{
+			ar & data.get();
+		}
+	}
+}
+
 #endif // AGATE_PRIS_NOER_FIXED_POINT_HPP
