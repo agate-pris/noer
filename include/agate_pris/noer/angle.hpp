@@ -68,17 +68,17 @@ namespace agate_pris
 
 		template< typename Quantity, unsigned int Precision, 
 			      std::enable_if_t< std::is_signed< Quantity >::value >* = nullptr >
-		void bound_to_minor( angle< Quantity, Precision >& angle )
+		void bound_to_minor( angle< Quantity, Precision >& a )
 		{
-			angle.get() %= angle< Quantity, Precision >::k_full;
-			if( angle< Quantity, Precision >::k_straight <= angle.get() )
+			a.get() %= a.k_full_quantity;
+			if( a.k_straight_quantity <= a.get() )
 			{
-				angle.get() -= angle< Quantity, Precision >::k_straight;
+				a.get() -= a.k_straight_quantity;
 				return;
 			}
-			if( -angle< Quantity, Precision >::k_straight > angle.get() )
+			if( -a.straight_quantity > a.get() )
 			{
-				angle.get() += angle< Quantity, Precision >::k_straight;
+				a.get() += a.k_straight_quantity;
 			}
 		}
 
