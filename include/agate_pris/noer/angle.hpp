@@ -84,7 +84,7 @@ namespace agate_pris
 				a.get() -= a.k_straight_quantity;
 				return;
 			}
-			if( -a.straight_quantity > a.get() )
+			if( -a.k_straight_quantity > a.get() )
 			{
 				a.get() += a.k_straight_quantity;
 			}
