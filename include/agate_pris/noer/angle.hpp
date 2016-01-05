@@ -64,6 +64,14 @@ namespace agate_pris
 				m_quantity += rhs.get();
 				return *this;
 			}
+
+			// operator *-
+			template< typename Rhs >
+			angle< Quantity, Precision >& operator *= ( const Rhs& rhs )
+			{
+				m_quantity *= rhs;
+				return *this;
+			}
 		};
 
 		template< typename Quantity, unsigned int Precision, 
