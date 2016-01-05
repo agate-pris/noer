@@ -43,6 +43,19 @@ namespace agate_pris
 			{
 				return boost::math::constants::pi< FloatingPoint >() * m_quantity / k_straight;
 			}
+
+			// operator += and -=
+			angle< Quantity, Precision >& operator += ( const angle< Quantity, Precision >& rhs )
+			{
+				m_quantity += rhs.get();
+				return *this;
+			}
+
+			angle< Quantity, Precision >& operator -= ( const angle< Quantity, Precision >& rhs )
+			{
+				m_quantity += rhs.get();
+				return *this;
+			}
 		};
 
 		template< typename Quantity, unsigned int Precision, 
