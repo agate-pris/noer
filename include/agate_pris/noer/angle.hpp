@@ -4,6 +4,7 @@
 
 #include <type_traits>
 #include <boost/math/constants/constants.hpp>
+#include <boost/operators.hpp>
 #include <agate_pris\noer\pow.hpp>
 
 namespace agate_pris
@@ -14,6 +15,7 @@ namespace agate_pris
 		// Precision : 角度の大きさの精度です。一周を2のPrecision乗に分割します。
 		template< typename Quantity, unsigned int Precision >
 		class angle
+		: public boost::additive< angle< Quantity, Precision > >
 		{
 			static_assert(std::is_integral< Quantity >::value, "angle::quantity_type は整数型でなければなりません。あるいは、angleを特殊化する必要があります。");
 			static_assert(3 < Precision, "Precisionは3より大きい値でなければなりません。");
