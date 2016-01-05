@@ -22,13 +22,15 @@ namespace agate_pris
 			private:
 			Quantity m_quantity;
 		public:
-			static constexpr const Quantity k_full     = pow< Quantity, 2, Precision >();
-			static constexpr const Quantity k_straight = pow< Quantity, 2, Precision - 1 >();
-			static constexpr const Quantity k_right    = pow< Quantity, 2, Precision - 2 >();
 			angle() = default;
 
 			// explicit constructor
 			explicit angle( const Quantity& q ) : m_quantity( q ) {}
+
+			// constants
+			static constexpr const Quantity k_full_quantity     = pow< Quantity, 2, Precision >();
+			static constexpr const Quantity k_straight_quantity = pow< Quantity, 2, Precision - 1 >();
+			static constexpr const Quantity k_right_quantity    = pow< Quantity, 2, Precision - 2 >();
 
 			inline const Quantity& get()const
 			{
@@ -43,7 +45,7 @@ namespace agate_pris
 			template< typename FloatingPoint, std::enable_if_t< std::is_floating_point< FloatingPoint >::value >* = nullptr >
 			operator FloatingPoint()const
 			{
-				return boost::math::constants::pi< FloatingPoint >() * m_quantity / k_straight;
+				return boost::math::constants::pi< FloatingPoint >() * m_quantity / k_straight_quantity;
 			}
 
 			// operator += and -=
