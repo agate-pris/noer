@@ -24,8 +24,7 @@ namespace agate_pris
 		public:
 			angle() = default;
 
-			// explicit constructor
-			explicit angle( const Quantity& q ) : m_quantity( q ) {}
+			constexpr angle( const Quantity& q ) : m_quantity( q ) {}
 
 			// constants
 			static constexpr const Quantity k_full_quantity     = pow< Quantity, 2, Precision >();
