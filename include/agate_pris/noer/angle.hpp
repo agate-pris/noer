@@ -31,6 +31,11 @@ namespace agate_pris
 			static constexpr const Quantity k_straight_quantity = pow< Quantity, 2, Precision - 1 >();
 			static constexpr const Quantity k_right_quantity    = pow< Quantity, 2, Precision - 2 >();
 
+			// constants as function
+			static constexpr angle< Quantity, Precision > full();
+			static constexpr angle< Quantity, Precision > straight();
+			static constexpr angle< Quantity, Precision > right();
+
 			inline const Quantity& get()const
 			{
 				return m_quantity;
@@ -75,6 +80,24 @@ namespace agate_pris
 			{
 				angle.get() += angle< Quantity, Precision >::k_straight;
 			}
+		}
+
+		template<typename Quantity, unsigned int Precision>
+		inline constexpr angle<Quantity, Precision> angle<Quantity, Precision>::full()
+		{
+			return angle<Quantity, Precision>( k_full_quantity );
+		}
+
+		template<typename Quantity, unsigned int Precision>
+		inline constexpr angle<Quantity, Precision> angle<Quantity, Precision>::straight()
+		{
+			return angle<Quantity, Precision>( k_straight_quantity );
+		}
+
+		template<typename Quantity, unsigned int Precision>
+		inline constexpr angle<Quantity, Precision> angle<Quantity, Precision>::right()
+		{
+			return angle<Quantity, Precision>( k_right_quantity );
 		}
 	}
 }
