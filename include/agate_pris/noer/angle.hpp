@@ -80,6 +80,13 @@ namespace agate_pris
 			{
 				return angle< decltype( std::declval< Quantity >() * std::declval< Rhs >() ), Precision >( m_quantity * rhs );
 			}
+
+			// operator /
+			template< typename Rhs >
+			auto operator / ( const Rhs& rhs )const
+			{
+				return angle< decltype( std::declval< Quantity >() / std::declval< Rhs >() ), Precision >( m_quantity / rhs );
+			}
 		};
 
 		template< typename Quantity, unsigned int Precision, 
