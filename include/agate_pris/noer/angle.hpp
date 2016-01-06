@@ -6,6 +6,7 @@
 #include <utility>
 #include <boost/math/constants/constants.hpp>
 #include <boost/operators.hpp>
+#include <boost/type_traits/has_unary_plus.hpp>
 #include <agate_pris\noer\pow.hpp>
 
 namespace agate_pris
@@ -88,6 +89,14 @@ namespace agate_pris
 				return angle< decltype( std::declval< Quantity >() / std::declval< Rhs >() ), Precision >( m_quantity / rhs );
 			}
 		};
+
+		// unary operator +
+		template< typename Quantity, unsigned int Precision >
+		auto operator + ( const angle< Quantity, Precision >& th )
+		{
+			static_assert( boost::has_unary_plus< Quantity >::value, "Quantity does not have operator unary plus." );
+			return angle< Quantity, Precision >( static_cast< Quantity >( +th.get() ) );
+		}
 
 		template< typename Quantity, unsigned int Precision, 
 			      std::enable_if_t< std::is_signed< Quantity >::value >* = nullptr >
