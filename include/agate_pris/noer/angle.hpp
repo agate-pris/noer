@@ -3,6 +3,7 @@
 #define AGATE_PRIS_NOER_ANGLE_HPP
 
 #include <type_traits>
+#include <utility>
 #include <boost/math/constants/constants.hpp>
 #include <boost/operators.hpp>
 #include <agate_pris\noer\pow.hpp>
@@ -71,6 +72,13 @@ namespace agate_pris
 			{
 				m_quantity *= rhs;
 				return *this;
+			}
+
+			// operator *
+			template< typename Rhs >
+			auto operator * ( const Rhs& rhs )const
+			{
+				return angle< decltype( std::declval< Quantity >() * std::declval< Rhs >() ), Precision >( m_quantity * rhs );
 			}
 		};
 
