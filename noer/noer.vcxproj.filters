@@ -24,5 +24,6 @@
     <ClInclude Include="..\include\agate_pris\noer\duplicate.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\eval.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\as_target.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\angle_traits.hpp" />
   </ItemGroup>
 </Project>
