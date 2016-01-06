@@ -9,6 +9,7 @@
 #include <boost/type_traits/has_unary_plus.hpp>
 #include <boost/type_traits/has_unary_minus.hpp>
 #include <agate_pris\noer\pow.hpp>
+#include <agate_pris/noer/angle_traits.hpp>
 
 namespace agate_pris
 {
@@ -140,6 +141,14 @@ namespace agate_pris
 		{
 			return angle<Quantity, Precision>( k_right_quantity );
 		}
+
+		template< typename Quantity, unsigned int Precision >
+		struct angle_traits< angle< Quantity, Precision > >
+		{
+			static constexpr const auto full    (){ return angle< Quantity, Precision >::full();     }
+			static constexpr const auto straight(){ return angle< Quantity, Precision >::straight(); }
+			static constexpr const auto right   (){ return angle< Quantity, Precision >::right();    }
+		};
 	}
 }
 
