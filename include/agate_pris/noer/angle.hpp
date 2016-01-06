@@ -7,6 +7,7 @@
 #include <boost/math/constants/constants.hpp>
 #include <boost/operators.hpp>
 #include <boost/type_traits/has_unary_plus.hpp>
+#include <boost/type_traits/has_unary_minus.hpp>
 #include <agate_pris\noer\pow.hpp>
 
 namespace agate_pris
@@ -96,6 +97,14 @@ namespace agate_pris
 		{
 			static_assert( boost::has_unary_plus< Quantity >::value, "Quantity does not have operator unary plus." );
 			return angle< Quantity, Precision >( static_cast< Quantity >( +th.get() ) );
+		}
+
+		// unary perator -
+		template< typename Quantity, unsigned int Precision >
+		auto operator - ( const angle< Quantity, Precision >& th )
+		{
+			static_assert( boost::has_unary_minus< Quantity >::value, "Quantity does not have operator unary minus." );
+			return angle< Quantity, Precision >( static_cast< Quantity >( -th.get() ) );
 		}
 
 		template< typename Quantity, unsigned int Precision, 
