@@ -4,6 +4,7 @@
 
 #include <cstddef>
 #include <boost/multiprecision/cpp_int.hpp>
+#include <boost/serialization/access.hpp>
 #include <agate_pris/noer/function_traits.hpp>
 #include <agate_pris/noer/duplicate.hpp>
 
@@ -62,6 +63,11 @@ namespace agate_pris
 			std::array< Element, Size > m_array;
 			template< typename Func >
 			void initialize( const Func& approximation_func );
+
+			// serialize
+			friend boost::serialization::access;
+			template< class Archive >
+			void serialize( Archive& ar, unsigned int ver );
 		};
 
 		// constructor
@@ -145,6 +151,14 @@ namespace agate_pris
 				arg /= Size - 1;
 				m_array[ i ] = static_cast< Element >( approximation_func( arg ) );
 			}
+		}
+
+		// serialization
+		template< typename Element, std::size_t Size >
+		template< class Archive >
+		inline void atan_table< Element, Size >::serialize( Archive& ar, unsigned int ver )
+		{
+			ar & boost::serialization::make_array( m_array.data(), m_array.size() );
 		}
 	}
 }
