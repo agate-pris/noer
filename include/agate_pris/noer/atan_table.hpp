@@ -7,6 +7,7 @@
 #include <boost/serialization/access.hpp>
 #include <agate_pris/noer/function_traits.hpp>
 #include <agate_pris/noer/duplicate.hpp>
+#include <agate_pris/noer/atan_approximation.hpp>
 
 namespace agate_pris
 {
