@@ -55,7 +55,14 @@ namespace agate_pris
 					return straight() + get( -y, -x );
 				if( x < 0 )
 					return straight() - get(  y, -x );
-				return                  get(  y / x );
+				if( y <= x )
+				{
+					auto i = y;
+					i *= Size - 1;
+					i /= x;
+					return m_array[ static_cast< std::size_t >( i ) ];
+				}
+				return right() - get( x, y );
 			}
 
 			private:
