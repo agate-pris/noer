@@ -152,4 +152,16 @@ namespace agate_pris
 	}
 }
 
+namespace boost
+{
+	namespace serialization
+	{
+		template< typename Archive, typename Quanaity, unsigned int Precision >
+		void serialize( Archive& ar, agate_pris::noer::angle< Quanaity, Precision >& data, unsigned int version )
+		{
+			ar & data.get();
+		}
+	}
+}
+
 #endif // AGATE_PRIS_NOER_ANGLE_HPP
