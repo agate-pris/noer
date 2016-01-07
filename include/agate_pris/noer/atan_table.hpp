@@ -25,6 +25,7 @@ namespace agate_pris
 				const boost::multiprecision::cpp_rational& pi,
 				const unsigned int precision
 			);
+			atan_table() = default;
 
 			// acesss
 			inline Element&       operator[]( std::size_t i );
