@@ -65,7 +65,7 @@ namespace agate_pris
 
 			angle< Quantity, Precision >& operator -= ( const angle< Quantity, Precision >& rhs )
 			{
-				m_quantity += rhs.get();
+				m_quantity -= rhs.get();
 				return *this;
 			}
 
@@ -115,12 +115,12 @@ namespace agate_pris
 			a.get() %= a.k_full_quantity;
 			if( a.k_straight_quantity <= a.get() )
 			{
-				a.get() -= a.k_straight_quantity;
+				a.get() -= a.k_full_quantity;
 				return;
 			}
 			if( -a.k_straight_quantity > a.get() )
 			{
-				a.get() += a.k_straight_quantity;
+				a.get() += a.k_full_quantity;
 			}
 		}
 
