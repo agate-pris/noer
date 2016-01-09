@@ -94,6 +94,7 @@
     <ClInclude Include="..\include\agate_pris\noer\angle.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\duplicate.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\eval.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\exact_number.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\excess_k.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\factorial.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fixed_point.hpp" />
