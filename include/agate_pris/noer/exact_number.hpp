@@ -29,6 +29,9 @@ namespace agate_pris
 			private:
 			Repr m_repr;
 			public:
+			exact_number() = default;
+			exact_number( const exact_number< Repr >& ) = default;
+			exact_number( exact_number< Repr >&& ) = default;
 		};
 	}
 }
