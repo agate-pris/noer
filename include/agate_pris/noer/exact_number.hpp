@@ -33,9 +33,11 @@ namespace agate_pris
 			///        \~english  declation of template argument `Repr`
 			using value_type = Repr;
 
+			//@{
 			exact_number() = default;
 			exact_number( const exact_number< Repr >& ) = default;
 			exact_number( exact_number< Repr >&& ) = default;
+			//@}
 
 			//@{
 			/// @brief \~japanese 保持している変数の参照を戻すアクセサ
