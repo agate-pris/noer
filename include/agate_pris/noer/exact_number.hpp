@@ -83,14 +83,14 @@ namespace agate_pris
 			//@}
 
 			//@{
-			template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Rhs > >::value	>* = nullptr >
-			exact_number< Repr >& operator += ( Rhs&& rhs );
-			template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Rhs > >::value	>* = nullptr >
-			exact_number< Repr >& operator -= ( Rhs&& rhs );
-			template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Rhs > >::value	>* = nullptr >
-			exact_number< Repr >& operator *= ( Rhs&& rhs );
-			template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Rhs > >::value	>* = nullptr >
-			exact_number< Repr >& operator /= ( Rhs&& rhs );
+			template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+			exact_number< Repr >& operator += ( const Rhs& rhs );
+			template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+			exact_number< Repr >& operator -= ( const Rhs& rhs );
+			template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+			exact_number< Repr >& operator *= ( const Rhs& rhs );
+			template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+			exact_number< Repr >& operator /= ( const Rhs& rhs );
 			//@}
 		};
 
@@ -198,8 +198,8 @@ namespace agate_pris
 		/// @brief \~japanese 基本型に対する複合代入演算子 `+=`
 		///        \~english  compound assignment operator `+=` for any fundamental type
 
-		/// @attention \~japanese `numeric_limits< std::decay_t< Rhs > >::is_exact` は `true` でなければならない。
-		///            \~english  `numeric_limits< std::decay_t< Rhs > >::is_exact` must be `true` .
+		/// @attention \~japanese `numeric_limits< Rhs >::is_exact` は `true` でなければならない。
+		///            \~english  `numeric_limits< Rhs >::is_exact` must be `true` .
 
 		/// @param rhs \~japanese 右辺
 		///            \~english  right hand side
@@ -214,11 +214,11 @@ namespace agate_pris
 		/// m_repr += std::forward< Rhs >( rhs );
 		/// ~~~
 		template< typename Repr >
-		template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Rhs > >::value	>* >
-		exact_number< Repr >& exact_number< Repr >::operator += ( Rhs&& rhs )
+		template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* >
+		exact_number< Repr >& exact_number< Repr >::operator += ( const Rhs& rhs )
 		{
 			using std::numeric_limits;
-			static_assert( numeric_limits< std::decay_t< Rhs > >::is_exact, "Rhs must be exact!" );
+			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
 			m_repr += std::forward< Rhs >( rhs );
 			return *this;
 		}
@@ -226,8 +226,8 @@ namespace agate_pris
 		/// @brief \~japanese 基本型に対する複合代入演算子 `-=`
 		///        \~english  compound assignment operator `-=` for fundamental type
 
-		/// @attention \~japanese `numeric_limits< std::decay_t< Rhs > >::is_exact` は `true` でなければならない。
-		///            \~english  `numeric_limits< std::decay_t< Rhs > >::is_exact` must be `true` .
+		/// @attention \~japanese `numeric_limits< Rhs >::is_exact` は `true` でなければならない。
+		///            \~english  `numeric_limits< Rhs >::is_exact` must be `true` .
 
 		/// @param rhs \~japanese 右辺
 		///            \~english  right hand side
@@ -242,11 +242,11 @@ namespace agate_pris
 		/// m_repr -= std::forward< Rhs >( rhs );
 		/// ~~~
 		template< typename Repr >
-		template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Rhs > >::value	>* >
-		exact_number< Repr >& exact_number< Repr >::operator -= ( Rhs&& rhs )
+		template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* >
+		exact_number< Repr >& exact_number< Repr >::operator -= ( const Rhs& rhs )
 		{
 			using std::numeric_limits;
-			static_assert( numeric_limits< std::decay_t< Rhs > >::is_exact, "Rhs must be exact!" );
+			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
 			m_repr -= std::forward< Rhs >( rhs );
 			return *this;
 		}
@@ -254,8 +254,8 @@ namespace agate_pris
 		/// @brief \~japanese 基本型に対する複合代入演算子 `*=`
 		///        \~english  compound assignment operator `*=` for fundamental type
 
-		/// @attention \~japanese `numeric_limits< std::decay_t< Rhs > >::is_exact` は `true` でなければならない。
-		///            \~english  `numeric_limits< std::decay_t< Rhs > >::is_exact` must be `true` .
+		/// @attention \~japanese `numeric_limits< Rhs >::is_exact` は `true` でなければならない。
+		///            \~english  `numeric_limits< Rhs >::is_exact` must be `true` .
 
 		/// @param rhs \~japanese 右辺
 		///            \~english  right hand side
@@ -270,11 +270,11 @@ namespace agate_pris
 		/// m_repr *= std::forward< Rhs >( rhs );
 		/// ~~~
 		template< typename Repr >
-		template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Rhs > >::value	>* >
-		exact_number< Repr >& exact_number< Repr >::operator *= ( Rhs&& rhs )
+		template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* >
+		exact_number< Repr >& exact_number< Repr >::operator *= ( const Rhs& rhs )
 		{
 			using std::numeric_limits;
-			static_assert( numeric_limits< std::decay_t< Rhs > >::is_exact, "Rhs must be exact!" );
+			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
 			m_repr *= std::forward< Rhs >( rhs );
 			return *this;
 		}
@@ -282,8 +282,8 @@ namespace agate_pris
 		/// @brief \~japanese 基本型に対する複合代入演算子 `/=`
 		///        \~english  compound assignment operator `/=` for fundamental type
 
-		/// @attention \~japanese `numeric_limits< std::decay_t< Rhs > >::is_exact` は `true` でなければならない。
-		///            \~english  `numeric_limits< std::decay_t< Rhs > >::is_exact` must be `true` .
+		/// @attention \~japanese `numeric_limits< Rhs >::is_exact` は `true` でなければならない。
+		///            \~english  `numeric_limits< Rhs >::is_exact` must be `true` .
 
 		/// @param rhs \~japanese 右辺
 		///            \~english  right hand side
@@ -298,11 +298,11 @@ namespace agate_pris
 		/// m_repr /= std::forward< Rhs >( rhs );
 		/// ~~~
 		template< typename Repr >
-		template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Rhs > >::value	>* >
-		exact_number< Repr >& exact_number< Repr >::operator /= ( Rhs&& rhs )
+		template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* >
+		exact_number< Repr >& exact_number< Repr >::operator /= ( const Rhs& rhs )
 		{
 			using std::numeric_limits;
-			static_assert( numeric_limits< std::decay_t< Rhs > >::is_exact, "Rhs must be exact!" );
+			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
 			m_repr /= std::forward< Rhs >( rhs );
 			return *this;
 		}
