@@ -34,8 +34,14 @@ namespace agate_pris
 			using value_type = Repr;
 
 			//@{
+			/// @brief \~japanese デフォルトコンストラクタ
+			///        \~english  default constructor
 			exact_number() = default;
+			/// @brief \~japanese コピーコンストラクタ
+			///        \~ensligh  copy constructor
 			exact_number( const exact_number< Repr >& ) = default;
+			/// @brief \~japanese ムーブコンストラクタ
+			///        \~english  move constructor
 			exact_number( exact_number< Repr >&& ) = default;
 			//@}
 
