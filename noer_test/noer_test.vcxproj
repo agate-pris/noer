@@ -96,6 +96,7 @@
     <ClInclude Include="atan_approximation.hpp" />
     <ClInclude Include="bbp_formula.hpp" />
     <ClInclude Include="cos.hpp" />
+    <ClInclude Include="exact_number.hpp" />
     <ClInclude Include="sin.hpp" />
     <ClInclude Include="excess_k.hpp" />
     <ClInclude Include="factorial.hpp" />
