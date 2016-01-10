@@ -158,7 +158,7 @@ namespace agate_pris
 		inline exact_number< Repr >& exact_number< Repr >::operator = ( Rhs&& rhs )
 		{
 			using std::numeric_limits;
-			static_assert( numeric_limits< std::decay_t< Rhs > >::is_exact, "Arg must be exact!" );
+			static_assert( numeric_limits< std::decay_t< Rhs > >::is_exact, "Rhs must be exact!" );
 			m_repr = std::forward< Repr >( rhs );
 			return *this;
 		}
