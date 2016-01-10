@@ -32,6 +32,15 @@ namespace agate_pris
 			exact_number() = default;
 			exact_number( const exact_number< Repr >& ) = default;
 			exact_number( exact_number< Repr >&& ) = default;
+
+			//@{
+			/// @brief \~japanese 保持している変数の参照を戻すアクセサ
+			///        \~english  accessor return reference to holding variable
+			Repr&       get()       { return m_repr; }
+			/// @brief \~japanese 保持している変数の `const` 参照を戻すアクセサ
+			///        \~english  accessor return `const` reference to holding variable
+			Repr const& get() const { return m_repr; }
+			//@}
 		};
 	}
 }
