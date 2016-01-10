@@ -68,11 +68,12 @@ namespace agate_pris
 			exact_number( const exact_number< Arg >& arg );
 			//@}
 
+			//@{
 			template< typename Arg, std::enable_if_t< std::is_fundamental< std::decay_t< Arg > >::value	>* = nullptr >
 			exact_number( Arg&& arg );
-
 			template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Arg > >::value >* = nullptr >
 			exact_number< Repr >& operator = ( Rhs&& rhs );
+			//@}
 		};
 
 		/// @brief \~japanese テンプレート引数 `Repr` の異なる `exact_number` 用コンストラクタ
