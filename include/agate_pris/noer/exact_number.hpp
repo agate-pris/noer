@@ -57,9 +57,27 @@ namespace agate_pris
 			Repr const& get() const { return m_repr; }
 			//@}
 
+			template< typename Arg >
+			exact_number( const exact_number< Arg >& arg );
+
 			template< typename Arg, std::enable_if_t< std::is_fundamental< std::decay_t< Arg > >::value	>* = nullptr >
 			exact_number( Arg&& arg );
 		};
+
+		/// @brief \~japanese テンプレート引数 `Repr` の異なる `exact_number` 用コンストラクタ
+		///        \~english  constructor for `exact_number` with different template argument `Repr`
+
+		/// @details \~japanese メンバ変数 `m_repr` は以下の式によって初期化される。
+		///          \~english  member variable `m_repr` is initialized by the following expression.
+		///          \~
+		/// ~~~{.cpp}
+		/// m_repr( static_cast< Repr >( arg.get() ) )
+		/// ~~~
+		template< typename Repr >
+		template< typename Arg >
+		exact_number< Repr >::exact_number( const exact_number< Arg >& arg )
+		: m_repr( static_cast< Repr >( arg.get() ) )
+		{}
 
 		/// @brief \~japanese 基本型に対するコンストラクタ
 		///        \~english  constructor for fundamental type
