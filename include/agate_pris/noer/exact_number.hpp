@@ -68,6 +68,9 @@ namespace agate_pris
 
 			template< typename Arg, std::enable_if_t< std::is_fundamental< std::decay_t< Arg > >::value	>* = nullptr >
 			exact_number( Arg&& arg );
+
+			template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Arg > >::value >* = nullptr >
+			exact_number< Repr >& operator = ( Rhs&& rhs );
 		};
 
 		/// @brief \~japanese テンプレート引数 `Repr` の異なる `exact_number` 用コンストラクタ
@@ -107,6 +110,31 @@ namespace agate_pris
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< std::decay_t< Arg > >::is_exact, "Arg must be exact!" );
+		}
+
+		/// @brief \~japanese 基本型に対するコピー/ムーブ代入演算子
+		///        \~english  copy/move assignment operator for fundamental type
+
+		/// @attention \~japanese `numeric_limits< std::decay_t< Rhs > >::is_exact` は `true` でなければならない。
+		///            \~english  `numeric_limits< std::decay_t< Rhs > >::is_exact` must be `true` .
+
+		/// @tparam Rhs \~japanese 右辺の型
+		///             \~english  type of right hand side
+
+		/// @details \~japanese 以下の式によって引数 `rhs` をメンバ変数 `m_repr` に代入する。
+		///          \~english  assign argument rhs for member variable `m_repr` by the following expression.
+		///          \~
+		/// ~~~{.cpp}
+		/// m_repr = std::forward< Repr >( rhs );
+		/// ~~~
+		template<typename Repr>
+		template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Rhs > >::value >* >
+		inline exact_number< Repr >& exact_number< Repr >::operator = ( Rhs&& rhs )
+		{
+			using std::numeric_limits;
+			static_assert( numeric_limits< std::decay_t< Rhs > >::is_exact, "Arg must be exact!" );
+			m_repr = std::forward< Repr >( rhs );
+			return *this;
 		}
 	}
 }
