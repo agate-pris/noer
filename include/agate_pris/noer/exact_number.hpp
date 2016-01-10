@@ -46,6 +46,12 @@ namespace agate_pris
 			/// @brief \~japanese ムーブコンストラクタ
 			///        \~english  move constructor
 			exact_number( exact_number< Repr >&& ) = default;
+			/// @brief \~japanese コピー代入演算子
+			///        \~english  copy assignment operator
+			exact_number< Repr >& operator = ( const exact_number< Repr >& ) = default;
+			/// @brief \~japanese ムーブ代入演算子
+			///        \~english  move assignment operator
+			exact_number< Repr >& operator = ( exact_number< Repr >&& ) = default;
 			//@}
 
 			//@{
