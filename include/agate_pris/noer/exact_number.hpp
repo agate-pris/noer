@@ -211,7 +211,7 @@ namespace agate_pris
 		///          \~english  Addition using the following expression.
 		///          \~
 		/// ~~~{.cpp}
-		/// m_repr += std::forward< Rhs >( rhs );
+		/// m_repr += rhs
 		/// ~~~
 		template< typename Repr >
 		template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* >
@@ -219,7 +219,7 @@ namespace agate_pris
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
-			m_repr += std::forward< Rhs >( rhs );
+			m_repr += rhs
 			return *this;
 		}
 
@@ -239,7 +239,7 @@ namespace agate_pris
 		///          \~english  Subtraction using the following expression.
 		///          \~
 		/// ~~~{.cpp}
-		/// m_repr -= std::forward< Rhs >( rhs );
+		/// m_repr -= rhs
 		/// ~~~
 		template< typename Repr >
 		template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* >
@@ -247,7 +247,7 @@ namespace agate_pris
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
-			m_repr -= std::forward< Rhs >( rhs );
+			m_repr -= rhs
 			return *this;
 		}
 
@@ -267,7 +267,7 @@ namespace agate_pris
 		///          \~english  Multiple by the following expression.
 		///          \~
 		/// ~~~{.cpp}
-		/// m_repr *= std::forward< Rhs >( rhs );
+		/// m_repr *= rhs
 		/// ~~~
 		template< typename Repr >
 		template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* >
@@ -275,7 +275,7 @@ namespace agate_pris
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
-			m_repr *= std::forward< Rhs >( rhs );
+			m_repr *= rhs
 			return *this;
 		}
 
@@ -295,7 +295,7 @@ namespace agate_pris
 		///          \~english  Divide using the following expression.
 		///          \~
 		/// ~~~{.cpp}
-		/// m_repr /= std::forward< Rhs >( rhs );
+		/// m_repr /= rhs
 		/// ~~~
 		template< typename Repr >
 		template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* >
@@ -303,7 +303,7 @@ namespace agate_pris
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
-			m_repr /= std::forward< Rhs >( rhs );
+			m_repr /= rhs
 			return *this;
 		}
 	}
