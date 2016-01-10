@@ -66,6 +66,8 @@ namespace agate_pris
 			//@{
 			template< typename Arg >
 			exact_number( const exact_number< Arg >& arg );
+			template< typename Rhs >
+			exact_number< Repr >& operator = ( const exact_number< Rhs >& rhs );
 			//@}
 
 			//@{
@@ -90,6 +92,22 @@ namespace agate_pris
 		exact_number< Repr >::exact_number( const exact_number< Arg >& arg )
 		: m_repr( static_cast< Repr >( arg.get() ) )
 		{}
+
+		/// @brief \~japanese テンプレート引数 `Repr` の異なる `exact_number` 用コピー代入演算子
+		///        \~english  copy assignment operator for `exact_number` with different template argument `Repr`
+
+		/// @details \~japanese 以下の式によって引数 `rhs` をメンバ変数 `m_repr` に代入する。
+		///          \~english  assign argument rhs for member variable `m_repr` by the following expression.
+		///          \~
+		/// ~~~{.cpp}
+		/// m_repr = static_cast< Repr >( arg.get() );
+		/// ~~~
+		template< typename Repr >
+		template< typename Rhs >
+		exact_number< Repr >& exact_number< Repr >::operator = ( const exact_number< Rhs >& arg )
+		{
+			m_repr = static_cast< Repr >( arg.get() );
+		}
 
 		/// @brief \~japanese 基本型に対するコンストラクタ
 		///        \~english  constructor for fundamental type
