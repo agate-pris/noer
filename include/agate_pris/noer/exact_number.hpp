@@ -29,6 +29,10 @@ namespace agate_pris
 			private:
 			Repr m_repr;
 			public:
+			/// @brief \~japanese テンプレート引数 `Repr` の using declation
+			///        \~english  declation of template argument `Repr`
+			using value_type = Repr;
+
 			exact_number() = default;
 			exact_number( const exact_number< Repr >& ) = default;
 			exact_number( exact_number< Repr >&& ) = default;
