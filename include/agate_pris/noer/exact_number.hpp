@@ -71,7 +71,7 @@ namespace agate_pris
 			//@}
 
 			//@{
-			template< typename Arg, std::enable_if_t< std::is_fundamental< std::decay_t< Arg > >::value	>* = nullptr >
+			template< typename Arg, std::enable_if_t< std::is_fundamental< std::decay_t< Arg > >::value >* = nullptr >
 			exact_number( Arg&& arg );
 			template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Rhs > >::value >* = nullptr >
 			exact_number< Repr >& operator = ( Rhs&& rhs );
@@ -141,7 +141,7 @@ namespace agate_pris
 		/// m_repr( std::forward< Arg >( arg ) )
 		/// ~~~
 		template<typename Repr>
-		template<typename Arg, std::enable_if_t< std::is_fundamental< std::decay_t< Arg > >::value	>* >
+		template<typename Arg, std::enable_if_t< std::is_fundamental< std::decay_t< Arg > >::value >* >
 		inline exact_number< Repr >::exact_number( Arg&& arg )
 		: m_repr( std::forward< Arg >( arg ) )
 		{
