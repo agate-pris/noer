@@ -63,8 +63,10 @@ namespace agate_pris
 			Repr const& get() const { return m_repr; }
 			//@}
 
+			//@{
 			template< typename Arg >
 			exact_number( const exact_number< Arg >& arg );
+			//@}
 
 			template< typename Arg, std::enable_if_t< std::is_fundamental< std::decay_t< Arg > >::value	>* = nullptr >
 			exact_number( Arg&& arg );
