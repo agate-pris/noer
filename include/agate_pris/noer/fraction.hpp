@@ -76,7 +76,44 @@ namespace agate_pris
 		: detail::fraction::numerator< Numerator >
 		, detail::fraction::denominator< Denominator >
 		{
+			public:
+			inline           auto&       get_numerator();
+			inline constexpr auto const& get_numerator() const;
+			inline           auto&       get_denominator();
+			inline constexpr auto const& get_denominator() const;
 		};
+
+		/// @brief \~japanese 分子を得る
+		///        \~ensligh  get numerator
+
+		/// @{
+		template< typename Numerator, typename Denominator >
+		inline auto& fraction< Numerator, Denominator >::get_numerator()
+		{
+			return detail::fraction::numerator< Numerator >::get();
+		}
+		template< typename Numerator, typename Denominator >
+		inline constexpr auto const& fraction< Numerator, Denominator >::get_numerator()const
+		{
+			return detail::fraction::numerator< Numerator >::get();
+		}
+		/// @}
+
+		/// @brief \~japanese 分母を得る
+		///        \~ensligh  get denominator
+
+		/// @{
+		template< typename Numerator, typename Denominator >
+		inline auto& fraction< Numerator, Denominator >::get_denominator()
+		{
+			return detail::fraction::denominator< Denominator >::get();
+		}
+		template< typename Numerator, typename Denominator >
+		inline constexpr auto const& fraction< Numerator, Denominator >::get_denominator()const
+		{
+			return detail::fraction::denominator< Denominator >::get();
+		}
+		/// @}
 	}
 }
 
