@@ -1,8 +1,9 @@
-
+﻿
 #ifndef AGATE_PRIS_NOER_FRACTION_HPP
 #define AGATE_PRIS_NOER_FRACTION_HPP
 
 #include <type_traits>
+#include <agate_pris/noer/get.hpp>
 
 namespace agate_pris
 {
@@ -18,15 +19,47 @@ namespace agate_pris
 				struct holder;
 
 				template< typename Repr >
-				struct holder< Repr, true > : Repr {};
-
+				struct holder< Repr, true >
+				{
+					inline           auto&       get();
+					inline constexpr auto const& get() const;
+				};
 				template< typename Repr >
 				struct holder< Repr, false >
 				{
 					using value_type = Repr;
 					Repr value;
+					inline           auto&       get();
+					inline constexpr auto const& get() const;
 				};
 
+				/// @brief \~japanese 分子または分母の値を得る。
+				///        \~ensligh  get numerator or denominator.
+
+				/// @{
+				template< typename Repr >
+				inline auto& holder< Repr, true >::get()
+				{
+					using agate_pris::noer::get;
+					return get< Repr >();
+				}
+				template< typename Repr >
+				inline constexpr auto const& get()const
+				{
+					using agate_pris::noer::get;
+					return get< Repr >();
+				}
+				template< typename Repr >
+				inline auto& holder< Repr, false >::get()
+				{
+					return value;
+				}
+				template< typename Repr >
+				inline constexpr auto const& holder< Repr, false >::get()const
+				{
+					return value;
+				}
+				/// @}
 				template< typename Repr > struct numerator   : holder< Repr > {};
 				template< typename Repr > struct denominator : holder< Repr > {};
 			}
