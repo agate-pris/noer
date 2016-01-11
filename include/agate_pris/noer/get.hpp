@@ -11,6 +11,12 @@ namespace agate_pris
 		{
 			return T::value;
 		}
+
+		template< typename T >
+		inline decltype(auto) get( T&& arg )
+		{
+			return std::foward< T >( arg ).value;
+		}
 	}
 }
 
