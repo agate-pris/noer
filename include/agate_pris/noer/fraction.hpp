@@ -12,14 +12,14 @@ namespace agate_pris
 		{
 			namespace fraction
 			{
-				template< typename Repr, typename = std::is_empty< Repr > >
+				template< typename Repr, bool = std::is_empty< Repr >::value >
 				struct holder;
 
 				template< typename Repr >
-				struct holder< Repr, std::true_type > : Repr {};
+				struct holder< Repr, true > : Repr {};
 
 				template< typename Repr >
-				struct holder< Repr, std::false_type >
+				struct holder< Repr, false >
 				{
 					Repr value;
 				};
