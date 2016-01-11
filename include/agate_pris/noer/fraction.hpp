@@ -12,6 +12,8 @@ namespace agate_pris
 		{
 			namespace fraction
 			{
+				/// @brief \~japanese 分子または分母を保持する構造体
+				///        \~english  struct for hold numerator or denominator
 				template< typename Repr, bool = std::is_empty< Repr >::value >
 				struct holder;
 
