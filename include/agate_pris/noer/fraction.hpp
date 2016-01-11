@@ -21,6 +21,7 @@ namespace agate_pris
 				template< typename Repr >
 				struct holder< Repr, false >
 				{
+					using value_type = Repr;
 					Repr value;
 				};
 
