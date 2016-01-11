@@ -64,6 +64,9 @@ namespace agate_pris
 				/// @brief \~japanese 分子を保持する構造体
 				///        \~ensligh  struct for hold numerator
 				template< typename Repr > struct numerator   : holder< Repr > {};
+
+				/// @brief \~japanese 分母を保持する構造体
+				///        \~ensligh  struct for hold denominator
 				template< typename Repr > struct denominator : holder< Repr > {};
 			}
 		}
