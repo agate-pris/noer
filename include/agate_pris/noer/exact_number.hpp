@@ -243,6 +243,110 @@ namespace agate_pris
 			return *this;
 		}
 		//@}
+
+		/// @relates agate_pris::noer::exact_number
+
+		/// @brief \~japanese 基本型または `exact_number` と `exact_number` の演算
+		///        \~english  operation for fundamental type or `exact_number` and `exact_number
+		
+		/// @attention \~japanese `numeric_limits< Lhs >::is_exact` または同 `Rhs` は `true` でなければならない。
+		///            \~english  `numeric_limits< Lhs >::is_exact` or same of `Rhs` must be `true` .
+		
+		/// @param lhs \~japanese 左辺
+		///            \~english  left hand side
+		
+		/// @param rhs \~japanese 右辺
+		///            \~english  right hand side
+		
+		/// @tparam Lhs \~japanese 左辺の型またはそのメンバの型
+		///             \~english  type of left hand side or member of it
+		
+		/// @tparam Rhs \~japanese 右辺の型またはそのメンバの型
+		///             \~english  type of right hand side or member of it
+		
+		/// @details \~japanese 戻り値の型は演算結果を保持する `exact_number` になる。
+		///          \~english  Return value type is `exact_number` holding result type of arithmetic operation.
+
+		/// @{
+		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Lhs >::value >* = nullptr >
+		auto operator + ( const Lhs& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >
+		{
+			using std::numeric_limits;
+			static_assert( numeric_limits< Lhs >::is_exact, "Lhs must be exact!" );
+			return exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >( lhs + rhs.get() );
+		}
+		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Lhs >::value >* = nullptr >
+		auto operator - ( const Lhs& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >
+		{
+			using std::numeric_limits;
+			static_assert( numeric_limits< Lhs >::is_exact, "Lhs must be exact!" );
+			return exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >( lhs - rhs.get() );
+		}
+		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Lhs >::value >* = nullptr >
+		auto operator * ( const Lhs& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >
+		{
+			using std::numeric_limits;
+			static_assert( numeric_limits< Lhs >::is_exact, "Lhs must be exact!" );
+			return exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >( lhs * rhs.get() );
+		}
+		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Lhs >::value >* = nullptr >
+		auto operator / ( const Lhs& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >
+		{
+			using std::numeric_limits;
+			static_assert( numeric_limits< Lhs >::is_exact, "Lhs must be exact!" );
+			return exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >( lhs / rhs.get() );
+		}
+
+		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+		auto operator + ( const exact_number< Lhs >& lhs, const Rhs& rhs ) -> exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >
+		{
+			using std::numeric_limits;
+			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
+			return exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >( lhs.get() + rhs );
+		}
+		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+		auto operator - ( const exact_number< Lhs >& lhs, const Rhs& rhs ) -> exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >
+		{
+			using std::numeric_limits;
+			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
+			return exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >( lhs.get() - rhs );
+		}
+		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+		auto operator * ( const exact_number< Lhs >& lhs, const Rhs& rhs ) -> exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >
+		{
+			using std::numeric_limits;
+			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
+			return exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >( lhs.get() * rhs );
+		}
+		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+		auto operator / ( const exact_number< Lhs >& lhs, const Rhs& rhs ) -> exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >
+		{
+			using std::numeric_limits;
+			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
+			return exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >( lhs.get() / rhs );
+		}
+
+		template< typename Lhs, typename Rhs >
+		auto operator + ( const exact_number< Lhs >& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >
+		{
+			return exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >( lhs.get() + rhs.get() );
+		}
+		template< typename Lhs, typename Rhs >
+		auto operator - ( const exact_number< Lhs >& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >
+		{
+			return exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >( lhs.get() - rhs.get() );
+		}
+		template< typename Lhs, typename Rhs >
+		auto operator * ( const exact_number< Lhs >& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >
+		{
+			return exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >( lhs.get() * rhs.get() );
+		}
+		template< typename Lhs, typename Rhs >
+		auto operator / ( const exact_number< Lhs >& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >
+		{
+			return exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >( lhs.get() / rhs.get() );
+		}
+		/// @}
 	}
 }
 
