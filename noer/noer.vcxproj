@@ -101,6 +101,7 @@
     <ClInclude Include="..\include\agate_pris\noer\fraction.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fraction_traits.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\function_traits.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\get.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\infinity.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\interpolation.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\lerp.hpp" />

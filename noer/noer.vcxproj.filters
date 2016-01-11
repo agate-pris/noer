@@ -28,5 +28,6 @@
     <ClInclude Include="..\include\agate_pris\noer\exact_number.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fraction_traits.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fraction.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\get.hpp" />
   </ItemGroup>
 </Project>
