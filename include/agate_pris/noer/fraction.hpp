@@ -71,6 +71,40 @@ namespace agate_pris
 			}
 		}
 
+		/// @brief \~japanese 分数を表すクラス
+		///        \~ensligh  class for fraction
+
+		/// @tparam Numerator \~japanese 分子の型
+		///                   \~english  type of numerator
+
+		/// @tparam Denominator \~japanese 分母の型
+		///                     \~english  type of denominator
+
+		/// @details \~japanese 分子または分母が定数の時は `std::integral_constant` を使用する。
+		///          \~english  If numerator or denominator is constant, use `std::integral_constant` .
+
+		/// @attention
+		/// \~japanese 
+		/// 分子または分母において空のクラスを利用し、かつ値として用いるオブジェクトが
+		/// 静的メンバ変数 `value` でない時、以下のような関数を用意し、ADLによって値を得る。
+		/// \~english
+		/// If numerator or denominator is empty class and name pf object use as value
+		/// is not `value`, make following function and work with ADL.
+		/// \~
+		/// ~~~{.cpp}
+		/// namespace ns
+		/// {
+		///     struct s
+		///     {
+		///         static const int v = 100;
+		///     };
+		///     template< typename T > auto& get();
+		///     auto& get< s >()
+		///     {
+		///         return s::v;
+		///     }
+		/// }
+		/// ~~~
 		template< typename Numerator, typename Denominator >
 		class fraction 
 		: detail::fraction::numerator< Numerator >
