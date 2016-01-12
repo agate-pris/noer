@@ -99,12 +99,12 @@ namespace agate_pris
 		///          \~english  member variable `m_repr` is initialized by the following expression.
 		///          \~
 		/// ~~~{.cpp}
-		/// m_repr( static_cast< Repr >( arg.get() ) )
+		/// m_repr( static_cast< Repr >( arg ) )
 		/// ~~~
 		template< typename Repr >
 		template< typename Arg >
 		exact_number< Repr >::exact_number( const exact_number< Arg >& arg )
-		: m_repr( static_cast< Repr >( arg.get() ) )
+		: m_repr( static_cast< Repr >( arg ) )
 		{}
 
 		/// @brief \~japanese テンプレート引数 `Repr` の異なる `exact_number` 用コピー代入演算子
@@ -114,13 +114,13 @@ namespace agate_pris
 		///          \~english  assign argument rhs for member variable `m_repr` by the following expression.
 		///          \~
 		/// ~~~{.cpp}
-		/// m_repr = static_cast< Repr >( arg.get() );
+		/// m_repr = static_cast< Repr >( arg );
 		/// ~~~
 		template< typename Repr >
 		template< typename Rhs >
 		exact_number< Repr >& exact_number< Repr >::operator = ( const exact_number< Rhs >& arg )
 		{
-			m_repr = static_cast< Repr >( arg.get() );
+			m_repr = static_cast< Repr >( arg );
 		}
 
 		/// @brief \~japanese 基本型に対するコンストラクタ
@@ -190,6 +190,8 @@ namespace agate_pris
 		template< typename Target >
 		inline exact_number< Repr >::operator Target() const
 		{
+			using std::numeric_limits;
+			static_assert( numeric_limits< Target >::is_exact, "Target must be exact!" );
 			return static_cast< Target >( m_repr );
 		}
 
