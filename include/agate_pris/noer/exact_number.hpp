@@ -190,6 +190,8 @@ namespace agate_pris
 		template< typename Target >
 		inline exact_number< Repr >::operator Target() const
 		{
+			using std::numeric_limits;
+			static_assert( numeric_limits< Target >::is_exact, "Target must be exact!" );
 			return static_cast< Target >( m_repr );
 		}
 
