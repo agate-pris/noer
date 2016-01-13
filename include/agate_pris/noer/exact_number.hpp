@@ -22,28 +22,34 @@ namespace agate_pris
 				static inline auto&       get( exact_number< Repr >&       n );
 			};
 
-			template< typename Repr >
-			inline auto const& get( const exact_number< Repr >& n )
-			{
-				return get_impl< Repr >::get( n );
-			}
 
 			/// @brief \~japanese `exact_number` の内部表現にアクセス
 			///        \~english  access to the internal representation of `exact_number`
 
 			/// @attention \~japanese この関数はADLによって発見されない。
 			///            \~english  This function cannnod be found by ADL.
-			///            \~
+
+			/// @details \~japanese 以下のように呼び出す。
+			///          \~english  call as below.
+			/// \~
 			/// ~~~{.cpp}
 			/// auto i = agate_pris::noer::get( num );
 			/// ~~~
 
-			/// @relates exsact_number
+			/// @relates agate_pris::noer::exact_number
+			
+			/// @{
+			template< typename Repr >
+			inline auto const& get( const exact_number< Repr >& n )
+			{
+				return get_impl< Repr >::get( n );
+			}
 			template< typename Repr >
 			inline auto& get( exact_number< Repr >& n )
 			{
 				return get_impl< Repr >::get( n );
 			}
+			/// @}
 		}
 
 		/// @class exact_number
