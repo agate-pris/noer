@@ -253,8 +253,6 @@ namespace agate_pris
 			return *this;
 		}
 
-		//@{
-
 		/// @brief \~japanese 基本型に対する複合代入演算子
 		///        \~english  compound assignment operator for any fundamental type
 
@@ -266,6 +264,8 @@ namespace agate_pris
 
 		/// @tparam Rhs \~japanese 右辺の型
 		///             \~english  type of right hand side
+
+		//@{
 		template< typename Repr >
 		template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* >
 		exact_number< Repr >& exact_number< Repr >::operator += ( const Rhs& rhs )
