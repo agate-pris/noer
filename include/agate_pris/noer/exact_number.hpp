@@ -50,6 +50,38 @@ namespace agate_pris
 				return get_impl< Repr >::get( n );
 			}
 			/// @}
+
+			/// @brief \~japanese 任意の型への変換
+			///        \~english  conversion to any type
+
+			/// @attention \~japanese
+			/// この関数は変換先の型が厳密な数値型であるか否かを問わない。
+			/// 厳密な数値演算が必要な時、型合わせのためだけに本関数を使用してはならない。
+			/// この関数はADLによって発見されない。
+			/// \~english
+			/// This funtion does not matter weather destination type of conversion is exact or not.
+			/// It should never be used only for type matching when exact arithmetic operation is necessary.
+			/// This function cannnod be found by ADL.
+
+			/// @details \~japanese 以下の式によって型変換を行う。
+			///          \~english  convet by following expression.
+			/// \~
+			/// ~~~{.cpp}
+			/// return static_cast< Target >( m_repr );
+			/// ~~~
+			/// \~japanese 以下のように呼び出す。
+			/// \~english  call as below.
+			/// \~
+			/// ~~~{.cpp}
+			/// auto x = agate_pris::noer::convert_to< int >( num );
+			/// ~~~
+
+			/// @relates agate_pris::noer::exact_number
+			template< typename Target, typename Repr >
+			inline auto convert_to( const exact_number< Repr >& n )
+			{
+				return static_cast< Target >( get( n ) );
+			}
 		}
 
 		/// @class exact_number
