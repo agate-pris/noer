@@ -145,11 +145,6 @@ namespace agate_pris
 			//@}
 
 			//@{
-			template< typename Target >
-			inline operator Target() const;
-			//@}
-
-			//@{
 			template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
 			exact_number< Repr >& operator += ( const Rhs& rhs );
 			template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
@@ -256,29 +251,6 @@ namespace agate_pris
 			static_assert( numeric_limits< std::decay_t< Rhs > >::is_exact, "Rhs must be exact!" );
 			m_repr = std::forward< Repr >( rhs );
 			return *this;
-		}
-
-		/// @brief \~japanese 任意の型への変換演算子
-		///        \~english  conversion operator for any type
-
-		/// @attention \~japanese この関数は変換先の型が厳密な数値型であるか否かを問わない。
-		///                       厳密な数値演算が必要な時、型合わせのためだけに本関数を使用してはならない。
-		///            \~english  This funtion does not matter weather destination type of conversion is exact or not.
-		///                       It should never be used only for type matching when exact arithmetic operation is necessary.
-
-		/// @details \~japanese 以下の式によって型変換を行う。
-		///          \~english  convet by following expression.
-		///          \~
-		/// ~~~{.cpp}
-		/// return static_cast< Target >( m_repr );
-		/// ~~~
-		template<typename Repr>
-		template< typename Target >
-		inline exact_number< Repr >::operator Target() const
-		{
-			using std::numeric_limits;
-			static_assert( numeric_limits< Target >::is_exact, "Target must be exact!" );
-			return static_cast< Target >( m_repr );
 		}
 
 		//@{
