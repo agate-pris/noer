@@ -154,6 +154,16 @@ namespace agate_pris
 			template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
 			exact_number< Repr >& operator /= ( const Rhs& rhs );
 			//@}
+
+			/// @brief \~japanese `exact_number< Repr >` との算術複合代入演算子
+			///        \~english  Arithmetic assignment operators with `exact_number< Repr >`
+
+			/// @{
+			exact_number& operator += ( const exact_number& r ) { m_repr += get( r ); return *this; }
+			exact_number& operator -= ( const exact_number& r ) { m_repr -= get( r ); return *this; }
+			exact_number& operator *= ( const exact_number& r ) { m_repr *= get( r ); return *this; }
+			exact_number& operator /= ( const exact_number& r ) { m_repr /= get( r ); return *this; }
+			/// @}
 		};
 
 		namespace exact_number_hide
