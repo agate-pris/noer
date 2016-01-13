@@ -176,6 +176,7 @@ namespace agate_pris
 		}
 
 		using exact_number_hide::get;
+		using exact_number_hide::convert_to;
 
 		/// @brief \~japanese テンプレート引数 `Repr` の異なる `exact_number` 用コンストラクタ
 		///        \~english  constructor for `exact_number` with different template argument `Repr`
