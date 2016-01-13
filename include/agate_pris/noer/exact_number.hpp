@@ -9,6 +9,43 @@ namespace agate_pris
 {
 	namespace noer
 	{
+		// forward declation for free function
+		template< typename Repr > class exact_number;
+
+		// hide a function from ADL
+		namespace exact_number_hide
+		{
+			template< typename Repr >
+			struct get_impl
+			{
+				static inline auto const& get( exact_number< Repr > const& n );
+				static inline auto&       get( exact_number< Repr >&       n );
+			};
+
+			template< typename Repr >
+			inline auto const& get( const exact_number< Repr >& n )
+			{
+				return get_impl< Repr >::get( n );
+			}
+
+			/// @brief \~japanese `exact_number` の内部表現にアクセス
+			///        \~english  access to the internal representation of `exact_number`
+
+			/// @attention \~japanese この関数はADLによって発見されない。
+			///            \~english  This function cannnod be found by ADL.
+			///            \~
+			/// ~~~{.cpp}
+			/// auto i = agate_pris::noer::get( num );
+			/// ~~~
+
+			/// @relates exsact_number
+			template< typename Repr >
+			inline auto& get( exact_number< Repr >& n )
+			{
+				return get_impl< Repr >::get( n );
+			}
+		}
+
 		/// @class exact_number
 
 		/// @brief \~japanese 厳密な数値を取り扱うためのクラステンプレート
@@ -29,6 +66,7 @@ namespace agate_pris
 		template< typename Repr >
 		class exact_number
 		{
+			friend exact_number_hide::get_impl< Repr >;
 			private:
 			Repr m_repr;
 			public:
@@ -91,6 +129,22 @@ namespace agate_pris
 			exact_number< Repr >& operator /= ( const Rhs& rhs );
 			//@}
 		};
+
+		namespace exact_number_hide
+		{
+			template< typename Repr >
+			auto& get_impl< Repr >::get( exact_number< Repr >& num )
+			{
+				return num.m_repr;
+			}
+			template< typename Repr >
+			auto const& get_impl< Repr >::get( exact_number< Repr > const& num )
+			{
+				return num.m_repr;
+			}
+		}
+
+		using exact_number_hide::get;
 
 		/// @brief \~japanese テンプレート引数 `Repr` の異なる `exact_number` 用コンストラクタ
 		///        \~english  constructor for `exact_number` with different template argument `Repr`
