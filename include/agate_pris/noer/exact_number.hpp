@@ -93,13 +93,6 @@ namespace agate_pris
 			//@}
 
 			//@{
-			/// @brief \~japanese 保持している変数の参照を戻すアクセサ
-			///        \~english  accessor return reference to holding variable
-			Repr&       get()       { return m_repr; }
-			Repr const& get() const { return m_repr; }
-			//@}
-
-			//@{
 			template< typename Arg >
 			exact_number( const exact_number< Arg >& arg );
 			template< typename Rhs >
