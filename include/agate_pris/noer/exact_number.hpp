@@ -159,16 +159,10 @@ namespace agate_pris
 			///        \~english  Arithmetic assignment operators with `exact_number< Repr >`
 
 			/// @{
-			exact_number& operator += ( const exact_number& r ) { m_repr += get( r ); return *this; }
-			exact_number& operator -= ( const exact_number& r ) { m_repr -= get( r ); return *this; }
-			exact_number& operator *= ( const exact_number& r ) { m_repr *= get( r ); return *this; }
-			exact_number& operator /= ( const exact_number& r ) { m_repr /= get( r ); return *this; }
-			/// @}
-
-			/// @brief \~japanese `exact_number< Repr >` との比較演算子
-			///        \~english  Comparison operators with `exact_number< Repr >`
-
-			/// @{
+			template< typename Rhs > exact_number& operator += ( const exact_number< Rhs >& r ) { m_repr += get( r ); return *this; }
+			template< typename Rhs > exact_number& operator -= ( const exact_number< Rhs >& r ) { m_repr -= get( r ); return *this; }
+			template< typename Rhs > exact_number& operator *= ( const exact_number< Rhs >& r ) { m_repr *= get( r ); return *this; }
+			template< typename Rhs > exact_number& operator /= ( const exact_number< Rhs >& r ) { m_repr /= get( r ); return *this; }
 			/// @}
 		};
 
