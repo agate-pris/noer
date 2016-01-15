@@ -28,5 +28,13 @@
     <ClInclude Include="..\include\agate_pris\noer\exact_number.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fraction_traits.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\get.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="collision_detection">
+      <UniqueIdentifier>{9ab5b6c9-7f06-4c0a-935f-12c950fcf6d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

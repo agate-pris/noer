@@ -95,6 +95,7 @@
     <ClInclude Include="atan_table.hpp" />
     <ClInclude Include="atan_approximation.hpp" />
     <ClInclude Include="bbp_formula.hpp" />
+    <ClInclude Include="collision_detection.hpp" />
     <ClInclude Include="cos.hpp" />
     <ClInclude Include="exact_number.hpp" />
     <ClInclude Include="sin.hpp" />
