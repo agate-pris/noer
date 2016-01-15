@@ -106,6 +106,21 @@ namespace agate_pris
 					return m_values( Index );
 				}
 
+				/// @brief  \~english  Get vector implemented by Boost.uBLAS.
+				///         \~japanese Boost.uBLASによって実装されたベクターを取得する
+				/// @return \~english  the vector of coordinates
+				///         \~japanese 座標ベクトル
+				/// @{
+				inline boost::numeric::ublas::vector< CoordinateType, ArrayType > const& get() const
+				{
+					return m_values;
+				}
+				inline boost::numeric::ublas::vector< CoordinateType, ArrayType >&       get()
+				{
+					return m_values;
+				}
+				/// @}
+
 				/// @brief Set a coordinate
 				/// @tparam Index coordinate to set
 				/// @param value value to set
