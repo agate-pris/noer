@@ -1,4 +1,4 @@
-
+﻿
 #ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_POINT_HPP
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_POINT_HPP
 
@@ -93,9 +93,12 @@ namespace agate_pris
 					detail::array_assign< DimensionCount, 0 >::apply( m_values, v2 );
 				}
 
-				/// @brieft Get a coordinate
-				/// @tparam Index coordinate to get
-				/// @return the coordinate
+				/// @brieft \~english  Get a coordinate
+				///         \~japanese 座標を取得する
+				/// @tparam Index \~english  coordinate to get
+				///               \~japanese 取得する座標
+				/// @return \~english  the coordinate
+				///         \~japanese 座標
 				template< unsigned int Index >
 				inline CoordinateType const& get() const
 				{
