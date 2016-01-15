@@ -121,14 +121,26 @@ namespace agate_pris
 				}
 				/// @}
 
-				/// @brief Set a coordinate
-				/// @tparam Index coordinate to set
-				/// @param value value to set
+				/// @brief        \~english  Set a coordinate
+				///               \~japanese 座標を設定
+				/// @tparam Index \~english  coordinate to set
+				///               \~japanese 設定する座標
+				/// @param value  \~english  value to set
+				///               \~japanese セットする値
 				template< std::size_t Index >
 				void set( CoordinateType const& value )
 				{
 					static_assert( Index < DimensionCount, "Index < DimensionCount must be true." );
 					m_values( Index ) = value;
+				}
+
+				/// @brief        \~english  Set coordinates vector
+				///               \~japanese 座標ベクトルを設定
+				/// @param values \~english  coordinates vector to set
+				///               \~japanese 設定する座標ベクトル
+				void set( CoordinateType const& values )
+				{
+					m_values = values;
 				}
 			};
 		}
