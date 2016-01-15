@@ -22,5 +22,6 @@
     <ClInclude Include="sqrt.hpp" />
     <ClInclude Include="atan_table.hpp" />
     <ClInclude Include="exact_number.hpp" />
+    <ClInclude Include="collision_detection.hpp" />
   </ItemGroup>
 </Project>
