@@ -3,6 +3,12 @@
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_POINT_HPP
 
 #include <boost/numeric/ublas/vector.hpp>
+#include <boost/geometry/core/access.hpp>
+#include <boost/geometry/core/coordinate_type.hpp>
+#include <boost/geometry/core/coordinate_system.hpp>
+#include <boost/geometry/core/coordinate_dimension.hpp>
+#include <boost/geometry/core/cs.hpp>
+
 namespace agate_pris
 {
 	namespace noer
@@ -105,6 +111,64 @@ namespace agate_pris
 				{
 					static_assert( Index < DimensionCount, "Index < DimensionCount must be true." );
 					m_values( Index ) = value;
+				}
+			};
+		}
+	}
+}
+
+// Adapt to Boost.Geometry
+namespace boost
+{
+	namespace geometry
+	{
+		namespace traits
+		{
+			template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType >
+			struct tag< agate_pris::noer::collision_detection::point< CoordinateType, DimensionCount, ArrayType > >
+			{
+				using type = boost::geometry::point_tag;
+			};
+
+			template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType >
+			struct coordinate_type< agate_pris::noer::collision_detection::point< CoordinateType, DimensionCount, ArrayType > >
+			{
+				using type = CoordinateType;
+			};
+
+			template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType >
+			struct coordinate_system< agate_pris::noer::collision_detection::point< CoordinateType, DimensionCount, ArrayType > >
+			{
+				using type = boost::geometry::cs::cartesian;
+			};
+
+			template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType >
+			struct dimension
+			<
+				agate_pris::noer::collision_detection::point
+				<
+					CoordinateType,
+					DimensionCount,
+					ArrayType
+				>
+			>
+			: boost::mpl::int_< DimensionCount >
+			{};
+			
+			template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType, std::size_t Dimension >
+			struct access
+			<
+				agate_pris::noer::collision_detection::point< CoordinateType, DimensionCount, ArrayType >,
+				Dimension 
+			>
+			{
+				static inline CoordinateType get( agate_pris::noer::collision_detection::point< CoordinateType, DimensionCount, ArrayType > const& p )
+				{
+					return p.template get< Dimension >();
+				}
+				static inline void set( agate_pris::noer::collision_detection::point< CoordinateType, DimensionCount, ArrayType >& p, const CoordinateType& value )
+				{
+					p.template set< Dimension >( value );
 				}
 			};
 		}
