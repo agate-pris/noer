@@ -4,6 +4,7 @@
 
 #include <type_traits>
 #include <limits>
+#include <boost/type_traits/has_operator.hpp>
 
 namespace agate_pris
 {
@@ -173,6 +174,24 @@ namespace agate_pris
 			template< typename Rhs > exact_number& operator /= ( const exact_number< Rhs >& r ) { m_repr /= get( r ); return *this; }
 			/// @}
 		};
+
+		/// @brief \~english  produces the value of its operand
+		///        \~japanese オペランドの値を生成
+		template< typename Repr >
+		std::enable_if_t< boost::has_unary_plus< Repr >::value, exact_number< Repr > >
+		operator + ( const exact_number< Repr >& arg )
+		{
+			return exact_number< Repr >( +get( arg ) );
+		}
+
+		/// @brief \~english  produces the negative of its operand
+		///        \~japanese オペランドの負数を生成
+		template< typename Repr >
+		std::enable_if_t< boost::has_unary_minus< Repr >::value, exact_number< Repr > >
+		operator - ( const exact_number< Repr >& arg )
+		{
+			return exact_number< Repr >( -get( arg ) );
+		}
 
 		namespace exact_number_hide
 		{
