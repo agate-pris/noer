@@ -122,6 +122,14 @@ namespace agate_pris
 			/// @brief \~japanese ムーブコンストラクタ
 			///        \~english  move constructor
 			exact_number( exact_number< Repr >&& ) = default;
+			/// @brief \~english constructor for exact number
+			template< typename Number >
+			exact_number( const Number& num )
+			: m_repr( static_cast< Repr >( num ) )
+			{
+				using namespace std;
+				static_assert( numeric_limits< Number >::is_exact, "Number must be exact." );
+			}
 			/// @brief \~japanese コピー代入演算子
 			///        \~english  copy assignment operator
 			exact_number< Repr >& operator = ( const exact_number< Repr >& ) = default;
