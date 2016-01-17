@@ -37,6 +37,7 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\tag.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\empty.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="collision_detection">
