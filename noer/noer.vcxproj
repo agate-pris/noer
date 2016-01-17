@@ -110,6 +110,7 @@
     <ClInclude Include="..\include\agate_pris\noer\infinity.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\interpolation.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\lerp.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\numeric_limits.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\pow.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\sin.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\sin_approximation.hpp" />
