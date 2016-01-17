@@ -93,6 +93,15 @@ namespace agate_pris
 					detail::array_assign< DimensionCount, 0 >::apply( m_values, v2 );
 				}
 
+				/// @brief Copy constructor
+				inline point( const point& p )
+				// cause error C4996 in Microsoft Visual C++
+				// : m_values( p.m_values )
+				{
+					// this is fine
+					m_values = p.m_values;
+				}
+
 				/// @brieft \~english  Get a coordinate
 				///         \~japanese 座標を取得する
 				/// @tparam Index \~english  coordinate to get
