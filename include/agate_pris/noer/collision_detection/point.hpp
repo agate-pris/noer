@@ -71,8 +71,8 @@ namespace agate_pris
 					: m_values( DimensionCount )
 				{
 					detail::array_assign< DimensionCount, 0 >::apply( m_values, v0 );
-					detail::array_assign< DimensionCount, 0 >::apply( m_values, CoordinateType() );
-					detail::array_assign< DimensionCount, 0 >::apply( m_values, CoordinateType() );
+					detail::array_assign< DimensionCount, 1 >::apply( m_values, CoordinateType() );
+					detail::array_assign< DimensionCount, 2 >::apply( m_values, CoordinateType() );
 				}
 
 				/// @brief Constructor to set two values
@@ -80,8 +80,8 @@ namespace agate_pris
 					: m_values( DimensionCount )
 				{
 					detail::array_assign< DimensionCount, 0 >::apply( m_values, v0 );
-					detail::array_assign< DimensionCount, 0 >::apply( m_values, v1 );
-					detail::array_assign< DimensionCount, 0 >::apply( m_values, CoordinateType() );
+					detail::array_assign< DimensionCount, 1 >::apply( m_values, v1 );
+					detail::array_assign< DimensionCount, 2 >::apply( m_values, CoordinateType() );
 				}
 
 				/// @brief Constructor to set three values
@@ -89,8 +89,8 @@ namespace agate_pris
 					: m_values( DimensionCount )
 				{
 					detail::array_assign< DimensionCount, 0 >::apply( m_values, v0 );
-					detail::array_assign< DimensionCount, 0 >::apply( m_values, v1 );
-					detail::array_assign< DimensionCount, 0 >::apply( m_values, v2 );
+					detail::array_assign< DimensionCount, 1 >::apply( m_values, v1 );
+					detail::array_assign< DimensionCount, 2 >::apply( m_values, v2 );
 				}
 
 				/// @brief Copy constructor
