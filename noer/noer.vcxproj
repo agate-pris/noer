@@ -92,6 +92,7 @@
     <ClInclude Include="..\include\agate_pris\noer\atan_approximation.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\atan_table.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\bbp_formula.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\dimension.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_type.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\tag.hpp" />
