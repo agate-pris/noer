@@ -45,6 +45,9 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_type.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\access.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="collision_detection">
