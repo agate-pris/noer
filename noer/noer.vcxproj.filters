@@ -57,6 +57,9 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_point.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="collision_detection">
