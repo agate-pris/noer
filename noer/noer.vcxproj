@@ -98,6 +98,7 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_type.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\tag.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\tags.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\triangle.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\cos.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\angle.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\duplicate.hpp" />
