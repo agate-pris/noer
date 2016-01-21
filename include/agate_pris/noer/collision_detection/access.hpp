@@ -38,7 +38,7 @@ namespace agate_pris
 			}
 
 			template< std::size_t Index, std::size_t Dimension, typename CollisionDetectionType, typename CoordinateType >
-			void set( const CollisionDetectionType& cd, const CoordinateType& value )
+			void set( CollisionDetectionType& cd, const CoordinateType& value )
 			{
 				traits::indexed_access< CollisionDetectionType, Index, Dimension >::set( cd, value );
 			}
