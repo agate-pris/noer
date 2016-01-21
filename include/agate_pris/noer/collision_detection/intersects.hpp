@@ -3,6 +3,7 @@
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_HPP
 
 #include <agate_pris/noer/collision_detection/tag.hpp>
+#include <agate_pris/noer/collision_detection/intersects_box_box.hpp>
 
 namespace agate_pris
 {
