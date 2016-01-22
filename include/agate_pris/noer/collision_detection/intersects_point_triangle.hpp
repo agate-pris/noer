@@ -2,6 +2,7 @@
 #ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_POINT_TRIANGLE_HPP
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_POINT_TRIANGLE_HPP
 
+#include <utility>
 #include <agate_pris/noer/collision_detection/tags.hpp>
 #include <agate_pris/noer/collision_detection/dimension.hpp>
 #include <agate_pris/noer/collision_detection/point_type.hpp>
@@ -25,7 +26,9 @@ namespace agate_pris
 
 				namespace bg = boost::geometry;
 				using triangle_point_type = point_type_t< TriangleType >;
+				using point_coordinate_type = typename bg::coordinate_type< PointType >::type;
 				using triangle_coordinate_type = typename bg::coordinate_type< triangle_point_type >::type;
+				using coordinate_type = decltype( std::declval< point_coordinate_type >() + std::declval< triangle_coordinate_type >() );
 
 				const auto bounting_box = bg::return_envelope< bg::model::box< triangle_point_type > >( triangle );
 
@@ -36,9 +39,9 @@ namespace agate_pris
 				const triangle_point_type b( get< 1, 0 >( triangle ), get< 1, 1 >( triangle ) );
 				const triangle_point_type c( get< 2, 0 >( triangle ), get< 2, 1 >( triangle ) );
 
-				const auto apb = bg::strategy::side::side_by_triangle< triangle_coordinate_type >::apply( a, b, point );
-				const auto bpc = bg::strategy::side::side_by_triangle< triangle_coordinate_type >::apply( b, c, point );
-				const auto cpa = bg::strategy::side::side_by_triangle< triangle_coordinate_type >::apply( c, a, point );
+				const auto apb = bg::strategy::side::side_by_triangle< coordinate_type >::apply( a, b, point );
+				const auto bpc = bg::strategy::side::side_by_triangle< coordinate_type >::apply( b, c, point );
+				const auto cpa = bg::strategy::side::side_by_triangle< coordinate_type >::apply( c, a, point );
 
 				// clockwise
 				if( point_order< TriangleType >::value == bg::clockwise )
