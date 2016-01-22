@@ -10,6 +10,8 @@
 #include <agate_pris/noer/collision_detection/tags.hpp>
 #include <agate_pris/noer/collision_detection/access.hpp>
 #include <agate_pris/noer/collision_detection/point_type.hpp>
+#include <boost/geometry/algorithms/envelope.hpp>
+#include <algorithm>
 
 namespace agate_pris
 {
@@ -88,6 +90,43 @@ namespace agate_pris
 					using type = PointType;
 				};
 			}
+		}
+	}
+}
+
+namespace boost
+{
+	namespace geometry
+	{
+		template
+		<
+			typename BoxType,
+			typename PointType, bool ClockWise,
+			template< typename, std::size_t > typename Container
+		>
+		void envelope( agate_pris::noer::collision_detection::triangle< PointType, ClockWise, Container > const& t, BoxType& b )
+		{
+			namespace ncd = agate_pris::noer::collision_detection;
+			auto x = std::minmax( { ncd::get< 0, 0 >( t ), ncd::get< 1, 0 >( t ), ncd::get< 2, 0 >( t ) } );
+			auto y = std::minmax( { ncd::get< 0, 1 >( t ), ncd::get< 1, 1 >( t ), ncd::get< 2, 1 >( t ) } );
+
+			set< 0, 0 >( b, x.first );
+			set< 0, 1 >( b, x.second );
+			set< 1, 0 >( b, y.first );
+			set< 1, 1 >( b, y.second );
+		}
+
+		template
+		<
+			typename BoxType,
+			typename PointType, bool ClockWise,
+			template< typename, std::size_t > typename Container
+		>
+		BoxType return_envelope( agate_pris::noer::collision_detection::triangle< PointType, ClockWise, Container > const& t )
+		{
+			BoxType b;
+			envelope( t, b );
+			return b;
 		}
 	}
 }
