@@ -99,6 +99,7 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_segment.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_order.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_type.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\tag.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\tags.hpp" />
