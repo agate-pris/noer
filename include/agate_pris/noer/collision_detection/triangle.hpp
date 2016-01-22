@@ -10,6 +10,8 @@
 #include <agate_pris/noer/collision_detection/tags.hpp>
 #include <agate_pris/noer/collision_detection/access.hpp>
 #include <agate_pris/noer/collision_detection/point_type.hpp>
+#include <agate_pris/noer/collision_detection/point_order.hpp>
+#include <boost/geometry/core/point_order.hpp>
 #include <boost/geometry/algorithms/envelope.hpp>
 #include <algorithm>
 
@@ -56,6 +58,18 @@ namespace agate_pris
 				struct tag< triangle< PointType, ClockWise, Container > >
 				{
 					using type = triangle_tag;
+				};
+
+				template< typename PointType,  template< typename, std::size_t > typename Container >
+				struct point_order< triangle< PointType, true, Container > >
+				{
+					static const boost::geometry::order_selector value = boost::geometry::clockwise;
+				};
+
+				template< typename PointType, template< typename, std::size_t > typename Container >
+				struct point_order< triangle< PointType, false, Container > >
+				{
+					static const boost::geometry::order_selector value = boost::geometry::counterclockwise;
 				};
 
 				template
