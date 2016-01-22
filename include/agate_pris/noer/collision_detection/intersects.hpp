@@ -6,6 +6,7 @@
 #include <agate_pris/noer/collision_detection/intersects_box_box.hpp>
 #include <agate_pris/noer/collision_detection/intersects_box_point.hpp>
 #include <agate_pris/noer/collision_detection/intersects_box_segment.hpp>
+#include <agate_pris/noer/collision_detection/intersects_point_triangle.hpp>
 
 namespace agate_pris
 {
