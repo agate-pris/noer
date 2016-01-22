@@ -102,6 +102,7 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_point_triangle.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_segment_segment.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_segment_triangle.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_triangle_triangle.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_order.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_type.hpp" />
