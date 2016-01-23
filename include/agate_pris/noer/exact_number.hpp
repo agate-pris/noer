@@ -309,7 +309,7 @@ namespace agate_pris
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
-			m_repr += rhs
+            m_repr += rhs;
 			return *this;
 		}
 		template< typename Repr >
@@ -318,7 +318,7 @@ namespace agate_pris
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
-			m_repr -= rhs
+            m_repr -= rhs;
 			return *this;
 		}
 		template< typename Repr >
@@ -327,7 +327,7 @@ namespace agate_pris
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
-			m_repr *= rhs
+            m_repr *= rhs;
 			return *this;
 		}
 		template< typename Repr >
@@ -336,7 +336,7 @@ namespace agate_pris
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
-			m_repr /= rhs
+            m_repr /= rhs;
 			return *this;
 		}
 		//@}
