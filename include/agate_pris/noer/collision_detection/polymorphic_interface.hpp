@@ -5,6 +5,7 @@
 #include <agate_pris/noer/collision_detection/polymorphic_implement_fwd.hpp>
 #include <agate_pris/noer/collision_detection/tag.hpp>
 #include <agate_pris/noer/collision_detection/tags.hpp>
+#include <type_traits>
 
 namespace agate_pris
 {
@@ -62,6 +63,27 @@ namespace agate_pris
                 {
                     using type = polymorphic_tag;
                 };
+            }
+
+            // overload intersects
+            template< typename... Objects >
+            inline bool intersects( polymorphic_interface< Objects... > const& a, polymorphic_interface< Objects... > const& b )
+            {
+                return a.intersects( b );
+            }
+
+            template< typename AnyObject, typename AnyTag, typename... Objects >
+            inline auto intersects( polymorphic_interface< Objects... > const& a, AnyObject const& b, polymorphic_tag, AnyTag )
+            -> std::enable_if_t< !std::is_same< AnyTag, container_tag >::value, bool >
+            {
+                return a.intersects( b );
+            }
+
+            template< typename AnyObject, typename AnyTag, typename... Objects >
+            inline auto intersects( AnyObject const& b, polymorphic_interface< Objects... > const& a, AnyTag, polymorphic_tag )
+            -> std::enable_if_t< !std::is_same< AnyTag, container_tag >::value, bool >
+            {
+                return a.intersects( b );
             }
         }
     }
