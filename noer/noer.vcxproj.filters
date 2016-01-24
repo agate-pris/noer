@@ -81,6 +81,9 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_triangle_triangle.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_interface.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_implement_fwd.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
