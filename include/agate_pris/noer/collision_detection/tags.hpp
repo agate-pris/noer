@@ -14,6 +14,8 @@ namespace agate_pris
 			using box_tag     = boost::geometry::box_tag;
 			using segment_tag = boost::geometry::segment_tag;
 			struct triangle_tag {};
+            struct polymorphic_tag {};
+            struct container_tag {};
 		}
 	}
 }

@@ -48,6 +48,54 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\access.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\triangle.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_box.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_point.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_segment.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_triangle.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_point_triangle.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_order.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_segment_segment.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_segment_triangle.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_triangle_triangle.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_implement.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_interface.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_implement_fwd.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_container_polymorphic.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_container.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="collision_detection">
