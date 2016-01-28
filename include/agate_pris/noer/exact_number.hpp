@@ -154,13 +154,13 @@ namespace agate_pris
 			//@}
 
 			//@{
-			template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+			template< typename Rhs >
 			exact_number< Repr >& operator += ( const Rhs& rhs );
-			template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+			template< typename Rhs >
 			exact_number< Repr >& operator -= ( const Rhs& rhs );
-			template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+			template< typename Rhs >
 			exact_number< Repr >& operator *= ( const Rhs& rhs );
-			template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+			template< typename Rhs >
 			exact_number< Repr >& operator /= ( const Rhs& rhs );
 			//@}
 
@@ -290,21 +290,17 @@ namespace agate_pris
 			return *this;
 		}
 
-		/// @brief \~japanese 基本型に対する複合代入演算子
-		///        \~english  compound assignment operator for any fundamental type
-
-		/// @attention \~japanese `numeric_limits< Rhs >::is_exact` は `true` でなければならない。
-		///            \~english  `numeric_limits< Rhs >::is_exact` must be `true` .
-
-		/// @param rhs \~japanese 右辺
-		///            \~english  right hand side
-
-		/// @tparam Rhs \~japanese 右辺の型
-		///             \~english  type of right hand side
-
-		//@{
+		/// @brief \~english compound assignment operator except for `exact_number`
+		/// \~japanese `exact_number` 以外との複合代入演算子
+		/// @attention \~english  `numeric_limits< Rhs >::is_exact` must be `true` .
+		/// \~japanese `numeric_limits< Rhs >::is_exact` は `true` でなければならない。
+		/// @param rhs \~english  right hand side
+		/// \~japanese 右辺
+		/// @tparam Rhs \~english  type of right hand side
+		/// \~japanese 右辺の型
+		/// @{
 		template< typename Repr >
-		template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* >
+		template< typename Rhs >
 		exact_number< Repr >& exact_number< Repr >::operator += ( const Rhs& rhs )
 		{
 			using std::numeric_limits;
@@ -313,7 +309,7 @@ namespace agate_pris
 			return *this;
 		}
 		template< typename Repr >
-		template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* >
+		template< typename Rhs >
 		exact_number< Repr >& exact_number< Repr >::operator -= ( const Rhs& rhs )
 		{
 			using std::numeric_limits;
@@ -322,7 +318,7 @@ namespace agate_pris
 			return *this;
 		}
 		template< typename Repr >
-		template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* >
+		template< typename Rhs >
 		exact_number< Repr >& exact_number< Repr >::operator *= ( const Rhs& rhs )
 		{
 			using std::numeric_limits;
@@ -331,7 +327,7 @@ namespace agate_pris
 			return *this;
 		}
 		template< typename Repr >
-		template< typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* >
+		template< typename Rhs >
 		exact_number< Repr >& exact_number< Repr >::operator /= ( const Rhs& rhs )
 		{
 			using std::numeric_limits;
@@ -339,7 +335,7 @@ namespace agate_pris
             m_repr /= rhs;
 			return *this;
 		}
-		//@}
+		/// @}
 
 		/// @relates agate_pris::noer::exact_number
 
