@@ -11,7 +11,6 @@
 #include <boost/multiprecision/cpp_int.hpp>
 #include <agate_pris/noer/eval.hpp>
 #include <agate_pris/noer/pow.hpp>
-#include <agate_pris/noer/numeric_limits.hpp>
 
 namespace agate_pris
 {
@@ -89,12 +88,6 @@ namespace agate_pris
 			// ----------------------
 			inline const Repr& get()const{ return m_repr; }
 			inline       Repr& get()     { return m_repr; }
-		};
-
-		template< typename Repr, int Exp >
-		struct numeric_limits< fixed_point< Repr, Exp > >
-		{
-			static constexpr const bool is_exact = numeric_limits< Repr >::is_exact;
 		};
 
 		// static functions
