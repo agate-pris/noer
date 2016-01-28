@@ -11,7 +11,6 @@
 #include <boost/multiprecision/cpp_int.hpp>
 #include <agate_pris/noer/eval.hpp>
 #include <agate_pris/noer/pow.hpp>
-#include <agate_pris/noer/numeric_limits.hpp>
 
 namespace agate_pris
 {
@@ -31,6 +30,11 @@ namespace agate_pris
 			// ---------------
 			Repr m_repr;
 
+            // private constructor and type for define type traits
+            // ---------------------------------------------------
+            struct max_tag {};
+            constexpr fixed_point( max_tag ) : m_repr( std::numeric_limits< Repr >::max() ) {}
+
 		public:
 			// constants
 			// ---------
@@ -41,6 +45,7 @@ namespace agate_pris
 			template< typename T > static T convertible_max();
 			template< typename T > static T mul_scaling_factor( T arg );
 			template< typename T > static T div_scaling_factor( T arg );
+            static constexpr const fixed_point< Repr, Exp > max() { return fixed_point< Repr, Exp >( max_tag{} ); }
 
 			// constructor
 			// -----------
@@ -83,12 +88,6 @@ namespace agate_pris
 			// ----------------------
 			inline const Repr& get()const{ return m_repr; }
 			inline       Repr& get()     { return m_repr; }
-		};
-
-		template< typename Repr, int Exp >
-		struct numeric_limits< fixed_point< Repr, Exp > >
-		{
-			static constexpr const bool is_exact = numeric_limits< Repr >::is_exact;
 		};
 
 		// static functions
@@ -329,6 +328,19 @@ namespace agate_pris
 			return lhs /= numerator( rhs );
 		}
 	}
+}
+
+namespace std
+{
+    template< typename Repr, int Exp >
+    struct numeric_limits< agate_pris::noer::fixed_point< Repr, Exp > >
+    {
+        static constexpr bool is_integer   = false;
+        static constexpr bool is_exact     = numeric_limits< Repr >::is_exact;
+        static constexpr bool is_bounded   = numeric_limits< Repr >::is_bounded;
+        static constexpr int  max_exponent = 0;
+        static constexpr agate_pris::noer::fixed_point< Repr, Exp > max() { return agate_pris::noer::fixed_point< Repr, Exp >::max(); }
+    };
 }
 
 namespace boost
