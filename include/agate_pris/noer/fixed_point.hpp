@@ -337,6 +337,19 @@ namespace agate_pris
 	}
 }
 
+namespace std
+{
+    template< typename Repr, int Exp >
+    struct numeric_limits< agate_pris::noer::fixed_point< Repr, Exp > >
+    {
+        static constexpr bool is_integer   = false;
+        static constexpr bool is_exact     = numeric_limits< Repr >::is_exact;
+        static constexpr bool is_bounded   = numeric_limits< Repr >::is_bounded;
+        static constexpr int  max_exponent = 0;
+        static constexpr agate_pris::noer::fixed_point< Repr, Exp > max() { return agate_pris::noer::fixed_point< Repr, Exp >::max(); }
+    };
+}
+
 namespace boost
 {
 	namespace serialization
