@@ -31,6 +31,11 @@ namespace agate_pris
 			// ---------------
 			Repr m_repr;
 
+            // private constructor and type for define type traits
+            // ---------------------------------------------------
+            struct max_tag {};
+            constexpr fixed_point( max_tag ) : m_repr( std::numeric_limits< Repr >::max() ) {}
+
 		public:
 			// constants
 			// ---------
@@ -41,6 +46,7 @@ namespace agate_pris
 			template< typename T > static T convertible_max();
 			template< typename T > static T mul_scaling_factor( T arg );
 			template< typename T > static T div_scaling_factor( T arg );
+            static constexpr const fixed_point< Repr, Exp > max() { return fixed_point< Repr, Exp >( max_tag{} ); }
 
 			// constructor
 			// -----------
