@@ -173,6 +173,13 @@ namespace agate_pris
 			template< typename Rhs > exact_number& operator *= ( const exact_number< Rhs >& r ) { m_repr *= get( r ); return *this; }
 			template< typename Rhs > exact_number& operator /= ( const exact_number< Rhs >& r ) { m_repr /= get( r ); return *this; }
 			/// @}
+
+            /// @brief \~english conversion operatort to `exact_number`
+            /// \~japanese `exact_number` への変換演算子
+            template< typename T > operator exact_number< T >()
+            {
+                return exact_number< T >( static_cast< T >( m_repr ) );
+            }
 		};
 
 		/// @brief \~english  produces the value of its operand
