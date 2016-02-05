@@ -146,12 +146,6 @@ namespace agate_pris
 			exact_number< Repr >& operator = ( const exact_number< Rhs >& rhs );
 			//@}
 
-			//@{
-			template< typename Arg, std::enable_if_t< std::is_fundamental< std::decay_t< Arg > >::value >* = nullptr >
-			exact_number( Arg&& arg );
-			template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Rhs > >::value >* = nullptr >
-			exact_number< Repr >& operator = ( Rhs&& rhs );
-			//@}
 
 			//@{
 			template< typename Rhs >
@@ -253,55 +247,6 @@ namespace agate_pris
 		exact_number< Repr >& exact_number< Repr >::operator = ( const exact_number< Rhs >& arg )
 		{
 			m_repr = static_cast< Repr >( arg );
-		}
-
-		/// @brief \~japanese 基本型に対するコンストラクタ
-		///        \~english  constructor for fundamental type
-
-		/// @attention \~japanese `numeric_limits< std::decay_t< Arg > >::is_exact` は `true` でなければならない。
-		///            \~english  `numeric_limits< std::decay_t< Arg > >::is_exact` must be `true` .
-
-		/// @tparam Arg \~japanese 引数の型
-		///             \~english  Argument's type
-
-		/// @details \~japanese メンバ変数 `m_repr` は以下の式によって初期化される。
-		///          \~english  member variable `m_repr` is initialized by the following expression.
-		///          \~
-		/// ~~~{.cpp}
-		/// m_repr( std::forward< Arg >( arg ) )
-		/// ~~~
-		template<typename Repr>
-		template<typename Arg, std::enable_if_t< std::is_fundamental< std::decay_t< Arg > >::value >* >
-		inline exact_number< Repr >::exact_number( Arg&& arg )
-		: m_repr( std::forward< Arg >( arg ) )
-		{
-			using std::numeric_limits;
-			static_assert( numeric_limits< std::decay_t< Arg > >::is_exact, "Arg must be exact!" );
-		}
-
-		/// @brief \~japanese 基本型に対するコピー/ムーブ代入演算子
-		///        \~english  copy/move assignment operator for fundamental type
-
-		/// @attention \~japanese `numeric_limits< std::decay_t< Rhs > >::is_exact` は `true` でなければならない。
-		///            \~english  `numeric_limits< std::decay_t< Rhs > >::is_exact` must be `true` .
-
-		/// @tparam Rhs \~japanese 右辺の型
-		///             \~english  type of right hand side
-
-		/// @details \~japanese 以下の式によって引数 `rhs` をメンバ変数 `m_repr` に代入する。
-		///          \~english  assign argument rhs for member variable `m_repr` by the following expression.
-		///          \~
-		/// ~~~{.cpp}
-		/// m_repr = std::forward< Repr >( rhs );
-		/// ~~~
-		template<typename Repr>
-		template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Rhs > >::value >* >
-		inline exact_number< Repr >& exact_number< Repr >::operator = ( Rhs&& rhs )
-		{
-			using std::numeric_limits;
-			static_assert( numeric_limits< std::decay_t< Rhs > >::is_exact, "Rhs must be exact!" );
-			m_repr = std::forward< Repr >( rhs );
-			return *this;
 		}
 
 		/// @brief \~english compound assignment operator except for `exact_number`
