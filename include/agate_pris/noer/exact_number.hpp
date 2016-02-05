@@ -147,6 +147,13 @@ namespace agate_pris
 			//@}
 
 
+            // conversion to any exact number
+            template< typename T, typename = std::enable_if_t< std::numeric_limits< T >::is_exact > >
+            operator T() const
+            {
+                return static_cast< T >( m_repr );
+            }
+
 			//@{
 			template< typename Rhs >
 			exact_number< Repr >& operator += ( const Rhs& rhs );
@@ -167,13 +174,6 @@ namespace agate_pris
 			template< typename Rhs > exact_number& operator *= ( const exact_number< Rhs >& r ) { m_repr *= get( r ); return *this; }
 			template< typename Rhs > exact_number& operator /= ( const exact_number< Rhs >& r ) { m_repr /= get( r ); return *this; }
 			/// @}
-
-            // conversion operator to exact number
-            template< typename T, typename = std::enable_if_t< std::numeric_limits< T >::is_exact > >
-            operator T() const
-            {
-                return static_cast< T >( m_repr );
-            }
 		};
 
 		/// @brief \~english  produces the value of its operand
