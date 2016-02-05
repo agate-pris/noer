@@ -113,30 +113,20 @@ namespace agate_pris
 			///        \~english  declation of template argument `Repr`
 			using value_type = Repr;
 
-			//@{
-			/// @brief \~japanese デフォルトコンストラクタ
-			///        \~english  default constructor
+            // default constructor
 			exact_number() = default;
-			/// @brief \~japanese コピーコンストラクタ
-			///        \~ensligh  copy constructor
-			exact_number( const exact_number< Repr >& ) = default;
-			/// @brief \~japanese ムーブコンストラクタ
-			///        \~english  move constructor
-			exact_number( exact_number< Repr >&& ) = default;
-			/// @brief \~japanese コピー代入演算子
-			///        \~english  copy assignment operator
-			exact_number< Repr >& operator = ( const exact_number< Repr >& ) = default;
-			/// @brief \~japanese ムーブ代入演算子
-			///        \~english  move assignment operator
-			exact_number< Repr >& operator = ( exact_number< Repr >&& ) = default;
-			//@}
 
-			//@{
-			template< typename Arg >
-			exact_number( const exact_number< Arg >& arg );
-			template< typename Rhs >
-			exact_number< Repr >& operator = ( const exact_number< Rhs >& rhs );
-			//@}
+            // copy and move constructor and operator
+            exact_number( const exact_number< Repr >& ) = default;
+            exact_number( exact_number< Repr >&& ) = default;
+            exact_number< Repr >& operator = ( const exact_number< Repr >& ) = default;
+            exact_number< Repr >& operator = ( exact_number< Repr >&& ) = default;
+
+            // conversion from the other exact_number
+            template< typename Arg >
+            exact_number( const exact_number< Arg >& arg );
+            template< typename Rhs >
+            exact_number< Repr >& operator = ( const exact_number< Rhs >& rhs );
 
             // conversion from any types
             template< typename Arg >
