@@ -176,14 +176,14 @@ namespace agate_pris
 
             /// @brief \~english conversion operatort to `exact_number`
             /// \~japanese `exact_number` への変換演算子
-            template< typename T > operator exact_number< T >()
+            template< typename T > operator exact_number< T >() const
             {
                 return exact_number< T >( static_cast< T >( m_repr ) );
             }
 
             // conversion operator to exact number
             template< typename T, typename = std::enable_if_t< std::numeric_limits< T >::is_exact > >
-            operator T()
+            operator T() const
             {
                 return static_cast< T >( m_repr );
             }
