@@ -180,6 +180,13 @@ namespace agate_pris
             {
                 return exact_number< T >( static_cast< T >( m_repr ) );
             }
+
+            // conversion operator to exact number
+            template< typename T, typename = std::enable_if_t< std::numeric_limits< T >::is_exact > >
+            operator T()
+            {
+                return static_cast< T >( m_repr );
+            }
 		};
 
 		/// @brief \~english  produces the value of its operand
