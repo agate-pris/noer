@@ -113,45 +113,41 @@ namespace agate_pris
 			///        \~english  declation of template argument `Repr`
 			using value_type = Repr;
 
-			//@{
-			/// @brief \~japanese デフォルトコンストラクタ
-			///        \~english  default constructor
+            // default constructor
 			exact_number() = default;
-			/// @brief \~japanese コピーコンストラクタ
-			///        \~ensligh  copy constructor
-			exact_number( const exact_number< Repr >& ) = default;
-			/// @brief \~japanese ムーブコンストラクタ
-			///        \~english  move constructor
-			exact_number( exact_number< Repr >&& ) = default;
-			/// @brief \~english constructor for exact number
-			template< typename Number >
-			exact_number( const Number& num )
-			: m_repr( static_cast< Repr >( num ) )
-			{
-				using namespace std;
-				static_assert( numeric_limits< Number >::is_exact, "Number must be exact." );
-			}
-			/// @brief \~japanese コピー代入演算子
-			///        \~english  copy assignment operator
-			exact_number< Repr >& operator = ( const exact_number< Repr >& ) = default;
-			/// @brief \~japanese ムーブ代入演算子
-			///        \~english  move assignment operator
-			exact_number< Repr >& operator = ( exact_number< Repr >&& ) = default;
-			//@}
 
-			//@{
-			template< typename Arg >
-			exact_number( const exact_number< Arg >& arg );
-			template< typename Rhs >
-			exact_number< Repr >& operator = ( const exact_number< Rhs >& rhs );
-			//@}
+            // copy and move constructor and operator
+            exact_number( const exact_number< Repr >& ) = default;
+            exact_number( exact_number< Repr >&& ) = default;
+            exact_number< Repr >& operator = ( const exact_number< Repr >& ) = default;
+            exact_number< Repr >& operator = ( exact_number< Repr >&& ) = default;
 
-			//@{
-			template< typename Arg, std::enable_if_t< std::is_fundamental< std::decay_t< Arg > >::value >* = nullptr >
-			exact_number( Arg&& arg );
-			template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Rhs > >::value >* = nullptr >
-			exact_number< Repr >& operator = ( Rhs&& rhs );
-			//@}
+            // conversion from the other exact_number
+            template< typename Arg >
+            exact_number( const exact_number< Arg >& arg );
+            template< typename Rhs >
+            exact_number< Repr >& operator = ( const exact_number< Rhs >& rhs );
+
+            // conversion from any types
+            template< typename Arg >
+            exact_number( const Arg& arg )
+            : m_repr( static_cast< Repr >( arg ) )
+            {
+                static_assert( std::numeric_limits< Arg >::is_exact, "Number must be exact." );
+            }
+            template< typename Arg >
+            exact_number< Repr >& operator = ( const Arg& arg )
+            {
+                static_assert( std::numeric_limits< Arg >::is_exact, "Number must be exact." );
+                m_repr = static_cast< Repr >( arg );
+            }
+
+            // conversion to any exact number
+            template< typename T, typename = std::enable_if_t< std::numeric_limits< T >::is_exact > >
+            operator T() const
+            {
+                return static_cast< T >( m_repr );
+            }
 
 			//@{
 			template< typename Rhs >
@@ -173,20 +169,6 @@ namespace agate_pris
 			template< typename Rhs > exact_number& operator *= ( const exact_number< Rhs >& r ) { m_repr *= get( r ); return *this; }
 			template< typename Rhs > exact_number& operator /= ( const exact_number< Rhs >& r ) { m_repr /= get( r ); return *this; }
 			/// @}
-
-            /// @brief \~english conversion operatort to `exact_number`
-            /// \~japanese `exact_number` への変換演算子
-            template< typename T > operator exact_number< T >() const
-            {
-                return exact_number< T >( static_cast< T >( m_repr ) );
-            }
-
-            // conversion operator to exact number
-            template< typename T, typename = std::enable_if_t< std::numeric_limits< T >::is_exact > >
-            operator T() const
-            {
-                return static_cast< T >( m_repr );
-            }
 		};
 
 		/// @brief \~english  produces the value of its operand
@@ -253,55 +235,6 @@ namespace agate_pris
 		exact_number< Repr >& exact_number< Repr >::operator = ( const exact_number< Rhs >& arg )
 		{
 			m_repr = static_cast< Repr >( arg );
-		}
-
-		/// @brief \~japanese 基本型に対するコンストラクタ
-		///        \~english  constructor for fundamental type
-
-		/// @attention \~japanese `numeric_limits< std::decay_t< Arg > >::is_exact` は `true` でなければならない。
-		///            \~english  `numeric_limits< std::decay_t< Arg > >::is_exact` must be `true` .
-
-		/// @tparam Arg \~japanese 引数の型
-		///             \~english  Argument's type
-
-		/// @details \~japanese メンバ変数 `m_repr` は以下の式によって初期化される。
-		///          \~english  member variable `m_repr` is initialized by the following expression.
-		///          \~
-		/// ~~~{.cpp}
-		/// m_repr( std::forward< Arg >( arg ) )
-		/// ~~~
-		template<typename Repr>
-		template<typename Arg, std::enable_if_t< std::is_fundamental< std::decay_t< Arg > >::value >* >
-		inline exact_number< Repr >::exact_number( Arg&& arg )
-		: m_repr( std::forward< Arg >( arg ) )
-		{
-			using std::numeric_limits;
-			static_assert( numeric_limits< std::decay_t< Arg > >::is_exact, "Arg must be exact!" );
-		}
-
-		/// @brief \~japanese 基本型に対するコピー/ムーブ代入演算子
-		///        \~english  copy/move assignment operator for fundamental type
-
-		/// @attention \~japanese `numeric_limits< std::decay_t< Rhs > >::is_exact` は `true` でなければならない。
-		///            \~english  `numeric_limits< std::decay_t< Rhs > >::is_exact` must be `true` .
-
-		/// @tparam Rhs \~japanese 右辺の型
-		///             \~english  type of right hand side
-
-		/// @details \~japanese 以下の式によって引数 `rhs` をメンバ変数 `m_repr` に代入する。
-		///          \~english  assign argument rhs for member variable `m_repr` by the following expression.
-		///          \~
-		/// ~~~{.cpp}
-		/// m_repr = std::forward< Repr >( rhs );
-		/// ~~~
-		template<typename Repr>
-		template< typename Rhs, std::enable_if_t< std::is_fundamental< std::decay_t< Rhs > >::value >* >
-		inline exact_number< Repr >& exact_number< Repr >::operator = ( Rhs&& rhs )
-		{
-			using std::numeric_limits;
-			static_assert( numeric_limits< std::decay_t< Rhs > >::is_exact, "Rhs must be exact!" );
-			m_repr = std::forward< Repr >( rhs );
-			return *this;
 		}
 
 		/// @brief \~english compound assignment operator except for `exact_number`
