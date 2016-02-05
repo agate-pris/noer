@@ -145,6 +145,12 @@ namespace agate_pris
             {
                 static_assert( std::numeric_limits< Arg >::is_exact, "Number must be exact." );
             }
+            template< typename Arg >
+            exact_number< Repr >& operator = ( const Arg& arg )
+            {
+                static_assert( std::numeric_limits< Arg >::is_exact, "Number must be exact." );
+                m_repr = static_cast< Repr >( arg );
+            }
 
             // conversion to any exact number
             template< typename T, typename = std::enable_if_t< std::numeric_limits< T >::is_exact > >
