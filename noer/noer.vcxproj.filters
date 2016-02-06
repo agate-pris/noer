@@ -104,10 +104,16 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\shared_point.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\config.hpp">
+      <Filter>config</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="collision_detection">
       <UniqueIdentifier>{9ab5b6c9-7f06-4c0a-935f-12c950fcf6d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{b1b3ffe2-84a0-4065-8b0c-31a321d70e6c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

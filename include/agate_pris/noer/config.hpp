@@ -1,0 +1,4 @@
+
+#ifndef AGATE_PRIS_NOER_CONFIG_HPP
+#define AGATE_PRIS_NOER_CONFIG_HPP
+#endif
