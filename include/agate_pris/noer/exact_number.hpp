@@ -218,7 +218,7 @@ namespace agate_pris
 		template< typename Repr >
 		template< typename Arg >
 		exact_number< Repr >::exact_number( const exact_number< Arg >& arg )
-		: m_repr( static_cast< Repr >( arg ) )
+		: m_repr( convert_to< Repr >( arg ) )
 		{}
 
 		/// @brief \~japanese テンプレート引数 `Repr` の異なる `exact_number` 用コピー代入演算子
