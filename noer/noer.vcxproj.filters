@@ -107,6 +107,9 @@
     <ClInclude Include="..\include\agate_pris\noer\config.hpp">
       <Filter>config</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\config\deprecated.hpp">
+      <Filter>config</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="collision_detection">
