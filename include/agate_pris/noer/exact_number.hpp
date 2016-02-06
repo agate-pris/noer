@@ -5,6 +5,7 @@
 #include <type_traits>
 #include <limits>
 #include <boost/type_traits/has_operator.hpp>
+#include <agate_pris/noer/config/deprecated.hpp>
 
 namespace agate_pris
 {
@@ -144,7 +145,7 @@ namespace agate_pris
 
             // conversion to any exact number
             template< typename T, typename = std::enable_if_t< std::numeric_limits< T >::is_exact > >
-            operator T() const
+            AGATE_PRIS_NOER_DEPRECATED operator T() const
             {
                 return static_cast< T >( m_repr );
             }
