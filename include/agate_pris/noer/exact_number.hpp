@@ -42,7 +42,7 @@ namespace agate_pris
 			
 			/// @{
 			template< typename Repr >
-			inline auto const& get( const exact_number< Repr >& n )
+			inline auto const& get( exact_number< Repr > const& n )
 			{
 				return get_impl< Repr >::get( n );
 			}
@@ -80,7 +80,7 @@ namespace agate_pris
 
 			/// @relates agate_pris::noer::exact_number
 			template< typename Target, typename Repr >
-			inline auto convert_to( const exact_number< Repr >& n )
+			inline auto convert_to( exact_number< Repr > const& n )
 			{
 				return static_cast< Target >( get( n ) );
 			}
@@ -118,26 +118,26 @@ namespace agate_pris
 			exact_number() = default;
 
             // copy and move constructor and operator
-            exact_number( const exact_number< Repr >& ) = default;
+            exact_number( exact_number< Repr > const& ) = default;
             exact_number( exact_number< Repr >&& ) = default;
-            exact_number< Repr >& operator = ( const exact_number< Repr >& ) = default;
+            exact_number< Repr >& operator = ( exact_number< Repr > const& ) = default;
             exact_number< Repr >& operator = ( exact_number< Repr >&& ) = default;
 
             // conversion from the other exact_number
             template< typename Arg >
-            exact_number( const exact_number< Arg >& arg );
+            exact_number( exact_number< Arg > const& arg );
             template< typename Rhs >
-            exact_number< Repr >& operator = ( const exact_number< Rhs >& rhs );
+            exact_number< Repr >& operator = ( exact_number< Rhs > const& rhs );
 
             // conversion from any types
             template< typename Arg >
-            exact_number( const Arg& arg )
+            exact_number( Arg const& arg )
             : m_repr( static_cast< Repr >( arg ) )
             {
                 static_assert( std::numeric_limits< Arg >::is_exact, "Number must be exact." );
             }
             template< typename Arg >
-            exact_number< Repr >& operator = ( const Arg& arg )
+            exact_number< Repr >& operator = ( Arg const& arg )
             {
                 static_assert( std::numeric_limits< Arg >::is_exact, "Number must be exact." );
                 m_repr = static_cast< Repr >( arg );
@@ -152,23 +152,23 @@ namespace agate_pris
 
 			//@{
 			template< typename Rhs >
-			exact_number< Repr >& operator += ( const Rhs& rhs );
+			exact_number< Repr >& operator += ( Rhs const& rhs );
 			template< typename Rhs >
-			exact_number< Repr >& operator -= ( const Rhs& rhs );
+			exact_number< Repr >& operator -= ( Rhs const& rhs );
 			template< typename Rhs >
-			exact_number< Repr >& operator *= ( const Rhs& rhs );
+			exact_number< Repr >& operator *= ( Rhs const& rhs );
 			template< typename Rhs >
-			exact_number< Repr >& operator /= ( const Rhs& rhs );
+			exact_number< Repr >& operator /= ( Rhs const& rhs );
 			//@}
 
 			/// @brief \~japanese `exact_number< Repr >` との算術複合代入演算子
 			///        \~english  Arithmetic assignment operators with `exact_number< Repr >`
 
 			/// @{
-			template< typename Rhs > exact_number& operator += ( const exact_number< Rhs >& r ) { m_repr += get( r ); return *this; }
-			template< typename Rhs > exact_number& operator -= ( const exact_number< Rhs >& r ) { m_repr -= get( r ); return *this; }
-			template< typename Rhs > exact_number& operator *= ( const exact_number< Rhs >& r ) { m_repr *= get( r ); return *this; }
-			template< typename Rhs > exact_number& operator /= ( const exact_number< Rhs >& r ) { m_repr /= get( r ); return *this; }
+			template< typename Rhs > exact_number& operator += ( exact_number< Rhs > const& r ) { m_repr += get( r ); return *this; }
+			template< typename Rhs > exact_number& operator -= ( exact_number< Rhs > const& r ) { m_repr -= get( r ); return *this; }
+			template< typename Rhs > exact_number& operator *= ( exact_number< Rhs > const& r ) { m_repr *= get( r ); return *this; }
+			template< typename Rhs > exact_number& operator /= ( exact_number< Rhs > const& r ) { m_repr /= get( r ); return *this; }
 			/// @}
 		};
 
@@ -176,7 +176,7 @@ namespace agate_pris
 		///        \~japanese オペランドの値を生成
 		template< typename Repr >
 		std::enable_if_t< boost::has_unary_plus< Repr >::value, exact_number< Repr > >
-		operator + ( const exact_number< Repr >& arg )
+		operator + ( exact_number< Repr > const& arg )
 		{
 			return exact_number< Repr >( +get( arg ) );
 		}
@@ -185,7 +185,7 @@ namespace agate_pris
 		///        \~japanese オペランドの負数を生成
 		template< typename Repr >
 		std::enable_if_t< boost::has_unary_minus< Repr >::value, exact_number< Repr > >
-		operator - ( const exact_number< Repr >& arg )
+		operator - ( exact_number< Repr > const& arg )
 		{
 			return exact_number< Repr >( -get( arg ) );
 		}
@@ -218,7 +218,7 @@ namespace agate_pris
 		/// ~~~
 		template< typename Repr >
 		template< typename Arg >
-		exact_number< Repr >::exact_number( const exact_number< Arg >& arg )
+		exact_number< Repr >::exact_number( exact_number< Arg > const& arg )
 		: m_repr( convert_to< Repr >( arg ) )
 		{}
 
@@ -233,7 +233,7 @@ namespace agate_pris
 		/// ~~~
 		template< typename Repr >
 		template< typename Rhs >
-		exact_number< Repr >& exact_number< Repr >::operator = ( const exact_number< Rhs >& arg )
+		exact_number< Repr >& exact_number< Repr >::operator = ( exact_number< Rhs > const& arg )
 		{
 			m_repr = static_cast< Repr >( arg );
 		}
@@ -249,7 +249,7 @@ namespace agate_pris
 		/// @{
 		template< typename Repr >
 		template< typename Rhs >
-		exact_number< Repr >& exact_number< Repr >::operator += ( const Rhs& rhs )
+		exact_number< Repr >& exact_number< Repr >::operator += ( Rhs const& rhs )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
@@ -258,7 +258,7 @@ namespace agate_pris
 		}
 		template< typename Repr >
 		template< typename Rhs >
-		exact_number< Repr >& exact_number< Repr >::operator -= ( const Rhs& rhs )
+		exact_number< Repr >& exact_number< Repr >::operator -= ( Rhs const& rhs )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
@@ -267,7 +267,7 @@ namespace agate_pris
 		}
 		template< typename Repr >
 		template< typename Rhs >
-		exact_number< Repr >& exact_number< Repr >::operator *= ( const Rhs& rhs )
+		exact_number< Repr >& exact_number< Repr >::operator *= ( Rhs const& rhs )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
@@ -276,7 +276,7 @@ namespace agate_pris
 		}
 		template< typename Repr >
 		template< typename Rhs >
-		exact_number< Repr >& exact_number< Repr >::operator /= ( const Rhs& rhs )
+		exact_number< Repr >& exact_number< Repr >::operator /= ( Rhs const& rhs )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
@@ -310,72 +310,72 @@ namespace agate_pris
 
 		/// @{
 		template< typename Lhs, typename Rhs >
-		auto operator + ( const Lhs& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >
+		auto operator + ( Lhs const& lhs, exact_number< Rhs > const& rhs ) -> exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >
 		{
 			static_assert( std::numeric_limits< Lhs >::is_exact, "Lhs must be exact!" );
 			return exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >( lhs + get( rhs ) );
 		}
 		template< typename Lhs, typename Rhs >
-		auto operator - ( const Lhs& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >
+		auto operator - ( Lhs const& lhs, exact_number< Rhs > const& rhs ) -> exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >
 		{
 			static_assert( std::numeric_limits< Lhs >::is_exact, "Lhs must be exact!" );
 			return exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >( lhs - get( rhs ) );
 		}
 		template< typename Lhs, typename Rhs >
-		auto operator * ( const Lhs& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >
+		auto operator * ( Lhs const& lhs, exact_number< Rhs > const& rhs ) -> exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >
 		{
 			static_assert( std::numeric_limits< Lhs >::is_exact, "Lhs must be exact!" );
 			return exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >( lhs * get( rhs ) );
 		}
 		template< typename Lhs, typename Rhs >
-		auto operator / ( const Lhs& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >
+		auto operator / ( Lhs const& lhs, exact_number< Rhs > const& rhs ) -> exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >
 		{
 			static_assert( std::numeric_limits< Lhs >::is_exact, "Lhs must be exact!" );
 			return exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >( lhs / get( rhs ) );
 		}
 
 		template< typename Lhs, typename Rhs >
-		auto operator + ( const exact_number< Lhs >& lhs, const Rhs& rhs ) -> exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >
+		auto operator + ( exact_number< Lhs > const& lhs, Rhs const& rhs ) -> exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >
 		{
 			static_assert( std::numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
 			return exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >( get( lhs ) + rhs );
 		}
 		template< typename Lhs, typename Rhs >
-		auto operator - ( const exact_number< Lhs >& lhs, const Rhs& rhs ) -> exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >
+		auto operator - ( exact_number< Lhs > const& lhs, Rhs const& rhs ) -> exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >
 		{
 			static_assert( std::numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
 			return exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >( get( lhs ) - rhs );
 		}
 		template< typename Lhs, typename Rhs >
-		auto operator * ( const exact_number< Lhs >& lhs, const Rhs& rhs ) -> exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >
+		auto operator * ( exact_number< Lhs > const& lhs, Rhs const& rhs ) -> exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >
 		{
 			static_assert( std::numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
 			return exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >( get( lhs ) * rhs );
 		}
 		template< typename Lhs, typename Rhs >
-		auto operator / ( const exact_number< Lhs >& lhs, const Rhs& rhs ) -> exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >
+		auto operator / ( exact_number< Lhs > const& lhs, Rhs const& rhs ) -> exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >
 		{
 			static_assert( std::numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
 			return exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >( get( lhs ) / rhs );
 		}
 
 		template< typename Lhs, typename Rhs >
-		auto operator + ( const exact_number< Lhs >& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >
+		auto operator + ( exact_number< Lhs > const& lhs, exact_number< Rhs > const& rhs ) -> exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >
 		{
 			return exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >( get( lhs ) + get( rhs ) );
 		}
 		template< typename Lhs, typename Rhs >
-		auto operator - ( const exact_number< Lhs >& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >
+		auto operator - ( exact_number< Lhs > const& lhs, exact_number< Rhs > const& rhs ) -> exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >
 		{
 			return exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >( get( lhs ) - get( rhs ) );
 		}
 		template< typename Lhs, typename Rhs >
-		auto operator * ( const exact_number< Lhs >& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >
+		auto operator * ( exact_number< Lhs > const& lhs, exact_number< Rhs > const& rhs ) -> exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >
 		{
 			return exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >( get( lhs ) * get( rhs ) );
 		}
 		template< typename Lhs, typename Rhs >
-		auto operator / ( const exact_number< Lhs >& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >
+		auto operator / ( exact_number< Lhs > const& lhs, exact_number< Rhs > const& rhs ) -> exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >
 		{
 			return exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >( get( lhs ) / get( rhs ) );
 		}
@@ -388,19 +388,19 @@ namespace agate_pris
 		// operator <
 		// ---------------------------------------------------------------------
 		template< typename Lhs, typename Rhs >
-		bool operator < ( const exact_number< Lhs >& l, const exact_number< Rhs >& r )
+		bool operator < ( exact_number< Lhs > const& l, exact_number< Rhs > const& r )
 		{
 			return get( l ) < get( r );
 		}
 		template< typename Lhs, typename Rhs >
-		bool operator < ( const exact_number< Lhs >& l, const Rhs& r )
+		bool operator < ( exact_number< Lhs > const& l, Rhs const& r )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact." );
 			return get( l ) < r;
 		}
 		template< typename Lhs, typename Rhs >
-		bool operator < ( const Lhs& l, const exact_number< Rhs >& r )
+		bool operator < ( Lhs const& l, exact_number< Rhs > const& r )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Lhs >::is_exact, "Lhs must be exact." );
@@ -410,19 +410,19 @@ namespace agate_pris
 		// operator >
 		// ---------------------------------------------------------------------
 		template< typename Lhs, typename Rhs >
-		bool operator > ( const exact_number< Lhs >& l, const exact_number< Rhs >& r )
+		bool operator > ( exact_number< Lhs > const& l, exact_number< Rhs > const& r )
 		{
 			return r < l;
 		}
 		template< typename Lhs, typename Rhs >
-		bool operator > ( const exact_number< Lhs >& l, const Rhs& r )
+		bool operator > ( exact_number< Lhs > const& l, Rhs const& r )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact." );
 			return r < l;
 		}
 		template< typename Lhs, typename Rhs >
-		bool operator > ( const Lhs& l, const exact_number< Rhs >& r )
+		bool operator > ( Lhs const& l, exact_number< Rhs > const& r )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Lhs >::is_exact, "Lhs must be exact." );
@@ -432,19 +432,19 @@ namespace agate_pris
 		// operator >=
 		// ---------------------------------------------------------------------
 		template< typename Lhs, typename Rhs >
-		bool operator >= ( const exact_number< Lhs >& l, const exact_number< Rhs >& r )
+		bool operator >= ( exact_number< Lhs > const& l, exact_number< Rhs > const& r )
 		{
 			return !( l < r );
 		}
 		template< typename Lhs, typename Rhs >
-		bool operator >= ( const exact_number< Lhs >& l, const Rhs& r )
+		bool operator >= ( exact_number< Lhs > const& l, Rhs const& r )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact." );
 			return !( l < r );
 		}
 		template< typename Lhs, typename Rhs >
-		bool operator >= ( const Lhs& l, const exact_number< Rhs >& r )
+		bool operator >= ( Lhs const& l, exact_number< Rhs > const& r )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Lhs >::is_exact, "Lhs must be exact." );
@@ -454,19 +454,19 @@ namespace agate_pris
 		// operator <=
 		// ---------------------------------------------------------------------
 		template< typename Lhs, typename Rhs >
-		bool operator <= ( const exact_number< Lhs >& l, const exact_number< Rhs >& r )
+		bool operator <= ( exact_number< Lhs > const& l, exact_number< Rhs > const& r )
 		{
 			return !( l > r );
 		}
 		template< typename Lhs, typename Rhs >
-		bool operator <= ( const exact_number< Lhs >& l, const Rhs& r )
+		bool operator <= ( exact_number< Lhs > const& l, Rhs const& r )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact." );
 			return !( l > r );
 		}
 		template< typename Lhs, typename Rhs >
-		bool operator <= ( const Lhs& l, const exact_number< Rhs >& r )
+		bool operator <= ( Lhs const& l, exact_number< Rhs > const& r )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Lhs >::is_exact, "Lhs must be exact." );
@@ -476,19 +476,19 @@ namespace agate_pris
 		// operator ==
 		// ---------------------------------------------------------------------
 		template< typename Lhs, typename Rhs >
-		bool operator == ( const exact_number< Lhs >& l, const exact_number< Rhs >& r )
+		bool operator == ( exact_number< Lhs > const& l, exact_number< Rhs > const& r )
 		{
 			return get( l ) == get( r );
 		}
 		template< typename Lhs, typename Rhs >
-		bool operator == ( const exact_number< Lhs >& l, const Rhs& r )
+		bool operator == ( exact_number< Lhs > const& l, Rhs const& r )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact." );
 			return get( l ) == r;
 		}
 		template< typename Lhs, typename Rhs >
-		bool operator == ( const Lhs& l, const exact_number< Rhs >& r )
+		bool operator == ( Lhs const& l, exact_number< Rhs > const& r )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Lhs >::is_exact, "Lhs must be exact." );
@@ -498,19 +498,19 @@ namespace agate_pris
 		// operator !=
 		// ---------------------------------------------------------------------
 		template< typename Lhs, typename Rhs >
-		bool operator != ( const exact_number< Lhs >& l, const exact_number< Rhs >& r )
+		bool operator != ( exact_number< Lhs > const& l, exact_number< Rhs > const& r )
 		{
 			return !( l == r );
 		}
 		template< typename Lhs, typename Rhs >
-		bool operator != ( const exact_number< Lhs >& l, const Rhs& r )
+		bool operator != ( exact_number< Lhs > const& l, Rhs const& r )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact." );
 			return !( l == r );
 		}
 		template< typename Lhs, typename Rhs >
-		bool operator != ( const Lhs& l, const exact_number< Rhs >& r )
+		bool operator != ( Lhs const& l, exact_number< Rhs > const& r )
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Lhs >::is_exact, "Lhs must be exact." );
