@@ -309,28 +309,28 @@ namespace agate_pris
 		///          \~english  Return value type is `exact_number` holding result type of arithmetic operation.
 
 		/// @{
-		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Lhs >::value >* = nullptr >
+		template< typename Lhs, typename Rhs >
 		auto operator + ( const Lhs& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Lhs >::is_exact, "Lhs must be exact!" );
 			return exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >( lhs + get( rhs ) );
 		}
-		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Lhs >::value >* = nullptr >
+		template< typename Lhs, typename Rhs >
 		auto operator - ( const Lhs& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Lhs >::is_exact, "Lhs must be exact!" );
 			return exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >( lhs - get( rhs ) );
 		}
-		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Lhs >::value >* = nullptr >
+		template< typename Lhs, typename Rhs >
 		auto operator * ( const Lhs& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Lhs >::is_exact, "Lhs must be exact!" );
 			return exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >( lhs * get( rhs ) );
 		}
-		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Lhs >::value >* = nullptr >
+		template< typename Lhs, typename Rhs >
 		auto operator / ( const Lhs& lhs, const exact_number< Rhs >& rhs ) -> exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >
 		{
 			using std::numeric_limits;
@@ -338,28 +338,28 @@ namespace agate_pris
 			return exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >( lhs / get( rhs ) );
 		}
 
-		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+		template< typename Lhs, typename Rhs >
 		auto operator + ( const exact_number< Lhs >& lhs, const Rhs& rhs ) -> exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
 			return exact_number< decltype( std::declval< Lhs >() + std::declval< Rhs >() ) >( get( lhs ) + rhs );
 		}
-		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+		template< typename Lhs, typename Rhs >
 		auto operator - ( const exact_number< Lhs >& lhs, const Rhs& rhs ) -> exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
 			return exact_number< decltype( std::declval< Lhs >() - std::declval< Rhs >() ) >( get( lhs ) - rhs );
 		}
-		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+		template< typename Lhs, typename Rhs >
 		auto operator * ( const exact_number< Lhs >& lhs, const Rhs& rhs ) -> exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >
 		{
 			using std::numeric_limits;
 			static_assert( numeric_limits< Rhs >::is_exact, "Rhs must be exact!" );
 			return exact_number< decltype( std::declval< Lhs >() * std::declval< Rhs >() ) >( get( lhs ) * rhs );
 		}
-		template< typename Lhs, typename Rhs, std::enable_if_t< std::is_fundamental< Rhs >::value >* = nullptr >
+		template< typename Lhs, typename Rhs >
 		auto operator / ( const exact_number< Lhs >& lhs, const Rhs& rhs ) -> exact_number< decltype( std::declval< Lhs >() / std::declval< Rhs >() ) >
 		{
 			using std::numeric_limits;
