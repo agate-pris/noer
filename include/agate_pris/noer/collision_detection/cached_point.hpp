@@ -37,6 +37,11 @@ namespace agate_pris
             : m_entity( std::forward< Arg >( arg ) )
             {
             }
+            template< typename First, typename Second, typename... Tail >
+            cached_point( First&& f, Second&& s, Tail&&... t )
+            : m_entity( std::forward< First >( f ), std::forward< Second >( s ), std::forward< Tail >( t )... )
+            {
+            }
         };
     }
 }
