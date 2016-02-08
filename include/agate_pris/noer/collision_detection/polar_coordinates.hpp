@@ -14,6 +14,10 @@ namespace agate_pris
                 private:
                 RadiusType m_radius;
                 AngleType  m_angle;
+
+                public:
+                using radius_type = RadiusType;
+                using angle_type  = AngleType;
             };
         }
     }
