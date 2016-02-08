@@ -17,6 +17,11 @@ namespace agate_pris
             Entity m_entity;
 
             public:
+            template< typename std::size_t Index >
+            auto get() const
+            {
+                return boost::geometry::get< Index >( m_cache );
+            }
             bool update_cache()
             {
                 return boost::geometry::transform( m_entity, m_cache );
