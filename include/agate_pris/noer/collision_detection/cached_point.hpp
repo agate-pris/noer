@@ -57,4 +57,42 @@ namespace agate_pris
     }
 }
 
+namespace boost
+{
+    namespace geometry
+    {
+        namespace traits
+        {
+            template< typename Cache, typename Entity >
+            struct tag< cached_point< Cache, Entity > >
+            : public tag< Cache >
+            {};
+
+            template< typename Cache, typename Entity >
+            struct coordinate_type< cached_point< Cache, Entity > >
+            : coordinate_type< Cache >
+            {};
+
+            template< typename Cache, typename Entity >
+            struct coordinate_system< cached_point< Cache, Entity > >
+            : coordinate_system< Cache >
+            {};
+
+            template< typename Cache, typename Entity >
+            struct dimension< cached_point< Cache, Entity > >
+            : dimension< Cache >
+            {};
+
+            template< typename Cache, typename Entity, long unsigned int Dimension >
+            struct access< cached_point< Cache, Entity >, Dimension >
+            {
+                static inline auto get( cached_point< Cache, Entity > const& p )
+                {
+                    return p.template get< Dimension >();
+                }
+            };
+        }
+    }
+}
+
 #endif
