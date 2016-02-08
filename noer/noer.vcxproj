@@ -92,6 +92,7 @@
     <ClInclude Include="..\include\agate_pris\noer\atan_approximation.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\atan_table.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\bbp_formula.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\cached_point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\dimension.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\access.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects.hpp" />
@@ -108,6 +109,7 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_order.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_type.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\polar_coordinates.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_implement.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_implement_fwd.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_interface.hpp" />
