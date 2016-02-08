@@ -3,6 +3,11 @@
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_POLAR_COORDINATES_HPP
 
 #include <utility>
+#include <boost/geometry/core/tag.hpp>
+#include <boost/geometry/core/tags.hpp>
+#include <boost/geometry/core/coordinate_system.hpp>
+#include <boost/geometry/core/coordinate_dimension.hpp>
+#include <boost/geometry/core/access.hpp>
 
 namespace agate_pris
 {
@@ -77,6 +82,37 @@ namespace agate_pris
                 m_angle = std::forward< Arg >( a );
             }
         }
+    }
+}
+
+namespace boost
+{
+    namespace geometry
+    {
+        // transform to cartesian coordinate overload
+        template
+        <
+            typename Radius, typename Angle, typename Target,
+            typename = std::enable_if_t< std::is_same
+            <
+                boost::geometry::point_tag,
+                typename boost::geometry::tag< Target >::type
+            >::value >,
+            typename = std::enable_if_t< std::is_same
+            <
+                boost::geometry::cs::cartesian,
+                typename boost::geometry::coordinate_system< Target >::type
+            >::value >,
+            typename = std::enable_if_t< boost::geometry::dimension< Target >::value == 2 >
+        >
+        void transform( polar_coordinates< Radius, Angle > const& source, Target& target )
+        {
+            namespace bg = boost::geometry;
+            auto const& r = source.get_radius();
+            auto const& t = source.get_angle();
+            bg::set< 0 >( target, r * std::cos( t ) );
+            bg::set< 1 >( target, r * std::sin( t ) );
+        };
     }
 }
 
