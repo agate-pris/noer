@@ -112,6 +112,9 @@
     <ClInclude Include="..\include\agate_pris\noer\config\deprecated.hpp">
       <Filter>config</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\cached_point.hpp">
+      <Filter>collision_detection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="collision_detection">
