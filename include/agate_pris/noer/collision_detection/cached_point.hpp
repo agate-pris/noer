@@ -3,6 +3,12 @@
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_CACHED_POINT_HPP
 
 #include <type_traits>
+#include <utility>
+#include <boost/geometry/core/tag.hpp>
+#include <boost/geometry/core/coordinate_type.hpp>
+#include <boost/geometry/core/coordinate_system.hpp>
+#include <boost/geometry/core/coordinate_dimension.hpp>
+#include <boost/geometry/core/access.hpp>
 #include <boost/geometry/algorithms/transform.hpp>
 
 namespace agate_pris
