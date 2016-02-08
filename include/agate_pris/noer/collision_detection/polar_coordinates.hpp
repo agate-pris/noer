@@ -26,6 +26,16 @@ namespace agate_pris
                 polar_coordinates( Radius&& r, Angle&& a );
                 polar_coordinates( polar_coordinates const& ) = default;
                 polar_coordinates( polar_coordinates&& ) = default;
+
+                // radius accessor
+                inline auto const& get_radius() const;
+                template< typename Arg >
+                inline void set_radius( Arg&& r );
+
+                // angle accessor
+                inline auto const& get_angle() const;
+                template< typename Arg >
+                inline void set_angle( Arg&& a );
             };
 
             // constructor
@@ -36,6 +46,36 @@ namespace agate_pris
             : m_radius( std::forward< Radius >( r ) )
             , m_angle( std::forward< Angle  >( a ) )
             {}
+
+            // radius accessor
+            // ---------------
+            template< typename Radius, typename Angle >
+            auto const& polar_coordinates< Radius, Angle >::get_radius() const
+            {
+                return m_radius;
+            }
+
+            template< typename Radius, typename Angle >
+            template< typename Arg >
+            void polar_coordinates< Radius, Angle >::set_radius( Arg&& r )
+            {
+                m_radius = std::forward< Radius >( r );
+            }
+
+            // angle accessor
+            // --------------
+            template< typename Radius, typename Angle >
+            auto const& polar_coordinates< Radius, Angle >::get_angle() const
+            {
+                return m_angle;
+            }
+
+            template< typename Radius, typename Angle >
+            template< typename Arg >
+            inline void polar_coordinates< Radius, Angle >::set_angle( Arg&& a )
+            {
+                m_angle = std::forward< Arg >( a );
+            }
         }
     }
 }
