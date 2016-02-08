@@ -18,7 +18,22 @@ namespace agate_pris
                 public:
                 using radius_type = RadiusType;
                 using angle_type  = AngleType;
+
+                // constructor
+                template< typename Radius, typename Angle >
+                polar_coordinates( Radius&& r, Angle&& a );
+                polar_coordinates( polar_coordinates const& ) = default;
+                polar_coordinates( polar_coordinates&& ) = default;
             };
+
+            // constructor
+            // -----------
+            template< typename RadiusType, typename AngleType >
+            template< typename Radius, typename Angle >
+            polar_coordinates< RadiusType, AngleType >::polar_coordinates( Radius&& r, Angle&& a )
+            : m_radius( std::forward< Radius >( r ) )
+            , m_angle( std::forward< Angle  >( a ) )
+            {}
         }
     }
 }
