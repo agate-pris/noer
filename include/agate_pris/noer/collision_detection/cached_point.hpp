@@ -3,6 +3,7 @@
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_CACHED_POINT_HPP
 
 #include <type_traits>
+#include <boost/geometry/algorithms/transform.hpp>
 
 namespace agate_pris
 {
@@ -16,6 +17,11 @@ namespace agate_pris
             Entity m_entity;
 
             public:
+            bool update_cache()
+            {
+                return boost::geometry::transform( m_entity, m_cache );
+            }
+
             // copy and move constructor
             cached_point( cached_point const& ) = default;
             cached_point( cached_point&& ) = default;
