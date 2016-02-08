@@ -9,6 +9,9 @@ namespace agate_pris
         template< typename Cache, typename Entity >
         class cached_point
         {
+            private:
+            Cache m_cache;
+            Entity m_entity;
         };
     }
 }
