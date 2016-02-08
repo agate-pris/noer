@@ -15,51 +15,54 @@ namespace agate_pris
 {
     namespace noer
     {
-        template< typename Cache, typename Entity >
-        class cached_point
+        namespace collision_detection
         {
-            private:
-            Cache m_cache;
-            Entity m_entity;
-
-            public:
-            template< typename std::size_t Index >
-            auto get() const
+            template< typename Cache, typename Entity >
+            class cached_point
             {
-                return boost::geometry::get< Index >( m_cache );
-            }
-            bool update_cache()
-            {
-                return boost::geometry::transform( m_entity, m_cache );
-            }
+                private:
+                Cache m_cache;
+                Entity m_entity;
 
-            // copy and move constructor
-            cached_point( cached_point const& ) = default;
-            cached_point( cached_point&& ) = default;
+                public:
+                template< typename std::size_t Index >
+                auto get() const
+                {
+                    return boost::geometry::get< Index >( m_cache );
+                }
+                bool update_cache()
+                {
+                    return boost::geometry::transform( m_entity, m_cache );
+                }
 
-            // constructor
-            template
-            <
-                typename Arg,
-                typename = std::enable_if_t
-                <
+                // copy and move constructor
+                cached_point( cached_point const& ) = default;
+                cached_point( cached_point&& ) = default;
+
+                // constructor
+                template
+                    <
+                    typename Arg,
+                    typename = std::enable_if_t
+                    <
                     !std::is_base_of
                     <
-                        cached_point,
-                        std::decay_t< Arg >
+                    cached_point,
+                    std::decay_t< Arg >
                     >::value
-                >
-            >
-            cached_point( Arg&& arg )
-            : m_entity( std::forward< Arg >( arg ) )
-            {
-            }
-            template< typename First, typename Second, typename... Tail >
-            cached_point( First&& f, Second&& s, Tail&&... t )
-            : m_entity( std::forward< First >( f ), std::forward< Second >( s ), std::forward< Tail >( t )... )
-            {
-            }
-        };
+                    >
+                    >
+                    cached_point( Arg&& arg )
+                    : m_entity( std::forward< Arg >( arg ) )
+                {
+                }
+                template< typename First, typename Second, typename... Tail >
+                cached_point( First&& f, Second&& s, Tail&&... t )
+                    : m_entity( std::forward< First >( f ), std::forward< Second >( s ), std::forward< Tail >( t )... )
+                {
+                }
+            };
+        }
     }
 }
 
