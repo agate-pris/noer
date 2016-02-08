@@ -73,29 +73,29 @@ namespace boost
         namespace traits
         {
             template< typename Cache, typename Entity >
-            struct tag< cached_point< Cache, Entity > >
+            struct tag< agate_pris::noer::collision_detection::cached_point< Cache, Entity > >
             : public tag< Cache >
             {};
 
             template< typename Cache, typename Entity >
-            struct coordinate_type< cached_point< Cache, Entity > >
+            struct coordinate_type< agate_pris::noer::collision_detection::cached_point< Cache, Entity > >
             : coordinate_type< Cache >
             {};
 
             template< typename Cache, typename Entity >
-            struct coordinate_system< cached_point< Cache, Entity > >
+            struct coordinate_system< agate_pris::noer::collision_detection::cached_point< Cache, Entity > >
             : coordinate_system< Cache >
             {};
 
             template< typename Cache, typename Entity >
-            struct dimension< cached_point< Cache, Entity > >
+            struct dimension< agate_pris::noer::collision_detection::cached_point< Cache, Entity > >
             : dimension< Cache >
             {};
 
             template< typename Cache, typename Entity, long unsigned int Dimension >
-            struct access< cached_point< Cache, Entity >, Dimension >
+            struct access< agate_pris::noer::collision_detection::cached_point< Cache, Entity >, Dimension >
             {
-                static inline auto get( cached_point< Cache, Entity > const& p )
+                static inline auto get( agate_pris::noer::collision_detection::cached_point< Cache, Entity > const& p )
                 {
                     return p.template get< Dimension >();
                 }
