@@ -109,6 +109,7 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_order.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_type.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\polar_coordinates.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_implement.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_implement_fwd.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_interface.hpp" />
