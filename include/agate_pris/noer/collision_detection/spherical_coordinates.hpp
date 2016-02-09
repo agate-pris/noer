@@ -4,6 +4,7 @@
 
 #include <utility>
 #include <boost/geometry/core/coordinate_type.hpp>
+#include <boost/geometry/core/access.hpp>
 
 namespace agate_pris
 {
