@@ -29,6 +29,14 @@ namespace agate_pris
                 spherical_coordinates( Radius&& r, Angles&& a );
                 spherical_coordinates( spherical_coordinates const& ) = default;
                 spherical_coordinates( spherical_coordinates&& ) = default;
+
+                // radius accessor
+                inline auto const& get_radius() const;
+                template< typename Arg > inline void set_radius( Arg&& r );
+
+                // angle accessor
+                template< std::size_t Index > inline auto get_angle() const;
+                template< std::size_t Index, typename Arg > inline void set_angle( Arg&& a );
             };
 
             // constructor
@@ -39,6 +47,37 @@ namespace agate_pris
             : m_radius( std::forward< Radius >( r ) )
             , m_angles( std::forward< Angles >( a ) )
             {}
+
+            // radius accessor
+            // ---------------
+            template< typename Radius, typename Angles >
+            auto const& spherical_coordinates< Radius, Angles >::get_radius() const
+            {
+                return m_radius;
+            }
+
+            template< typename Radius, typename Angles >
+            template< typename Arg >
+            void spherical_coordinates< Radius, Angles >::set_radius( Arg&& r )
+            {
+                m_radius = std::forward< Arg >( r );
+            }
+
+            // angle accessor
+            // --------------
+            template< typename Radius, typename Angles >
+            template< std::size_t Index >
+            auto spherical_coordinates< Radius, Angles >::get_angle() const
+            {
+                return boost::geometry::get< Index >( m_angles );
+            }
+
+            template< typename Radius, typename Angles >
+            template< std::size_t Index, typename Arg >
+            inline void spherical_coordinates< Radius, Angles >::set_angle( Arg&& a )
+            {
+                boost::geometry::set< Index >( m_angles, std::forward< Arg >( a ) );
+            }
         }
     }
 }
