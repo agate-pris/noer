@@ -3,6 +3,7 @@
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_POLAR_COORDINATES_HPP
 
 #include <utility>
+#include <boost/geometry/core/cs.hpp>
 #include <boost/geometry/core/tag.hpp>
 #include <boost/geometry/core/tags.hpp>
 #include <boost/geometry/core/coordinate_system.hpp>
