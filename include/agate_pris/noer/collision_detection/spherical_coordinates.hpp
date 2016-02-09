@@ -2,6 +2,8 @@
 #ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_SPHERICAL_COORDINATES_HPP
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_SPHERICAL_COORDINATES_HPP
 
+#include <boost/geometry/core/coordinate_type.hpp>
+
 namespace agate_pris
 {
     namespace noer
@@ -16,6 +18,10 @@ namespace agate_pris
                 private:
                 RadiusType m_radius;
                 AnglesType m_angles;
+
+                public:
+                using radius_type = RadiusType;
+                using angle_type  = typename boost::geometry::coordinate_type< AnglesType >::type;
             };
         }
     }
