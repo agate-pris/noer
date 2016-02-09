@@ -22,7 +22,22 @@ namespace agate_pris
                 public:
                 using radius_type = RadiusType;
                 using angle_type  = typename boost::geometry::coordinate_type< AnglesType >::type;
+
+                // constructor
+                template< typename Radius, typename Angles >
+                spherical_coordinates( Radius&& r, Angles&& a );
+                spherical_coordinates( spherical_coordinates const& ) = default;
+                spherical_coordinates( spherical_coordinates&& ) = default;
             };
+
+            // constructor
+            // -----------
+            template< typename RadiusType, typename AnglesType >
+            template< typename Radius, typename Angles >
+            spherical_coordinates< RadiusType, AnglesType >::spherical_coordinates( Radius&& r, Angles&& a )
+            : m_radius( std::forward< Radius >( r ) )
+            , m_angles( std::forward< Angles >( a ) )
+            {}
         }
     }
 }
