@@ -2,6 +2,7 @@
 #ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_SPHERICAL_COORDINATES_HPP
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_SPHERICAL_COORDINATES_HPP
 
+#include <utility>
 #include <boost/geometry/core/coordinate_type.hpp>
 
 namespace agate_pris
