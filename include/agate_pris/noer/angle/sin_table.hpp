@@ -8,7 +8,7 @@
 #include <boost/serialization/access.hpp>
 #include <boost/serialization/array.hpp>
 
-#include <agate_pris/noer/sin_approximation.hpp>
+#include <agate_pris/noer/angle/sin_approximation.hpp>
 #include <agate_pris/noer/pow.hpp>
 
 namespace agate_pris

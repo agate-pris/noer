@@ -9,7 +9,7 @@
 #include <boost/type_traits/has_unary_plus.hpp>
 #include <boost/type_traits/has_unary_minus.hpp>
 #include <agate_pris\noer\pow.hpp>
-#include <agate_pris/noer/angle_traits.hpp>
+#include <agate_pris/noer/angle/angle_traits.hpp>
 
 namespace agate_pris
 {

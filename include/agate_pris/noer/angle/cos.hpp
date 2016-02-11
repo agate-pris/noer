@@ -2,8 +2,8 @@
 #ifndef AGATE_PRIS_NOER_COS_HPP
 #define AGATE_PRIS_NOER_COS_HPP
 
-#include <agate_pris/noer/sin_table.hpp>
-#include <agate_pris/noer/angle.hpp>
+#include <agate_pris/noer/angle/sin_table.hpp>
+#include <agate_pris/noer/angle/angle.hpp>
 
 namespace agate_pris
 {
