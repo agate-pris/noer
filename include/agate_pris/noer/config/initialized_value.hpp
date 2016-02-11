@@ -9,11 +9,11 @@ namespace agate_pris
         namespace value_inits
         {
             template< typename Value, typename Tag = void >
-            class initialized_value
+            class value_initialized
             {
             };
         }
-        using value_inits::initialized_value;
+        using value_inits::value_initialized;
     }
 }
 
