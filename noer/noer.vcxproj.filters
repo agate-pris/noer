@@ -9,8 +9,6 @@
     <ClInclude Include="..\include\agate_pris\noer\excess_k.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fixed_point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\sin_table.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\sin.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\cos.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\sqrt.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\infinity.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\function_traits.hpp" />
@@ -129,6 +127,12 @@
       <Filter>angle</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\bbp_formula.hpp">
+      <Filter>angle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\cos.hpp">
+      <Filter>angle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\sin.hpp">
       <Filter>angle</Filter>
     </ClInclude>
   </ItemGroup>
