@@ -2,6 +2,8 @@
 #ifndef AGATE_PRIS_NOER_VALUE_INIT_HPP
 #define AGATE_PRIS_NOER_VALUE_INIT_HPP
 
+#include <utility>
+
 namespace agate_pris
 {
     namespace noer
