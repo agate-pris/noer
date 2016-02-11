@@ -5,7 +5,6 @@
     <ClInclude Include="..\include\agate_pris\noer\interpolation.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\lerp.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\pow.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\sin_approximation.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\excess_k.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fixed_point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\sqrt.hpp" />
@@ -135,6 +134,9 @@
       <Filter>angle</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\sin_table.hpp">
+      <Filter>angle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\sin_approximation.hpp">
       <Filter>angle</Filter>
     </ClInclude>
   </ItemGroup>
