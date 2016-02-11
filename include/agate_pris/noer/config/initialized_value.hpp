@@ -6,14 +6,14 @@ namespace agate_pris
 {
     namespace noer
     {
-        namespace initialized_values
+        namespace value_inits
         {
             template< typename Value, typename Tag = void >
             class initialized_value
             {
             };
         }
-        using initialized_values::initialized_value;
+        using value_inits::initialized_value;
     }
 }
 
