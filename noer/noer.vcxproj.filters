@@ -121,6 +121,9 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polar_coordinates.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\value_init.hpp">
+      <Filter>value_init</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="collision_detection">
@@ -131,6 +134,9 @@
     </Filter>
     <Filter Include="config">
       <UniqueIdentifier>{b1b3ffe2-84a0-4065-8b0c-31a321d70e6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="value_init">
+      <UniqueIdentifier>{4b0fbed0-122a-4dc0-bd54-a7b68b995536}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
