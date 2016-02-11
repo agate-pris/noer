@@ -41,26 +41,24 @@ namespace agate_pris
 
                 // constructor
                 template
-                    <
+                <
                     typename Arg,
                     typename = std::enable_if_t
                     <
-                    !std::is_base_of
-                    <
-                    cached_point,
-                    std::decay_t< Arg >
-                    >::value
+                        !std::is_base_of
+                        <
+                            cached_point,
+                            std::decay_t< Arg >
+                        >::value
                     >
-                    >
-                    cached_point( Arg&& arg )
-                    : m_entity( std::forward< Arg >( arg ) )
-                {
-                }
+                >
+                cached_point( Arg&& arg )
+                : m_entity( std::forward< Arg >( arg ) )
+                {}
                 template< typename First, typename Second, typename... Tail >
                 cached_point( First&& f, Second&& s, Tail&&... t )
-                    : m_entity( std::forward< First >( f ), std::forward< Second >( s ), std::forward< Tail >( t )... )
-                {
-                }
+                : m_entity( std::forward< First >( f ), std::forward< Second >( s ), std::forward< Tail >( t )... )
+                {}
             };
         }
     }
