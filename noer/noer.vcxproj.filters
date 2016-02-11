@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="bbp_formula.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\include\agate_pris\noer\bbp_formula.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\factorial.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\interpolation.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\lerp.hpp" />
@@ -132,6 +128,9 @@
     <ClInclude Include="..\include\agate_pris\noer\atan_approximation.hpp">
       <Filter>angle</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\bbp_formula.hpp">
+      <Filter>angle</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="collision_detection">
@@ -149,5 +148,10 @@
     <Filter Include="angle">
       <UniqueIdentifier>{3821fca6-456a-4031-ba92-ae3da4fe5745}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bbp_formula.cpp">
+      <Filter>angle</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
