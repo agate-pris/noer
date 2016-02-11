@@ -23,7 +23,6 @@
     <ClInclude Include="..\include\agate_pris\noer\duplicate.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\eval.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\as_target.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\angle_traits.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\fraction_traits.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\get.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point.hpp">
@@ -124,6 +123,9 @@
       <Filter>value_init</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\angle.hpp">
+      <Filter>angle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\angle_traits.hpp">
       <Filter>angle</Filter>
     </ClInclude>
   </ItemGroup>
