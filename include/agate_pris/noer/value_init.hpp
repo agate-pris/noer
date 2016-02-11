@@ -11,6 +11,8 @@ namespace agate_pris
             template< typename Value, typename Tag = void >
             class value_initialized
             {
+                private:
+                Value m_data;
             };
         }
         using value_inits::value_initialized;
