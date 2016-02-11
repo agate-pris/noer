@@ -49,6 +49,18 @@ namespace agate_pris
                 return m_data;
             }
 
+            template< typename Value, typename Tag = void >
+            Value& get( value_initialized< Value, Tag >& v )
+            {
+                return v.data();
+            }
+
+            template< typename Value, typename Tag = void >
+            Value const& get( value_initialized< Value, Tag > const& v )
+            {
+                return v.data();
+            }
+
             // swap
             // ----
             template<typename Value, typename Tag>
