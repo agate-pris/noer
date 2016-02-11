@@ -24,6 +24,10 @@ namespace agate_pris
 
                 // swap
                 inline void swap( value_initialized& arg );
+
+                // conversion
+                inline operator value_type const& () const;
+                inline operator value_type&       ();
             };
 
             // accessor
@@ -47,6 +51,20 @@ namespace agate_pris
             {
                 using std::swap;
                 swap( m_data, arg.data() );
+            }
+
+            // conversion
+            // ----------
+            template< typename Value, typename Tag >
+            inline value_initialized< Value, Tag >::operator value_type const&() const
+            {
+                return m_data;
+            }
+
+            template<typename Value, typename Tag>
+            inline value_initialized<Value, Tag>::operator value_type&( )
+            {
+                return m_data;
             }
         }
         using value_inits::value_initialized;
