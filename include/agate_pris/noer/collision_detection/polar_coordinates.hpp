@@ -3,6 +3,7 @@
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_POLAR_COORDINATES_HPP
 
 #include <utility>
+#include <boost/geometry/core/cs.hpp>
 #include <boost/geometry/core/tag.hpp>
 #include <boost/geometry/core/tags.hpp>
 #include <boost/geometry/core/coordinate_system.hpp>
@@ -28,9 +29,9 @@ namespace agate_pris
 
                 // constructor
                 template< typename Radius, typename Angle >
-                polar_coordinates( Radius&& r, Angle&& a );
-                polar_coordinates( polar_coordinates const& ) = default;
-                polar_coordinates( polar_coordinates&& ) = default;
+                inline polar_coordinates( Radius&& r, Angle&& a );
+                inline polar_coordinates( polar_coordinates const& ) = default;
+                inline polar_coordinates( polar_coordinates&& ) = default;
 
                 // radius accessor
                 inline auto const& get_radius() const;
