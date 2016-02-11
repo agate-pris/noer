@@ -17,7 +17,25 @@ namespace agate_pris
                 public:
                 // member type
                 using value_type = Value;
+
+                // accessor
+                Value&       data();
+                Value const& data() const;
             };
+
+            // accessor
+            // --------
+            template< typename Value, typename Tag = void >
+            Value& value_initialized< Value, Tag >::data()
+            {
+                return m_data;
+            }
+
+            template< typename Value, typename Tag = void >
+            Value const& value_initialized< Value, Tag >::data() const
+            {
+                return m_data;
+            }
         }
         using value_inits::value_initialized;
     }
