@@ -13,6 +13,10 @@ namespace agate_pris
             {
                 private:
                 Value m_data;
+
+                public:
+                // member type
+                using value_type = Value;
             };
         }
         using value_inits::value_initialized;
