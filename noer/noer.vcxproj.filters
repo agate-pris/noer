@@ -121,7 +121,7 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polar_coordinates.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\config\value_init.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\value_init.hpp">
       <Filter>value_init</Filter>
     </ClInclude>
   </ItemGroup>
