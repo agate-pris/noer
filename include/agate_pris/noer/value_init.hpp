@@ -91,6 +91,8 @@ namespace agate_pris
             }
         }
         using value_inits::value_initialized;
+        using value_inits::get;
+        using value_inits::swap;
     }
 }
 
