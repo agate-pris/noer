@@ -20,6 +20,9 @@ namespace agate_pris
                 // member type
                 using value_type = Value;
 
+                // constructor
+                value_initialized();
+
                 // accessor
                 Value&       data();
                 Value const& data() const;
