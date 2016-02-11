@@ -138,5 +138,8 @@
     <Filter Include="value_init">
       <UniqueIdentifier>{4b0fbed0-122a-4dc0-bd54-a7b68b995536}</UniqueIdentifier>
     </Filter>
+    <Filter Include="angle">
+      <UniqueIdentifier>{3821fca6-456a-4031-ba92-ae3da4fe5745}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
