@@ -17,7 +17,7 @@ namespace agate_pris
                 Value m_data;
 
                 public:
-                // member type
+                // type
                 using value_type = Value;
 
                 // constructor
