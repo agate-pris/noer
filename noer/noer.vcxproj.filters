@@ -112,31 +112,31 @@
     <ClInclude Include="..\include\agate_pris\noer\value_init.hpp">
       <Filter>value_init</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\angle.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\angle\angle.hpp">
       <Filter>angle</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\angle_traits.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\angle\angle_traits.hpp">
       <Filter>angle</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\atan_table.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\angle\atan_approximation.hpp">
       <Filter>angle</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\atan_approximation.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\angle\atan_table.hpp">
       <Filter>angle</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\bbp_formula.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\angle\bbp_formula.hpp">
       <Filter>angle</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\cos.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\angle\cos.hpp">
       <Filter>angle</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\sin.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\angle\sin.hpp">
       <Filter>angle</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\sin_table.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\angle\sin_approximation.hpp">
       <Filter>angle</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\sin_approximation.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\angle\sin_table.hpp">
       <Filter>angle</Filter>
     </ClInclude>
   </ItemGroup>
