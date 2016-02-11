@@ -26,11 +26,11 @@ namespace agate_pris
 
                 public:
                 template< typename std::size_t Index >
-                auto get() const
+                inline auto get() const
                 {
                     return boost::geometry::get< Index >( m_cache );
                 }
-                bool update_cache()
+                inline bool update_cache()
                 {
                     return boost::geometry::transform( m_entity, m_cache );
                 }
@@ -41,26 +41,24 @@ namespace agate_pris
 
                 // constructor
                 template
-                    <
+                <
                     typename Arg,
                     typename = std::enable_if_t
                     <
-                    !std::is_base_of
-                    <
-                    cached_point,
-                    std::decay_t< Arg >
-                    >::value
+                        !std::is_base_of
+                        <
+                            cached_point,
+                            std::decay_t< Arg >
+                        >::value
                     >
-                    >
-                    cached_point( Arg&& arg )
-                    : m_entity( std::forward< Arg >( arg ) )
-                {
-                }
+                >
+                inline cached_point( Arg&& arg )
+                : m_entity( std::forward< Arg >( arg ) )
+                {}
                 template< typename First, typename Second, typename... Tail >
-                cached_point( First&& f, Second&& s, Tail&&... t )
-                    : m_entity( std::forward< First >( f ), std::forward< Second >( s ), std::forward< Tail >( t )... )
-                {
-                }
+                inline cached_point( First&& f, Second&& s, Tail&&... t )
+                : m_entity( std::forward< First >( f ), std::forward< Second >( s ), std::forward< Tail >( t )... )
+                {}
             };
         }
     }
