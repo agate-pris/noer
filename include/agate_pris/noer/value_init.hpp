@@ -70,6 +70,12 @@ namespace agate_pris
                 swap( m_data, arg.data() );
             }
 
+            template< typename Value, typename Tag >
+            inline void swap( value_initialized< Value, Tag >& lhs, value_initialized< Value, Tag >& rhs )
+            {
+                lhs.swap( rhs );
+            }
+
             // conversion
             // ----------
             template< typename Value, typename Tag >
