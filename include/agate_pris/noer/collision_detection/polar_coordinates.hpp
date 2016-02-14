@@ -3,6 +3,7 @@
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_POLAR_COORDINATES_HPP
 
 #include <utility>
+#include <cmath>
 #include <boost/geometry/core/cs.hpp>
 #include <boost/geometry/core/tag.hpp>
 #include <boost/geometry/core/tags.hpp>
@@ -106,13 +107,25 @@ namespace boost
             >::value >,
             typename = std::enable_if_t< boost::geometry::dimension< Target >::value == 2 >
         >
-        void transform( polar_coordinates< Radius, Angle > const& source, Target& target )
+        bool transform( agate_pris::noer::collision_detection::polar_coordinates< Radius, Angle > const& source, Target& target )
         {
             namespace bg = boost::geometry;
-            auto const& r = source.get_radius();
+            using std::cos;
+            using std::sin;
+            using coordinate_type = typename bg::coordinate_type< Target >::type;
+
+            auto const& r = static_cast< coordinate_type >( source.get_radius() );
             auto const& t = source.get_angle();
-            bg::set< 0 >( target, r * std::cos( t ) );
-            bg::set< 1 >( target, r * std::sin( t ) );
+
+            auto x = r;
+            auto y = r;
+            x *= cos( t );
+            y *= sin( t );
+
+            bg::set< 0 >( target, x );
+            bg::set< 1 >( target, y );
+
+            return true;
         };
     }
 }

@@ -35,6 +35,9 @@ namespace agate_pris
                     return boost::geometry::transform( m_entity, m_cache );
                 }
 
+                inline auto const& get_entity() const;
+                inline auto&       get_entity();
+
                 // copy and move constructor
                 cached_point( cached_point const& ) = default;
                 cached_point( cached_point&& ) = default;
@@ -60,6 +63,18 @@ namespace agate_pris
                 : m_entity( std::forward< First >( f ), std::forward< Second >( s ), std::forward< Tail >( t )... )
                 {}
             };
+
+            template< typename Cache, typename Entity >
+            inline auto const& cached_point< Cache, Entity >::get_entity() const
+            {
+                return m_entity;
+            }
+
+            template< typename Cache, typename Entity >
+            inline auto& cached_point< Cache, Entity >::get_entity()
+            {
+                return m_entity;
+            }
         }
     }
 }
