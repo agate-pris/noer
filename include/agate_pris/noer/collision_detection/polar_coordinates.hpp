@@ -106,7 +106,7 @@ namespace boost
             >::value >,
             typename = std::enable_if_t< boost::geometry::dimension< Target >::value == 2 >
         >
-        void transform( polar_coordinates< Radius, Angle > const& source, Target& target )
+        void transform( agate_pris::noer::collision_detection::polar_coordinates< Radius, Angle > const& source, Target& target )
         {
             namespace bg = boost::geometry;
             auto const& r = source.get_radius();
