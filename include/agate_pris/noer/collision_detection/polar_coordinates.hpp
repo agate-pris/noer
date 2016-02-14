@@ -110,6 +110,8 @@ namespace boost
         bool transform( agate_pris::noer::collision_detection::polar_coordinates< Radius, Angle > const& source, Target& target )
         {
             namespace bg = boost::geometry;
+            using std::cos;
+            using std::sin;
             using coordinate_type = typename bg::coordinate_type< Target >::type;
 
             auto const& r = static_cast< coordinate_type >( source.get_radius() );
