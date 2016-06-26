@@ -16,12 +16,12 @@ namespace detail {
 template< typename Subject >
 class holder
 {
-	private:
-	Subject m_subject;
+    private:
+    Subject m_subject;
 
-	public:
-	Subject const& get() const { return m_subject; }
-	Subject&       get() { return m_subject; }
+    public:
+    Subject const& get() const { return m_subject; }
+    Subject&       get() { return m_subject; }
 };
 
 // polymorphic_implement
@@ -34,8 +34,8 @@ struct polymorphic_implement;
 // ---------------------------------------
 template< typename Subject, typename Interface >
 struct polymorphic_implement< Subject, Interface >
-	: holder< Subject >
-	, Interface
+    : holder< Subject >
+    , Interface
 {
 };
 
@@ -43,63 +43,63 @@ struct polymorphic_implement< Subject, Interface >
 // -------------------
 template< typename Subject, typename Interface, typename Last >
 struct polymorphic_implement< Subject, Interface, Last >
-	: holder< Subject >
-	, Interface
+    : holder< Subject >
+    , Interface
 {
-	virtual bool intersects( Last const& object ) const override;
+    virtual bool intersects( Last const& object ) const override;
 };
 
 // definition for intersects
 template< typename Subject, typename Interface, typename Last >
 bool polymorphic_implement< Subject, Interface, Last >::intersects( Last const& object ) const
 {
-	return collision_detection::intersects( holder::get(), object );
+    return collision_detection::intersects( holder::get(), object );
 }
 
 // definition for the others
 // -------------------------
 template< typename Subject, typename Interface, typename Head, typename... Tail >
 struct polymorphic_implement< Subject, Interface, Head, Tail... >
-	: polymorphic_implement< Subject, Interface, Tail... >
+    : polymorphic_implement< Subject, Interface, Tail... >
 {
-	using polymorphic_implement< Subject, Interface, Tail... >::intersects;
-	virtual bool intersects( Head const& object ) const override;
+    using polymorphic_implement< Subject, Interface, Tail... >::intersects;
+    virtual bool intersects( Head const& object ) const override;
 };
 
 template< typename Subject, typename Interface, typename Head, typename... Tail >
 bool polymorphic_implement< Subject, Interface, Head, Tail... >::intersects( Head const& object ) const
 {
-	return collision_detection::intersects( get(), object );
+    return collision_detection::intersects( get(), object );
 }
 
 } // detail
 
 template< typename Subject, typename... Objects >
 struct polymorphic_implement
-	: detail::polymorphic_implement< Subject, polymorphic_interface< Objects... >, Objects... >
+    : detail::polymorphic_implement< Subject, polymorphic_interface< Objects... >, Objects... >
 {
-	using detail::polymorphic_implement< Subject, polymorphic_interface< Objects... >, Objects... >::intersects;
-	using polymorphic_interface< Objects... >::intersects;
-	virtual bool intersects( typename polymorphic_interface< Objects... >::interface_type const& object ) const override;
+    using detail::polymorphic_implement< Subject, polymorphic_interface< Objects... >, Objects... >::intersects;
+    using polymorphic_interface< Objects... >::intersects;
+    virtual bool intersects( typename polymorphic_interface< Objects... >::interface_type const& object ) const override;
 };
 
 template< typename Subject >
 struct polymorphic_implement< Subject >
-	: detail::polymorphic_implement< Subject, polymorphic_interface<> >
+    : detail::polymorphic_implement< Subject, polymorphic_interface<> >
 {
-	virtual bool intersects( typename polymorphic_interface<>::interface_type const& object ) const override;
+    virtual bool intersects( typename polymorphic_interface<>::interface_type const& object ) const override;
 };
 
 template< typename Subject, typename... Objects >
 bool polymorphic_implement< Subject, Objects... >::intersects( typename polymorphic_interface< Objects... >::interface_type const& object ) const
 {
-	return collision_detection::intersects( object, holder::get() );
+    return collision_detection::intersects( object, holder::get() );
 }
 
 template< typename Subject >
 bool polymorphic_implement< Subject >::intersects( typename polymorphic_interface<>::interface_type const& object ) const
 {
-	return collision_detection::intersects( object, holder::get() );
+    return collision_detection::intersects( object, holder::get() );
 }
 
 } // collision_detection
