@@ -12,7 +12,7 @@ namespace collision_detection {
 template< typename BoxType >
 inline bool intersects( BoxType const& a, BoxType const& b, box_tag, box_tag )
 {
-	return boost::geometry::intersects( a, b );
+    return boost::geometry::intersects( a, b );
 }
 
 } // collision_detection
