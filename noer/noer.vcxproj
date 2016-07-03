@@ -109,11 +109,13 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_segment_triangle.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_triangle_triangle.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\cached_point.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\coordinate_dimension.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\access.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\access.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\coordinate_dimension.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\point_order.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\point_type.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\tag.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\tags.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_order.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_type.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polar_coordinates.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_implement.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_implement_fwd.hpp" />
@@ -121,8 +123,6 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\relative_point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\shared_point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\spherical_coordinates.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\tag.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\tags.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\transform.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\triangle.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\config.hpp" />

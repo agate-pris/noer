@@ -2,7 +2,7 @@
 #ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_HPP
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_HPP
 
-#include <agate_pris/noer/collision_detection/tag.hpp>
+#include <agate_pris/noer/collision_detection/core/tag.hpp>
 #include <agate_pris/noer/collision_detection/algorithms/intersects/intersects_box_box.hpp>
 #include <agate_pris/noer/collision_detection/algorithms/intersects/intersects_box_point.hpp>
 #include <agate_pris/noer/collision_detection/algorithms/intersects/intersects_box_segment.hpp>

@@ -121,22 +121,22 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_triangle_triangle.hpp">
       <Filter>collision_detection\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\access.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\access.hpp">
       <Filter>collision_detection\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\coordinate_dimension.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\coordinate_dimension.hpp">
       <Filter>collision_detection\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_order.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\point_order.hpp">
       <Filter>collision_detection\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_type.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\point_type.hpp">
       <Filter>collision_detection\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\tag.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\tag.hpp">
       <Filter>collision_detection\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\tags.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\tags.hpp">
       <Filter>collision_detection\core</Filter>
     </ClInclude>
   </ItemGroup>

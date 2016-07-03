@@ -3,15 +3,15 @@
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_POINT_TRIANGLE_HPP
 
 #include <utility>
-#include <agate_pris/noer/collision_detection/tags.hpp>
-#include <agate_pris/noer/collision_detection/coordinate_dimension.hpp>
-#include <agate_pris/noer/collision_detection/point_type.hpp>
-#include <agate_pris/noer/collision_detection/access.hpp>
+#include <agate_pris/noer/collision_detection/core/tags.hpp>
+#include <agate_pris/noer/collision_detection/core/coordinate_dimension.hpp>
+#include <agate_pris/noer/collision_detection/core/point_type.hpp>
+#include <agate_pris/noer/collision_detection/core/access.hpp>
 #include <boost/geometry/geometries/box.hpp>
 #include <boost/geometry/algorithms/envelope.hpp>
 #include <boost/geometry/strategies/cartesian/side_by_triangle.hpp>
 #include <boost/geometry/core/coordinate_type.hpp>
-#include <agate_pris/noer/collision_detection/point_order.hpp>
+#include <agate_pris/noer/collision_detection/core/point_order.hpp>
 
 namespace agate_pris {
 namespace noer {

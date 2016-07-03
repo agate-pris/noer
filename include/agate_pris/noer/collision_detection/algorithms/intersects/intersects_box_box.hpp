@@ -2,7 +2,7 @@
 #ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_BOX_BOX_HPP
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_BOX_BOX_HPP
 
-#include <agate_pris/noer/collision_detection/tags.hpp>
+#include <agate_pris/noer/collision_detection/core/tags.hpp>
 #include <boost/geometry/algorithms/intersects.hpp>
 
 namespace agate_pris {
