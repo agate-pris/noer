@@ -37,34 +37,7 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\triangle.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_box.hpp">
-      <Filter>collision_detection</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects.hpp">
-      <Filter>collision_detection</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_point.hpp">
-      <Filter>collision_detection</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_segment.hpp">
-      <Filter>collision_detection</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_triangle.hpp">
-      <Filter>collision_detection</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_point_triangle.hpp">
-      <Filter>collision_detection</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_order.hpp">
-      <Filter>collision_detection</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_segment_segment.hpp">
-      <Filter>collision_detection</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_segment_triangle.hpp">
-      <Filter>collision_detection</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_triangle_triangle.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_implement.hpp">
@@ -74,12 +47,6 @@
       <Filter>collision_detection</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_implement_fwd.hpp">
-      <Filter>collision_detection</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_container_polymorphic.hpp">
-      <Filter>collision_detection</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_container.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\relative_point.hpp">
@@ -139,6 +106,39 @@
     <ClInclude Include="..\include\agate_pris\noer\angle\sin_table.hpp">
       <Filter>angle</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_box.hpp">
+      <Filter>collision_detection\algorithms\intersects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects.hpp">
+      <Filter>collision_detection\algorithms\intersects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_point.hpp">
+      <Filter>collision_detection\algorithms\intersects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_segment.hpp">
+      <Filter>collision_detection\algorithms\intersects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_box_triangle.hpp">
+      <Filter>collision_detection\algorithms\intersects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_container.hpp">
+      <Filter>collision_detection\algorithms\intersects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_container_polymorphic.hpp">
+      <Filter>collision_detection\algorithms\intersects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_point_triangle.hpp">
+      <Filter>collision_detection\algorithms\intersects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_segment_segment.hpp">
+      <Filter>collision_detection\algorithms\intersects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_segment_triangle.hpp">
+      <Filter>collision_detection\algorithms\intersects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects_triangle_triangle.hpp">
+      <Filter>collision_detection\algorithms\intersects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="collision_detection">
@@ -155,6 +155,12 @@
     </Filter>
     <Filter Include="angle">
       <UniqueIdentifier>{3821fca6-456a-4031-ba92-ae3da4fe5745}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="collision_detection\algorithms">
+      <UniqueIdentifier>{45c8d283-dcee-40d2-bd1d-361a613a9309}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="collision_detection\algorithms\intersects">
+      <UniqueIdentifier>{f43ce768-4f95-45d8-af8c-491f7d77c5ea}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
