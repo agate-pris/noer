@@ -109,7 +109,7 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_box_box.hpp">
       <Filter>collision_detection\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\intersects.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects.hpp">
       <Filter>collision_detection\algorithms\intersects</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_box_point.hpp">
