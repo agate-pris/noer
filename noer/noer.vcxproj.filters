@@ -25,9 +25,6 @@
       <Filter>collision_detection</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\empty.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\dimension.hpp">
-      <Filter>collision_detection</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_type.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
@@ -138,6 +135,9 @@
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_triangle_triangle.hpp">
       <Filter>collision_detection\algorithms\intersects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\coordinate_dimension.hpp">
+      <Filter>collision_detection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,7 @@
 
 #include <utility>
 #include <agate_pris/noer/collision_detection/tags.hpp>
-#include <agate_pris/noer/collision_detection/dimension.hpp>
+#include <agate_pris/noer/collision_detection/coordinate_dimension.hpp>
 #include <agate_pris/noer/collision_detection/point_type.hpp>
 #include <agate_pris/noer/collision_detection/access.hpp>
 #include <boost/geometry/geometries/box.hpp>

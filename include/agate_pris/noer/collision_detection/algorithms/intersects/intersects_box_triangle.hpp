@@ -3,7 +3,7 @@
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_BOX_TRIANGLE_HPP
 
 #include <agate_pris/noer/collision_detection/tags.hpp>
-#include <agate_pris/noer/collision_detection/dimension.hpp>
+#include <agate_pris/noer/collision_detection/coordinate_dimension.hpp>
 #include <agate_pris/noer/collision_detection/point_type.hpp>
 #include <agate_pris/noer/collision_detection/access.hpp>
 #include <agate_pris/noer/collision_detection/algorithms/intersects.hpp>
