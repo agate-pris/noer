@@ -3,16 +3,16 @@
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_HPP
 
 #include <agate_pris/noer/collision_detection/tag.hpp>
-#include <agate_pris/noer/collision_detection/intersects_box_box.hpp>
-#include <agate_pris/noer/collision_detection/intersects_box_point.hpp>
-#include <agate_pris/noer/collision_detection/intersects_box_segment.hpp>
-#include <agate_pris/noer/collision_detection/intersects_box_triangle.hpp>
-#include <agate_pris/noer/collision_detection/intersects_container.hpp>
-#include <agate_pris/noer/collision_detection/intersects_container_polymorphic.hpp>
-#include <agate_pris/noer/collision_detection/intersects_point_triangle.hpp>
-#include <agate_pris/noer/collision_detection/intersects_segment_segment.hpp>
-#include <agate_pris/noer/collision_detection/intersects_segment_triangle.hpp>
-#include <agate_pris/noer/collision_detection/intersects_triangle_triangle.hpp>
+#include <agate_pris/noer/collision_detection/algorithms/intersects/intersects_box_box.hpp>
+#include <agate_pris/noer/collision_detection/algorithms/intersects/intersects_box_point.hpp>
+#include <agate_pris/noer/collision_detection/algorithms/intersects/intersects_box_segment.hpp>
+#include <agate_pris/noer/collision_detection/algorithms/intersects/intersects_box_triangle.hpp>
+#include <agate_pris/noer/collision_detection/algorithms/intersects/intersects_container.hpp>
+#include <agate_pris/noer/collision_detection/algorithms/intersects/intersects_container_polymorphic.hpp>
+#include <agate_pris/noer/collision_detection/algorithms/intersects/intersects_point_triangle.hpp>
+#include <agate_pris/noer/collision_detection/algorithms/intersects/intersects_segment_segment.hpp>
+#include <agate_pris/noer/collision_detection/algorithms/intersects/intersects_segment_triangle.hpp>
+#include <agate_pris/noer/collision_detection/algorithms/intersects/intersects_triangle_triangle.hpp>
 
 namespace agate_pris {
 namespace noer {
