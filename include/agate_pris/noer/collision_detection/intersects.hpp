@@ -21,7 +21,7 @@ namespace collision_detection {
 template< typename CollisionDetection1, typename CollisionDetection2 >
 inline bool intersects( CollisionDetection1 const& a, CollisionDetection2 const& b )
 {
-	return intersects( a, b, tag_t< CollisionDetection1 >{}, tag_t< CollisionDetection2 >{} );
+    return intersects( a, b, tag_t< CollisionDetection1 >{}, tag_t< CollisionDetection2 >{} );
 }
 
 } // collision_detection
