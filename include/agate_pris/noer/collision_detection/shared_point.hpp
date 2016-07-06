@@ -17,10 +17,10 @@ namespace collision_detection {
 
 /// @brief \~english class for share point using  `std::shared_ptr`
 /// \~japanese `std::shared_ptr` によって座標を共有するクラス
-template< typename PointType >
+template< typename Point >
 struct point_shared
 {
-    std::shared_ptr< PointType > ptr;
+    std::shared_ptr< Point > ptr;
 
     /// @brief \~english default constructor
     /// \~japanese デフォルトコンストラクタ
@@ -36,7 +36,7 @@ struct point_shared
         <
             !std::is_base_of
             <
-                point_shared< PointType >,
+                point_shared< Point >,
                 std::decay_t< Arg >
             >::value
         >
@@ -65,34 +65,34 @@ namespace boost {
 namespace geometry {
 namespace traits {
 
-template< typename PointType >
-struct tag< agate_pris::noer::collision_detection::point_shared< PointType > >
+template< typename Point >
+struct tag< agate_pris::noer::collision_detection::point_shared< Point > >
 {
     using type = point_tag;
 };
 
-template< typename PointType >
-struct coordinate_type< agate_pris::noer::collision_detection::point_shared< PointType > >
+template< typename Point >
+struct coordinate_type< agate_pris::noer::collision_detection::point_shared< Point > >
 {
-    using type = typename coordinate_type< PointType >::type;
+    using type = typename coordinate_type< Point >::type;
 };
 
-template< typename PointType >
-struct coordinate_system< agate_pris::noer::collision_detection::point_shared< PointType > >
+template< typename Point >
+struct coordinate_system< agate_pris::noer::collision_detection::point_shared< Point > >
 {
-    using type = typename coordinate_system< PointType >::type;
+    using type = typename coordinate_system< Point >::type;
 };
 
-template< typename PointType >
-struct dimension< agate_pris::noer::collision_detection::point_shared< PointType > >
+template< typename Point >
+struct dimension< agate_pris::noer::collision_detection::point_shared< Point > >
 {
-    static constexpr const std::size_t value = dimension< PointType >::value;
+    static constexpr const std::size_t value = dimension< Point >::value;
 };
 
-template< typename PointType, std::size_t Dimension >
-struct access< agate_pris::noer::collision_detection::point_shared< PointType >, Dimension >
+template< typename Point, std::size_t Dimension >
+struct access< agate_pris::noer::collision_detection::point_shared< Point >, Dimension >
 {
-    static inline decltype( auto ) get( agate_pris::noer::collision_detection::point_shared< PointType > const& p )
+    static inline decltype( auto ) get( agate_pris::noer::collision_detection::point_shared< Point > const& p )
     {
         if( !p.ptr ) throw;
         return geometry::get< Dimension >( *( p.ptr ) );
@@ -100,8 +100,8 @@ struct access< agate_pris::noer::collision_detection::point_shared< PointType >,
 
     static inline void set
     (
-        agate_pris::noer::collision_detection::point_shared< PointType >& p,
-        typename coordinate_type< PointType >::type const& value
+        agate_pris::noer::collision_detection::point_shared< Point >& p,
+        typename coordinate_type< Point >::type const& value
     )
     {
         if( !p.ptr ) throw;
