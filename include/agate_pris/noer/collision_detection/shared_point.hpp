@@ -4,6 +4,7 @@
 
 #include <utility>
 #include <memory>
+#include <cstddef>
 #include <boost/config.hpp>
 #include <boost/geometry/core/access.hpp>
 #include <boost/geometry/core/coordinate_type.hpp>
@@ -33,6 +34,8 @@ class point_shared
     public:
     // construct empty shared_ptr
     BOOST_CONSTEXPR point_shared() BOOST_NOEXCEPT_OR_NOTHROW;
+    // construct empty shared_ptr
+    BOOST_CONSTEXPR point_shared( std::nullptr_t ) BOOST_NOEXCEPT_OR_NOTHROW;
 
     /// @brief \~english constructor for initialize `shared_ptr`
     /// \~japanese shared_ptr を初期化するコンストラクタ
@@ -68,6 +71,10 @@ class point_shared
 // construct empty shared_ptr
 template< typename Point >
 inline point_shared< Point >::point_shared() {}
+
+// construct empty shared_ptr
+template< typename Point >
+inline point_shared< Point >::point_shared( std::nullptr_t ) {}
 
 } // collision_detection
 } // noer
