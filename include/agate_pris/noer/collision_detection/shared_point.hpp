@@ -22,7 +22,7 @@ class point_shared
 {
     // variable
     private:
-    std::shared_ptr< Point > ptr;
+    std::shared_ptr< Point > m_ptr;
 
     public:
 
@@ -46,12 +46,12 @@ class point_shared
         >
     >
     point_shared( Arg&& arg )
-    : ptr( std::forward< Arg >( arg ) )
+    : m_ptr( std::forward< Arg >( arg ) )
     {}
 
     template< typename First, typename Second, typename... Tail >
     inline point_shared( First&& first, Second&& second, Tail&&... tail )
-    : ptr
+    : m_ptr
     (
         std::forward< First >( first ),
         std::forward< Second >( second ),
@@ -98,8 +98,8 @@ struct access< agate_pris::noer::collision_detection::point_shared< Point >, Dim
 {
     static inline decltype( auto ) get( agate_pris::noer::collision_detection::point_shared< Point > const& p )
     {
-        if( !p.ptr ) throw;
-        return geometry::get< Dimension >( *( p.ptr ) );
+        if( !p.m_ptr ) throw;
+        return geometry::get< Dimension >( *( p.m_ptr ) );
     }
 
     static inline void set
@@ -108,8 +108,8 @@ struct access< agate_pris::noer::collision_detection::point_shared< Point >, Dim
         typename coordinate_type< Point >::type const& value
     )
     {
-        if( !p.ptr ) throw;
-        geometry::set< Dimension >( *( p.ptr ), value );
+        if( !p.m_ptr ) throw;
+        geometry::set< Dimension >( *( p.m_ptr ), value );
     }
 };
 
