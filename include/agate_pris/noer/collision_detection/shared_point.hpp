@@ -20,9 +20,13 @@ namespace collision_detection {
 template< typename Point >
 class point_shared
 {
+    // type
+    using element_type   = Point;
+    using shared_pointer = std::shared_ptr< element_type >;
+
     // variable
     private:
-    std::shared_ptr< Point > m_ptr;
+    shared_pointer m_ptr;
 
     public:
 
