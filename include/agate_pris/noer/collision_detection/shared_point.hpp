@@ -18,9 +18,13 @@ namespace collision_detection {
 /// @brief \~english class for share point using  `std::shared_ptr`
 /// \~japanese `std::shared_ptr` によって座標を共有するクラス
 template< typename Point >
-struct point_shared
+class point_shared
 {
+    // variable
+    private:
     std::shared_ptr< Point > ptr;
+
+    public:
 
     /// @brief \~english default constructor
     /// \~japanese デフォルトコンストラクタ
