@@ -37,25 +37,6 @@ class point_shared
     // construct empty shared_ptr
     BOOST_CONSTEXPR point_shared( std::nullptr_t ) BOOST_NOEXCEPT_OR_NOTHROW;
 
-    /// @brief \~english constructor for initialize `shared_ptr`
-    /// \~japanese shared_ptr を初期化するコンストラクタ
-    /// @{
-    template
-    <
-        typename Arg,
-        typename = std::enable_if_t
-        <
-            !std::is_base_of
-            <
-                point_shared< Point >,
-                std::decay_t< Arg >
-            >::value
-        >
-    >
-    point_shared( Arg&& arg )
-    : m_ptr( std::forward< Arg >( arg ) )
-    {}
-
     template< typename First, typename Second, typename... Tail >
     inline point_shared( First&& first, Second&& second, Tail&&... tail )
     : m_ptr
