@@ -37,9 +37,6 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\transform.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\shared_point.hpp">
-      <Filter>collision_detection</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\exact_number.hpp">
       <Filter>exact_number</Filter>
     </ClInclude>
@@ -138,6 +135,9 @@
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\tags.hpp">
       <Filter>collision_detection\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point_shared.hpp">
+      <Filter>collision_detection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
