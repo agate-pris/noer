@@ -45,6 +45,8 @@ template<> struct array_assign< 1, 2 >
 
 } // detail
 
+namespace point {
+
 namespace point_hide {
 
 template
@@ -54,15 +56,15 @@ template
     typename ArrayType = boost::numeric::ublas::bounded_array
     < CoordinateType, DimensionCount >
 >
-class point : public boost::numeric::ublas::vector< CoordinateType, ArrayType >
+class primitive : public boost::numeric::ublas::vector< CoordinateType, ArrayType >
 {
     public:
-    point()
+    primitive()
         : boost::numeric::ublas::vector< CoordinateType, ArrayType >( DimensionCount )
     {}
 
     /// @brief Constructor to set one value
-    explicit inline point( CoordinateType const& v0 )
+    explicit inline primitive( CoordinateType const& v0 )
         : boost::numeric::ublas::vector< CoordinateType, ArrayType >( DimensionCount )
     {
         detail::array_assign< DimensionCount, 0 >::apply( *this, v0 );
@@ -71,7 +73,7 @@ class point : public boost::numeric::ublas::vector< CoordinateType, ArrayType >
     }
 
     /// @brief Constructor to set two values
-    inline point( CoordinateType const& v0, CoordinateType const& v1 )
+    inline primitive( CoordinateType const& v0, CoordinateType const& v1 )
         : boost::numeric::ublas::vector< CoordinateType, ArrayType >( DimensionCount )
     {
         detail::array_assign< DimensionCount, 0 >::apply( *this, v0 );
@@ -80,7 +82,7 @@ class point : public boost::numeric::ublas::vector< CoordinateType, ArrayType >
     }
 
     /// @brief Constructor to set three values
-    inline point( CoordinateType const& v0, CoordinateType const& v1, CoordinateType const& v2 )
+    inline primitive( CoordinateType const& v0, CoordinateType const& v1, CoordinateType const& v2 )
         : boost::numeric::ublas::vector< CoordinateType, ArrayType >( DimensionCount )
     {
         detail::array_assign< DimensionCount, 0 >::apply( *this, v0 );
@@ -89,7 +91,7 @@ class point : public boost::numeric::ublas::vector< CoordinateType, ArrayType >
     }
 
     /// @brief Copy constructor
-    inline point( const point& p )
+    inline primitive( const primitive& p )
         // cause error C4996 in Microsoft Visual C++
         // : m_values( p.m_values )
     {
@@ -150,8 +152,9 @@ class point : public boost::numeric::ublas::vector< CoordinateType, ArrayType >
 
 } // point_hide
 
-using point_hide::point;
+using point_hide::primitive;
 
+} // point
 } // collision_detection
 } // noer
 } // agate_pris
@@ -162,19 +165,19 @@ namespace geometry {
 namespace traits {
 
 template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType >
-struct tag< agate_pris::noer::collision_detection::point< CoordinateType, DimensionCount, ArrayType > >
+struct tag< agate_pris::noer::collision_detection::point::primitive< CoordinateType, DimensionCount, ArrayType > >
 {
     using type = boost::geometry::point_tag;
 };
 
 template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType >
-struct coordinate_type< agate_pris::noer::collision_detection::point< CoordinateType, DimensionCount, ArrayType > >
+struct coordinate_type< agate_pris::noer::collision_detection::point::primitive< CoordinateType, DimensionCount, ArrayType > >
 {
     using type = CoordinateType;
 };
 
 template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType >
-struct coordinate_system< agate_pris::noer::collision_detection::point< CoordinateType, DimensionCount, ArrayType > >
+struct coordinate_system< agate_pris::noer::collision_detection::point::primitive< CoordinateType, DimensionCount, ArrayType > >
 {
     using type = boost::geometry::cs::cartesian;
 };
@@ -182,7 +185,7 @@ struct coordinate_system< agate_pris::noer::collision_detection::point< Coordina
 template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType >
 struct dimension
 <
-    agate_pris::noer::collision_detection::point
+    agate_pris::noer::collision_detection::point::primitive
     <
         CoordinateType,
         DimensionCount,
@@ -195,15 +198,15 @@ struct dimension
 template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType, std::size_t Dimension >
 struct access
 <
-    agate_pris::noer::collision_detection::point< CoordinateType, DimensionCount, ArrayType >,
+    agate_pris::noer::collision_detection::point::primitive< CoordinateType, DimensionCount, ArrayType >,
     Dimension
 >
 {
-    static inline CoordinateType get( agate_pris::noer::collision_detection::point< CoordinateType, DimensionCount, ArrayType > const& p )
+    static inline CoordinateType get( agate_pris::noer::collision_detection::point::primitive< CoordinateType, DimensionCount, ArrayType > const& p )
     {
         return p.template get< Dimension >();
     }
-    static inline void set( agate_pris::noer::collision_detection::point< CoordinateType, DimensionCount, ArrayType >& p, const CoordinateType& value )
+    static inline void set( agate_pris::noer::collision_detection::point::primitive< CoordinateType, DimensionCount, ArrayType >& p, const CoordinateType& value )
     {
         p.template set< Dimension >( value );
     }
