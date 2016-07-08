@@ -39,6 +39,9 @@ class point_shared
 
     // construct shared_ptr object that owns same resource as r
     point_shared( point_shared< Point > const& r ) BOOST_NOEXCEPT_OR_NOTHROW;
+    // construct shared_ptr object that takes resource from r
+    point_shared( point_shared< Point >&& r ) BOOST_NOEXCEPT_OR_NOTHROW;
+
 
     // public function
     public:
@@ -58,6 +61,12 @@ inline point_shared< Point >::point_shared( std::nullptr_t ) {}
 template< typename Point >
 inline point_shared< Point >::point_shared( point_shared< Point > const& r )
     : m_ptr( r.data() )
+{}
+
+// construct shared_ptr object that takes resource from r
+template< typename Point >
+inline point_shared< Point >::point_shared( point_shared< Point >&& r )
+    : m_ptr( std::move( r.data() ) )
 {}
 
 // public function
