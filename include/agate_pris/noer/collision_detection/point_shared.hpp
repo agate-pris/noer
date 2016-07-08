@@ -55,33 +55,33 @@ class point_shared
 
 // construct empty shared_ptr
 template< typename Point >
-inline point_shared< Point >::point_shared() {}
+inline point_shared< Point >::point_shared() BOOST_NOEXCEPT_OR_NOTHROW {}
 
 // construct empty shared_ptr
 template< typename Point >
-inline point_shared< Point >::point_shared( std::nullptr_t ) {}
+inline point_shared< Point >::point_shared( std::nullptr_t ) BOOST_NOEXCEPT_OR_NOTHROW {}
 
 // construct shared_ptr object that owns same resource as r
 template< typename Point >
-inline point_shared< Point >::point_shared( point_shared< Point > const& r )
+inline point_shared< Point >::point_shared( point_shared< Point > const& r ) BOOST_NOEXCEPT_OR_NOTHROW
     : m_ptr( r.data() )
 {}
 
 // construct shared_ptr object that takes resource from r
 template< typename Point >
-inline point_shared< Point >::point_shared( point_shared< Point >&& r )
+inline point_shared< Point >::point_shared( point_shared< Point >&& r ) BOOST_NOEXCEPT_OR_NOTHROW
     : m_ptr( std::move( r.data() ) )
 {}
 
 // construct shared_ptr object that owns same resource as r
 template< typename Point >
-inline point_shared< Point >::point_shared( shared_pointer const& r )
+inline point_shared< Point >::point_shared( shared_pointer const& r ) BOOST_NOEXCEPT_OR_NOTHROW
     : m_ptr( r )
 {}
 
 // construct shared_ptr object that takes resource from r
 template< typename Point >
-inline point_shared< Point >::point_shared( shared_pointer const&& r )
+inline point_shared< Point >::point_shared( shared_pointer&& r ) BOOST_NOEXCEPT_OR_NOTHROW
     : m_ptr( std::move( r ) )
 {}
 
@@ -90,14 +90,14 @@ inline point_shared< Point >::point_shared( shared_pointer const&& r )
 
 // get shared_ptr const reference
 template< typename Point >
-inline point_shared< Point >::shared_pointer const& point_shared< Point >::data() const
+inline typename point_shared< Point >::shared_pointer const& point_shared< Point >::data() const BOOST_NOEXCEPT_OR_NOTHROW
 {
     return m_ptr;
 }
 
 // get shared_ptr reference
 template< typename Point >
-inline point_shared< Point >::shared_pointer& point_shared< Point >::data()
+inline typename point_shared< Point >::shared_pointer& point_shared< Point >::data() BOOST_NOEXCEPT_OR_NOTHROW
 {
     return m_ptr;
 }
