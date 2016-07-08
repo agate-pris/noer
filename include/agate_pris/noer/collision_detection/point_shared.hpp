@@ -17,8 +17,6 @@ namespace agate_pris {
 namespace noer {
 namespace collision_detection {
 
-/// @brief \~english class for share point using  `std::shared_ptr`
-/// \~japanese `std::shared_ptr` によって座標を共有するクラス
 template< typename Point >
 class point_shared
 {
