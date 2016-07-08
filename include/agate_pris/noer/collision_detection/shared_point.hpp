@@ -37,16 +37,6 @@ class point_shared
     // construct empty shared_ptr
     BOOST_CONSTEXPR point_shared( std::nullptr_t ) BOOST_NOEXCEPT_OR_NOTHROW;
 
-    template< typename First, typename Second, typename... Tail >
-    inline point_shared( First&& first, Second&& second, Tail&&... tail )
-    : m_ptr
-    (
-        std::forward< First >( first ),
-        std::forward< Second >( second ),
-        std::forward< Tail >( tail )...
-    )
-    {}
-    /// @}
 };
 
 // construct empty shared_ptr
