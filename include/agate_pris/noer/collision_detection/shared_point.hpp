@@ -37,6 +37,10 @@ class point_shared
     // construct empty shared_ptr
     BOOST_CONSTEXPR point_shared( std::nullptr_t ) BOOST_NOEXCEPT_OR_NOTHROW;
 
+    // public function
+    public:
+    shared_pointer const& data() const BOOST_NOEXCEPT_OR_NOTHROW;
+    shared_pointer&       data() BOOST_NOEXCEPT_OR_NOTHROW;
 };
 
 // construct empty shared_ptr
@@ -46,6 +50,23 @@ inline point_shared< Point >::point_shared() {}
 // construct empty shared_ptr
 template< typename Point >
 inline point_shared< Point >::point_shared( std::nullptr_t ) {}
+
+// public function
+// ---------------------------------------------------------------------
+
+// get shared_ptr const reference
+template< typename Point >
+inline point_shared< Point >::shared_pointer const& point_shared< Point >::data() const
+{
+    return m_ptr;
+}
+
+// get shared_ptr reference
+template< typename Point >
+inline point_shared< Point >::shared_pointer& point_shared< Point >::data()
+{
+    return m_ptr;
+}
 
 } // collision_detection
 } // noer
