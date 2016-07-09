@@ -22,6 +22,9 @@ class check_zero
     BOOST_CONSTEXPR check_zero() BOOST_NOEXCEPT_OR_NOTHROW;
     // construct empty shared_ptr
     BOOST_CONSTEXPR check_zero( std::nullptr_t ) BOOST_NOEXCEPT_OR_NOTHROW;
+
+    // construct shared_ptr object that owns same resource as r
+    check_zero( check_zero< Point > const& r ) BOOST_NOEXCEPT_OR_NOTHROW;
 };
 
 // constructor
@@ -37,6 +40,12 @@ inline check_zero< Point >::check_zero() BOOST_NOEXCEPT_OR_NOTHROW
 template< typename Point >
 inline check_zero< Point >::check_zero( std::nullptr_t ) BOOST_NOEXCEPT_OR_NOTHROW
     : entity< Point >()
+{}
+
+// construct shared_ptr object that owns same resource as r
+template< typename Point >
+inline check_zero< Point >::check_zero( check_zero< Point > const& r ) BOOST_NOEXCEPT_OR_NOTHROW
+    : entity< Point >( r.data() )
 {}
 
 } // shared
