@@ -137,7 +137,7 @@
       <Filter>collision_detection\point</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared.hpp">
-      <Filter>collision_detection\point</Filter>
+      <Filter>collision_detection\point\shared</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +167,9 @@
     </Filter>
     <Filter Include="collision_detection\point">
       <UniqueIdentifier>{a4de34e4-5603-4b41-96d9-c433987135e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="collision_detection\point\shared">
+      <UniqueIdentifier>{1c66fa01-75e7-40bd-a418-43350c022d6c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
