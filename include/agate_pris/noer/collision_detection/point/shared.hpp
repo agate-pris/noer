@@ -178,8 +178,7 @@ struct access< agate_pris::noer::collision_detection::point::shared::entity< Poi
 {
     static inline decltype( auto ) get( agate_pris::noer::collision_detection::point::shared::entity< Point > const& p )
     {
-        if( !p.m_ptr ) throw;
-        return geometry::get< Dimension >( *( p.m_ptr ) );
+        return p.get< Dimension >();
     }
 
     static inline void set
@@ -188,8 +187,7 @@ struct access< agate_pris::noer::collision_detection::point::shared::entity< Poi
         typename coordinate_type< Point >::type const& value
     )
     {
-        if( !p.m_ptr ) throw;
-        geometry::set< Dimension >( *( p.m_ptr ), value );
+        p.set< Dimension >( value );
     }
 };
 
