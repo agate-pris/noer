@@ -56,6 +56,10 @@ class entity
 
     // check if owns managed object
     explicit operator bool() const BOOST_NOEXCEPT_OR_NOTHROW;
+
+    // get coordinate value
+    template< std::size_t Dimension >
+    coordinate_type get() const;
 };
 
 // construct empty shared_ptr
@@ -112,6 +116,15 @@ template< typename Point >
 inline entity< Point >::operator bool() const BOOST_NOEXCEPT_OR_NOTHROW
 {
     return static_cast< bool >( m_ptr );
+}
+
+// get coordinate value
+template<typename Point>
+template<std::size_t Dimension>
+inline typename entity<Point>::coordinate_type
+entity< Point >::get() const
+{
+    return boost::geometry::get< Dimension >( *m_ptr );
 }
 
 } // shared
