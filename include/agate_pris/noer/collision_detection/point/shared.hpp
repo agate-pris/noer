@@ -60,6 +60,10 @@ class entity
     // get coordinate value
     template< std::size_t Dimension >
     coordinate_type get() const;
+
+    // set coordiante value
+    template< std::size_t Dimension >
+    void set( coordinate_type const& );
 };
 
 // construct empty shared_ptr
@@ -125,6 +129,14 @@ inline typename entity<Point>::coordinate_type
 entity< Point >::get() const
 {
     return boost::geometry::get< Dimension >( *m_ptr );
+}
+
+// set coordiante value
+template<typename Point>
+template< std::size_t Dimension >
+inline void entity< Point >::set( coordinate_type const& v )
+{
+    boost::geometry::set< Dimension >( *m_ptr, v );
 }
 
 } // shared
