@@ -51,6 +51,9 @@ class entity
     public:
     shared_pointer const& data() const BOOST_NOEXCEPT_OR_NOTHROW;
     shared_pointer&       data() BOOST_NOEXCEPT_OR_NOTHROW;
+
+    // check if owns managed object
+    explicit operator bool() const BOOST_NOEXCEPT_OR_NOTHROW;
 };
 
 // construct empty shared_ptr
@@ -100,6 +103,13 @@ template< typename Point >
 inline typename entity< Point >::shared_pointer& entity< Point >::data() BOOST_NOEXCEPT_OR_NOTHROW
 {
     return m_ptr;
+}
+
+// check if owns managed object
+template< typename Point >
+inline entity< Point >::operator bool() const BOOST_NOEXCEPT_OR_NOTHROW
+{
+    return static_cast< bool >( m_ptr );
 }
 
 } // shared
