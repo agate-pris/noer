@@ -28,6 +28,9 @@ class check_zero
 
     // construct shared_ptr object that takes resource from r
     check_zero( check_zero< Point >&& r ) BOOST_NOEXCEPT_OR_NOTHROW;
+
+    // construct shared_ptr object that owns same resource as r
+    check_zero( shared_pointer const& r ) BOOST_NOEXCEPT_OR_NOTHROW;
 };
 
 // constructor
@@ -55,6 +58,12 @@ inline check_zero< Point >::check_zero( check_zero< Point > const& r ) BOOST_NOE
 template< typename Point >
 inline check_zero< Point >::check_zero( check_zero< Point >&& r ) BOOST_NOEXCEPT_OR_NOTHROW
     : entity< Point >( std::move( r.data() ) )
+{}
+
+// construct shared_ptr object that owns same resource as r
+template< typename Point >
+inline check_zero< Point >::check_zero( shared_pointer const& r ) BOOST_NOEXCEPT_OR_NOTHROW
+    : entity< Point >( r )
 {}
 
 } // shared
