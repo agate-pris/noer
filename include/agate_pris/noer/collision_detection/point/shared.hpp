@@ -23,6 +23,7 @@ template< typename Point >
 class entity
 {
     // type
+    public:
     using element_type   = Point;
     using shared_pointer = std::shared_ptr< element_type >;
 
