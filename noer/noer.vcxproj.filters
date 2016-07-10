@@ -139,6 +139,9 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared.hpp">
       <Filter>collision_detection\point\shared</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\getter\no_check.hpp">
+      <Filter>collision_detection\point\shared\getter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="collision_detection">
@@ -170,6 +173,9 @@
     </Filter>
     <Filter Include="collision_detection\point\shared">
       <UniqueIdentifier>{1c66fa01-75e7-40bd-a418-43350c022d6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="collision_detection\point\shared\getter">
+      <UniqueIdentifier>{7c9599c4-e692-4944-b974-9efcd215b2a3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
