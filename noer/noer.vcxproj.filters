@@ -139,9 +139,6 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared.hpp">
       <Filter>collision_detection\point\shared</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\check_zero.hpp">
-      <Filter>collision_detection\point\shared</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="collision_detection">
