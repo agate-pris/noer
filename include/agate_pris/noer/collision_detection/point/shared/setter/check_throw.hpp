@@ -44,4 +44,4 @@ inline void check_throw::impl
 } // noer
 } // agate_pris
 
-#endif
+#endif // AGATE_PRIS_NOER_COLLISION_DETECTION_POINT_SHARED_SETTER_CHECK_THROW_HPP
