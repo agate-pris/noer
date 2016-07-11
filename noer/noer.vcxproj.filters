@@ -139,9 +139,6 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared.hpp">
       <Filter>collision_detection\point\shared</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\getter\no_check.hpp">
-      <Filter>collision_detection\point\shared\getter</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\getter\check_assert.hpp">
       <Filter>collision_detection\point\shared\getter</Filter>
     </ClInclude>
@@ -149,6 +146,9 @@
       <Filter>collision_detection\point\shared\getter</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\getter\check_zero.hpp">
+      <Filter>collision_detection\point\shared\getter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\getter\no_check.hpp">
       <Filter>collision_detection\point\shared\getter</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\setter\check_assert.hpp">
