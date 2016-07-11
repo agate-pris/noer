@@ -151,6 +151,9 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\getter\check_zero.hpp">
       <Filter>collision_detection\point\shared\getter</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\setter\check_assert.hpp">
+      <Filter>collision_detection\point\shared\setter</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\setter\check_ignore.hpp">
       <Filter>collision_detection\point\shared\setter</Filter>
     </ClInclude>

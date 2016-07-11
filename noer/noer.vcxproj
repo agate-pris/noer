@@ -121,6 +121,7 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\getter\check_throw.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\getter\check_zero.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\getter\no_check.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\setter\check_assert.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\setter\check_ignore.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\setter\check_throw.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\setter\no_check.hpp" />
