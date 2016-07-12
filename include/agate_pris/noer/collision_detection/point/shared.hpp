@@ -19,7 +19,7 @@ namespace collision_detection {
 namespace point {
 namespace shared {
 
-template< typename Point >
+template< typename Point, typename Getter, typename Setter >
 class entity
 {
     // type
@@ -40,9 +40,9 @@ class entity
     BOOST_CONSTEXPR entity( std::nullptr_t ) BOOST_NOEXCEPT_OR_NOTHROW;
 
     // construct shared_ptr object that owns same resource as r
-    entity( entity< Point > const& r ) BOOST_NOEXCEPT_OR_NOTHROW;
+    entity( entity< Point, Getter, Setter > const& r ) BOOST_NOEXCEPT_OR_NOTHROW;
     // construct shared_ptr object that takes resource from r
-    entity( entity< Point >&& r ) BOOST_NOEXCEPT_OR_NOTHROW;
+    entity( entity< Point, Getter, Setter >&& r ) BOOST_NOEXCEPT_OR_NOTHROW;
 
     // construct shared_ptr object that owns same resource as r
     entity( shared_pointer const& r ) BOOST_NOEXCEPT_OR_NOTHROW;
@@ -67,34 +67,34 @@ class entity
 };
 
 // construct empty shared_ptr
-template< typename Point >
-inline entity< Point >::entity() BOOST_NOEXCEPT_OR_NOTHROW {}
+template< typename Point, typename Getter, typename Setter >
+inline entity< Point, Getter, Setter >::entity() BOOST_NOEXCEPT_OR_NOTHROW {}
 
 // construct empty shared_ptr
-template< typename Point >
-inline entity< Point >::entity( std::nullptr_t ) BOOST_NOEXCEPT_OR_NOTHROW {}
+template< typename Point, typename Getter, typename Setter >
+inline entity< Point, Getter, Setter >::entity( std::nullptr_t ) BOOST_NOEXCEPT_OR_NOTHROW {}
 
 // construct shared_ptr object that owns same resource as r
-template< typename Point >
-inline entity< Point >::entity( entity< Point > const& r ) BOOST_NOEXCEPT_OR_NOTHROW
+template< typename Point, typename Getter, typename Setter >
+inline entity< Point, Getter, Setter >::entity( entity< Point, Getter, Setter > const& r ) BOOST_NOEXCEPT_OR_NOTHROW
     : m_ptr( r.data() )
 {}
 
 // construct shared_ptr object that takes resource from r
-template< typename Point >
-inline entity< Point >::entity( entity< Point >&& r ) BOOST_NOEXCEPT_OR_NOTHROW
+template< typename Point, typename Getter, typename Setter >
+inline entity< Point, Getter, Setter >::entity( entity< Point, Getter, Setter >&& r ) BOOST_NOEXCEPT_OR_NOTHROW
     : m_ptr( std::move( r.data() ) )
 {}
 
 // construct shared_ptr object that owns same resource as r
-template< typename Point >
-inline entity< Point >::entity( shared_pointer const& r ) BOOST_NOEXCEPT_OR_NOTHROW
+template< typename Point, typename Getter, typename Setter >
+inline entity< Point, Getter, Setter >::entity( shared_pointer const& r ) BOOST_NOEXCEPT_OR_NOTHROW
     : m_ptr( r )
 {}
 
 // construct shared_ptr object that takes resource from r
-template< typename Point >
-inline entity< Point >::entity( shared_pointer&& r ) BOOST_NOEXCEPT_OR_NOTHROW
+template< typename Point, typename Getter, typename Setter >
+inline entity< Point, Getter, Setter >::entity( shared_pointer&& r ) BOOST_NOEXCEPT_OR_NOTHROW
     : m_ptr( std::move( r ) )
 {}
 
@@ -102,41 +102,43 @@ inline entity< Point >::entity( shared_pointer&& r ) BOOST_NOEXCEPT_OR_NOTHROW
 // ---------------------------------------------------------------------
 
 // get shared_ptr const reference
-template< typename Point >
-inline typename entity< Point >::shared_pointer const& entity< Point >::data() const BOOST_NOEXCEPT_OR_NOTHROW
+template< typename Point, typename Getter, typename Setter >
+inline typename entity< Point, Getter, Setter >::shared_pointer const&
+entity< Point, Getter, Setter >::data() const BOOST_NOEXCEPT_OR_NOTHROW
 {
     return m_ptr;
 }
 
 // get shared_ptr reference
-template< typename Point >
-inline typename entity< Point >::shared_pointer& entity< Point >::data() BOOST_NOEXCEPT_OR_NOTHROW
+template< typename Point, typename Getter, typename Setter >
+inline typename entity< Point, Getter, Setter >::shared_pointer&
+entity< Point, Getter, Setter >::data() BOOST_NOEXCEPT_OR_NOTHROW
 {
     return m_ptr;
 }
 
 // check if owns managed object
-template< typename Point >
-inline entity< Point >::operator bool() const BOOST_NOEXCEPT_OR_NOTHROW
+template< typename Point, typename Getter, typename Setter >
+inline entity< Point, Getter, Setter >::operator bool() const BOOST_NOEXCEPT_OR_NOTHROW
 {
     return static_cast< bool >( m_ptr );
 }
 
 // get coordinate value
-template<typename Point>
+template< typename Point, typename Getter, typename Setter >
 template<std::size_t Dimension>
-inline typename entity<Point>::coordinate_type
-entity< Point >::get() const
+inline typename entity< Point, Getter, Setter >::coordinate_type
+entity< Point, Getter, Setter >::get() const
 {
-    return boost::geometry::get< Dimension >( *m_ptr );
+    return Getter::impl< Point, Dimension >( m_ptr );
 }
 
 // set coordiante value
-template<typename Point>
+template< typename Point, typename Getter, typename Setter >
 template< std::size_t Dimension >
-inline void entity< Point >::set( coordinate_type const& v )
+inline void entity< Point, Getter, Setter >::set( coordinate_type const& v )
 {
-    boost::geometry::set< Dimension >( *m_ptr, v );
+    Setter::impl< Point, Dimension >( m_ptr, v );
 }
 
 } // shared
@@ -149,41 +151,41 @@ namespace boost {
 namespace geometry {
 namespace traits {
 
-template< typename Point >
-struct tag< agate_pris::noer::collision_detection::point::shared::entity< Point > >
+template< typename Point, typename Getter, typename Setter >
+struct tag< agate_pris::noer::collision_detection::point::shared::entity< Point, Getter, Setter > >
 {
     using type = point_tag;
 };
 
-template< typename Point >
-struct coordinate_type< agate_pris::noer::collision_detection::point::shared::entity< Point > >
+template< typename Point, typename Getter, typename Setter >
+struct coordinate_type< agate_pris::noer::collision_detection::point::shared::entity< Point, Getter, Setter > >
 {
     using type = typename coordinate_type< Point >::type;
 };
 
-template< typename Point >
-struct coordinate_system< agate_pris::noer::collision_detection::point::shared::entity< Point > >
+template< typename Point, typename Getter, typename Setter >
+struct coordinate_system< agate_pris::noer::collision_detection::point::shared::entity< Point, Getter, Setter > >
 {
     using type = typename coordinate_system< Point >::type;
 };
 
-template< typename Point >
-struct dimension< agate_pris::noer::collision_detection::point::shared::entity< Point > >
+template< typename Point, typename Getter, typename Setter >
+struct dimension< agate_pris::noer::collision_detection::point::shared::entity< Point, Getter, Setter > >
 {
     static constexpr const std::size_t value = dimension< Point >::value;
 };
 
-template< typename Point, std::size_t Dimension >
-struct access< agate_pris::noer::collision_detection::point::shared::entity< Point >, Dimension >
+template< typename Point, typename Getter, typename Setter, std::size_t Dimension >
+struct access< agate_pris::noer::collision_detection::point::shared::entity< Point, Getter, Setter >, Dimension >
 {
-    static inline decltype( auto ) get( agate_pris::noer::collision_detection::point::shared::entity< Point > const& p )
+    static inline decltype( auto ) get( agate_pris::noer::collision_detection::point::shared::entity< Point, Getter, Setter > const& p )
     {
         return p.get< Dimension >();
     }
 
     static inline void set
     (
-        agate_pris::noer::collision_detection::point::shared::entity< Point >& p,
+        agate_pris::noer::collision_detection::point::shared::entity< Point, Getter, Setter >& p,
         typename coordinate_type< Point >::type const& value
     )
     {
