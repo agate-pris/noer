@@ -28,9 +28,6 @@
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_implement_fwd.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\relative_point.hpp">
-      <Filter>collision_detection</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\collision_detection\transform.hpp">
       <Filter>collision_detection</Filter>
     </ClInclude>
