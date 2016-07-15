@@ -8,6 +8,7 @@
 #include <agate_pris/noer/collision_detection/core/access.hpp>
 #include <agate_pris/noer/collision_detection/algorithms/intersects.hpp>
 #include <boost/geometry/geometries/segment.hpp>
+#include <boost/geometry/geometries/point.hpp>
 
 namespace agate_pris {
 namespace noer {
@@ -18,8 +19,19 @@ bool intersects( BoxType const& box, TriangleType const& triangle, box_tag, tria
 {
     static_assert( dimension< BoxType >::value == 2 && dimension< TriangleType >::value == 2, "Dimension must be 2." );
 
-    using box_point_type = point_type_t< BoxType >;
-    using triangle_point_type = point_type_t< TriangleType >;
+    namespace bg = boost::geometry;
+    using box_point_type = bg::model::point
+    <
+        typename bg::coordinate_type< point_type_t< BoxType > >::type,
+        bg::dimension< point_type_t< BoxType > >::value,
+        typename bg::coordinate_system< point_type_t< BoxType > >::type
+    >;
+    using triangle_point_type = bg::model::point
+    <
+        typename bg::coordinate_type< point_type_t< TriangleType > >::type,
+        bg::dimension< point_type_t< TriangleType > >::value,
+        typename bg::coordinate_system< point_type_t< TriangleType > >::type
+    >;
 
     const box_point_type a( get< 0, 0 >( box ), get< 0, 1 >( box ) );
     const box_point_type b( get< 1, 0 >( box ), get< 0, 1 >( box ) );
