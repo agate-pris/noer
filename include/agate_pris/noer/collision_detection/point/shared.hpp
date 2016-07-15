@@ -171,9 +171,8 @@ struct coordinate_system< agate_pris::noer::collision_detection::point::shared::
 
 template< typename Point, typename Getter, typename Setter >
 struct dimension< agate_pris::noer::collision_detection::point::shared::entity< Point, Getter, Setter > >
-{
-    static constexpr const std::size_t value = dimension< Point >::value;
-};
+    : dimension< Point >
+{};
 
 template< typename Point, typename Getter, typename Setter, std::size_t Dimension >
 struct access< agate_pris::noer::collision_detection::point::shared::entity< Point, Getter, Setter >, Dimension >
