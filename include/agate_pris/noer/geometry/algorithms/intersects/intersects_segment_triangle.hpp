@@ -2,9 +2,9 @@
 #ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_SEGMENT_TRIANGLE_HPP
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_SEGMENT_TRIANGLE_HPP
 
-#include <agate_pris/noer/collision_detection/core/coordinate_dimension.hpp>
-#include <agate_pris/noer/collision_detection/core/point_type.hpp>
-#include <agate_pris/noer/collision_detection/core/tags.hpp>
+#include <agate_pris/noer/geometry/core/coordinate_dimension.hpp>
+#include <agate_pris/noer/geometry/core/point_type.hpp>
+#include <agate_pris/noer/geometry/core/tags.hpp>
 #include <boost/geometry/core/coordinate_type.hpp>
 #include <boost/geometry/geometries/segment.hpp>
 

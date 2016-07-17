@@ -6,11 +6,11 @@
 #include <array>
 
 #include <boost/array.hpp>
-#include <agate_pris/noer/collision_detection/core/tag.hpp>
-#include <agate_pris/noer/collision_detection/core/tags.hpp>
-#include <agate_pris/noer/collision_detection/core/access.hpp>
-#include <agate_pris/noer/collision_detection/core/point_type.hpp>
-#include <agate_pris/noer/collision_detection/core/point_order.hpp>
+#include <agate_pris/noer/geometry/core/tag.hpp>
+#include <agate_pris/noer/geometry/core/tags.hpp>
+#include <agate_pris/noer/geometry/core/access.hpp>
+#include <agate_pris/noer/geometry/core/point_type.hpp>
+#include <agate_pris/noer/geometry/core/point_order.hpp>
 #include <boost/geometry/core/point_order.hpp>
 #include <boost/geometry/algorithms/envelope.hpp>
 #include <algorithm>

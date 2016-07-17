@@ -2,13 +2,13 @@
 #ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_SEGMENT_SEGMENT_HPP
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_SEGMENT_SEGMENT_HPP
 
-#include <agate_pris/noer/collision_detection/core/tags.hpp>
-#include <agate_pris/noer/collision_detection/core/coordinate_dimension.hpp>
-#include <agate_pris/noer/collision_detection/core/point_type.hpp>
+#include <agate_pris/noer/geometry/core/tags.hpp>
+#include <agate_pris/noer/geometry/core/coordinate_dimension.hpp>
+#include <agate_pris/noer/geometry/core/point_type.hpp>
 #include <boost/geometry/core/coordinate_type.hpp>
 #include <boost/geometry/geometries/box.hpp>
 #include <boost/geometry/algorithms/envelope.hpp>
-#include <agate_pris/noer/collision_detection/core/access.hpp>
+#include <agate_pris/noer/geometry/core/access.hpp>
 #include <boost/geometry/strategies/cartesian/side_by_triangle.hpp>
 
 namespace agate_pris {

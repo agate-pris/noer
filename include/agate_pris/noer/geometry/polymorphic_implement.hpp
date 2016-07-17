@@ -2,9 +2,9 @@
 #ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_POLYMORPHIC_IMPLEMENT_HPP
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_POLYMORPHIC_IMPLEMENT_HPP
 
-#include <agate_pris/noer/collision_detection/algorithms/intersects.hpp>
-#include <agate_pris/noer/collision_detection/polymorphic_implement_fwd.hpp>
-#include <agate_pris/noer/collision_detection/polymorphic_interface.hpp>
+#include <agate_pris/noer/geometry/algorithms/intersects.hpp>
+#include <agate_pris/noer/geometry/polymorphic_implement_fwd.hpp>
+#include <agate_pris/noer/geometry/polymorphic_interface.hpp>
 
 namespace agate_pris {
 namespace noer {

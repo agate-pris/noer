@@ -3,7 +3,7 @@
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_CONTAINER_HPP
 
 #include <type_traits>
-#include <agate_pris/noer/collision_detection/core/tags.hpp>
+#include <agate_pris/noer/geometry/core/tags.hpp>
 #include <boost/fusion/algorithm/query/any.hpp>
 #include <boost/fusion/include/any.hpp>
 

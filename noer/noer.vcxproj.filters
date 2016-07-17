@@ -16,19 +16,19 @@
     <ClInclude Include="..\include\agate_pris\noer\fraction_traits.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\get.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\empty.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\triangle.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\triangle.hpp">
       <Filter>geometry</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_implement.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\polymorphic_implement.hpp">
       <Filter>geometry</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_interface.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\polymorphic_interface.hpp">
       <Filter>geometry</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\polymorphic_implement_fwd.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\polymorphic_implement_fwd.hpp">
       <Filter>geometry</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\transform.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\transform.hpp">
       <Filter>geometry</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\exact_number.hpp">
@@ -40,13 +40,13 @@
     <ClInclude Include="..\include\agate_pris\noer\config\deprecated.hpp">
       <Filter>config</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\cached_point.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\cached_point.hpp">
       <Filter>geometry</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\spherical_coordinates.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\spherical_coordinates.hpp">
       <Filter>geometry</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\polar_coordinates.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\polar_coordinates.hpp">
       <Filter>geometry</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\value_init.hpp">
@@ -79,85 +79,85 @@
     <ClInclude Include="..\include\agate_pris\noer\angle\sin_table.hpp">
       <Filter>angle</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_box_box.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_box_box.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_box_point.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_box_point.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_box_segment.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_box_segment.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_box_triangle.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_box_triangle.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_container.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_container.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_container_polymorphic.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_container_polymorphic.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_point_triangle.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_point_triangle.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_segment_segment.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_segment_segment.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_segment_triangle.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_segment_triangle.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\algorithms\intersects\intersects_triangle_triangle.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_triangle_triangle.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\access.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\core\access.hpp">
       <Filter>geometry\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\coordinate_dimension.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\core\coordinate_dimension.hpp">
       <Filter>geometry\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\point_order.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\core\point_order.hpp">
       <Filter>geometry\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\point_type.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\core\point_type.hpp">
       <Filter>geometry\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\tag.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\core\tag.hpp">
       <Filter>geometry\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\core\tags.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\core\tags.hpp">
       <Filter>geometry\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\primitive.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\point\primitive.hpp">
       <Filter>geometry\point</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared.hpp">
       <Filter>geometry\point\shared</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\getter\check_assert.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\getter\check_assert.hpp">
       <Filter>geometry\point\shared\getter</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\getter\check_throw.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\getter\check_throw.hpp">
       <Filter>geometry\point\shared\getter</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\getter\check_zero.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\getter\check_zero.hpp">
       <Filter>geometry\point\shared\getter</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\getter\no_check.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\getter\no_check.hpp">
       <Filter>geometry\point\shared\getter</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\setter\check_assert.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\setter\check_assert.hpp">
       <Filter>geometry\point\shared\setter</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\setter\check_ignore.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\setter\check_ignore.hpp">
       <Filter>geometry\point\shared\setter</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\setter\check_throw.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\setter\check_throw.hpp">
       <Filter>geometry\point\shared\setter</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\collision_detection\point\shared\setter\no_check.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\setter\no_check.hpp">
       <Filter>geometry\point\shared\setter</Filter>
     </ClInclude>
   </ItemGroup>
