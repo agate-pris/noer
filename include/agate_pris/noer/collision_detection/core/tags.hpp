@@ -8,7 +8,7 @@ namespace agate_pris
 {
 	namespace noer
 	{
-		namespace collision_detection
+		namespace geometry
 		{
 			using point_tag   = boost::geometry::point_tag;
 			using box_tag     = boost::geometry::box_tag;

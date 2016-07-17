@@ -8,7 +8,7 @@
 
 namespace agate_pris {
 namespace noer {
-namespace collision_detection {
+namespace geometry {
 
 namespace traits {
 

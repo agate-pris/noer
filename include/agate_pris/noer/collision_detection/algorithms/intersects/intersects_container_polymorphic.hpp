@@ -11,7 +11,7 @@
 
 namespace agate_pris {
 namespace noer {
-namespace collision_detection {
+namespace geometry {
 
 template< typename CollisionDetection1, typename CollisionDetection2 >
 inline bool intersects( CollisionDetection1 const& p, CollisionDetection2 const& c, polymorphic_tag, container_tag )

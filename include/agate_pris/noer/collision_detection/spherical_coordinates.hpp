@@ -19,7 +19,7 @@ namespace agate_pris
 {
     namespace noer
     {
-        namespace collision_detection
+        namespace geometry
         {
             // 1st angle behave as polar angle from x-axis
             // 2nd angle behave as azimuthal angle of orthogonal projection on yz-plane from y-axis

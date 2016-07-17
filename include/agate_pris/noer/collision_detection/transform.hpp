@@ -8,7 +8,7 @@ namespace agate_pris
 {
     namespace noer
     {
-        namespace collision_detection
+        namespace geometry
         {
             /// @brief \~english transform object from source to target
             ///        \~japanese ソースからターゲットへオブジェクトを変換します。

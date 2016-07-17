@@ -13,7 +13,7 @@
 
 namespace agate_pris {
 namespace noer {
-namespace collision_detection {
+namespace geometry {
 
 template< typename Cache, typename Entity >
 class cached_point
@@ -83,29 +83,29 @@ namespace geometry {
 namespace traits {
 
 template< typename Cache, typename Entity >
-struct tag< agate_pris::noer::collision_detection::cached_point< Cache, Entity > >
+struct tag< agate_pris::noer::geometry::cached_point< Cache, Entity > >
     : public tag< Cache >
 {};
 
 template< typename Cache, typename Entity >
-struct coordinate_type< agate_pris::noer::collision_detection::cached_point< Cache, Entity > >
+struct coordinate_type< agate_pris::noer::geometry::cached_point< Cache, Entity > >
     : coordinate_type< Cache >
 {};
 
 template< typename Cache, typename Entity >
-struct coordinate_system< agate_pris::noer::collision_detection::cached_point< Cache, Entity > >
+struct coordinate_system< agate_pris::noer::geometry::cached_point< Cache, Entity > >
     : coordinate_system< Cache >
 {};
 
 template< typename Cache, typename Entity >
-struct dimension< agate_pris::noer::collision_detection::cached_point< Cache, Entity > >
+struct dimension< agate_pris::noer::geometry::cached_point< Cache, Entity > >
     : dimension< Cache >
 {};
 
 template< typename Cache, typename Entity, long unsigned int Dimension >
-struct access< agate_pris::noer::collision_detection::cached_point< Cache, Entity >, Dimension >
+struct access< agate_pris::noer::geometry::cached_point< Cache, Entity >, Dimension >
 {
-    static inline auto get( agate_pris::noer::collision_detection::cached_point< Cache, Entity > const& p )
+    static inline auto get( agate_pris::noer::geometry::cached_point< Cache, Entity > const& p )
     {
         return p.template get< Dimension >();
     }

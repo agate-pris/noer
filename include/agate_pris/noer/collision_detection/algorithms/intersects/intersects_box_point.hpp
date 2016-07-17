@@ -7,7 +7,7 @@
 
 namespace agate_pris {
 namespace noer {
-namespace collision_detection {
+namespace geometry {
 
 template< typename BoxType, typename PointType >
 inline bool intersects( BoxType const& b, PointType const& p, box_tag, point_tag )

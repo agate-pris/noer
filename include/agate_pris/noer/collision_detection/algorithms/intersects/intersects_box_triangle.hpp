@@ -12,7 +12,7 @@
 
 namespace agate_pris {
 namespace noer {
-namespace collision_detection {
+namespace geometry {
 
 template< typename BoxType, typename TriangleType >
 bool intersects( BoxType const& box, TriangleType const& triangle, box_tag, triangle_tag )

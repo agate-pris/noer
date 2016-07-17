@@ -13,7 +13,7 @@
 
 namespace agate_pris {
 namespace noer {
-namespace collision_detection {
+namespace geometry {
 
 template< typename SegmentType >
 bool intersects( SegmentType const& ab, SegmentType const& cd, segment_tag, segment_tag )

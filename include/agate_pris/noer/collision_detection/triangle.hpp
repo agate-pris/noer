@@ -19,7 +19,7 @@ namespace agate_pris
 {
 	namespace noer
 	{
-		namespace collision_detection
+		namespace geometry
 		{
 			template
 			<
@@ -118,9 +118,9 @@ namespace boost
 			typename PointType, bool ClockWise,
 			template< typename, std::size_t > typename Container
 		>
-		void envelope( agate_pris::noer::collision_detection::triangle< PointType, ClockWise, Container > const& t, BoxType& b )
+		void envelope( agate_pris::noer::geometry::triangle< PointType, ClockWise, Container > const& t, BoxType& b )
 		{
-			namespace ncd = agate_pris::noer::collision_detection;
+			namespace ncd = agate_pris::noer::geometry;
 			auto x = std::minmax( { ncd::get< 0, 0 >( t ), ncd::get< 1, 0 >( t ), ncd::get< 2, 0 >( t ) } );
 			auto y = std::minmax( { ncd::get< 0, 1 >( t ), ncd::get< 1, 1 >( t ), ncd::get< 2, 1 >( t ) } );
 
@@ -136,7 +136,7 @@ namespace boost
 			typename PointType, bool ClockWise,
 			template< typename, std::size_t > typename Container
 		>
-		BoxType return_envelope( agate_pris::noer::collision_detection::triangle< PointType, ClockWise, Container > const& t )
+		BoxType return_envelope( agate_pris::noer::geometry::triangle< PointType, ClockWise, Container > const& t )
 		{
 			BoxType b;
 			envelope( t, b );

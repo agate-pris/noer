@@ -15,7 +15,7 @@ namespace agate_pris
 {
     namespace noer
     {
-        namespace collision_detection
+        namespace geometry
         {
             template< typename RadiusType, typename AngleType >
             class polar_coordinates
@@ -107,7 +107,7 @@ namespace boost
             >::value >,
             typename = std::enable_if_t< boost::geometry::dimension< Target >::value == 2 >
         >
-        bool transform( agate_pris::noer::collision_detection::polar_coordinates< Radius, Angle > const& source, Target& target )
+        bool transform( agate_pris::noer::geometry::polar_coordinates< Radius, Angle > const& source, Target& target )
         {
             namespace bg = boost::geometry;
             using std::cos;

@@ -8,7 +8,7 @@
 
 namespace agate_pris {
 namespace noer {
-namespace collision_detection {
+namespace geometry {
 
 namespace detail {
 
@@ -53,7 +53,7 @@ struct polymorphic_implement< Subject, Interface, Last >
 template< typename Subject, typename Interface, typename Last >
 bool polymorphic_implement< Subject, Interface, Last >::intersects( Last const& object ) const
 {
-    return collision_detection::intersects( holder::get(), object );
+    return geometry::intersects( holder::get(), object );
 }
 
 // definition for the others
@@ -69,7 +69,7 @@ struct polymorphic_implement< Subject, Interface, Head, Tail... >
 template< typename Subject, typename Interface, typename Head, typename... Tail >
 bool polymorphic_implement< Subject, Interface, Head, Tail... >::intersects( Head const& object ) const
 {
-    return collision_detection::intersects( get(), object );
+    return geometry::intersects( get(), object );
 }
 
 } // detail
@@ -93,13 +93,13 @@ struct polymorphic_implement< Subject >
 template< typename Subject, typename... Objects >
 bool polymorphic_implement< Subject, Objects... >::intersects( typename polymorphic_interface< Objects... >::interface_type const& object ) const
 {
-    return collision_detection::intersects( object, holder::get() );
+    return geometry::intersects( object, holder::get() );
 }
 
 template< typename Subject >
 bool polymorphic_implement< Subject >::intersects( typename polymorphic_interface<>::interface_type const& object ) const
 {
-    return collision_detection::intersects( object, holder::get() );
+    return geometry::intersects( object, holder::get() );
 }
 
 } // collision_detection

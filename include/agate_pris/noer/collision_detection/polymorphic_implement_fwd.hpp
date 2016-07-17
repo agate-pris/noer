@@ -4,7 +4,7 @@
 
 namespace agate_pris {
 namespace noer {
-namespace collision_detection {
+namespace geometry {
 
 template< typename Subject, typename... Objects >
 struct polymorphic_implement;

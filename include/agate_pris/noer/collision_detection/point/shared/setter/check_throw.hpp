@@ -10,7 +10,7 @@
 
 namespace agate_pris {
 namespace noer {
-namespace collision_detection {
+namespace geometry {
 namespace point {
 namespace shared {
 namespace setter {
@@ -31,7 +31,7 @@ inline void check_throw::impl
     if( r )
         boost::geometry::set< Dimension >( *r, v );
     throw std::invalid_argument(
-        "agate_pris::noer::collision_detection::point::shared::setter::check_throw::impl "
+        "agate_pris::noer::geometry::point::shared::setter::check_throw::impl "
         "detect invalid argument.\n"
         "argument r must not be nullptr."
     );
