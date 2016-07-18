@@ -12,6 +12,7 @@
 namespace agate_pris {
 namespace noer {
 namespace geometry {
+namespace model {
 
 namespace detail {
 
@@ -155,6 +156,7 @@ class primitive : public boost::numeric::ublas::vector< CoordinateType, ArrayTyp
 using point_hide::primitive;
 
 } // point
+} // model
 } // geometry
 } // noer
 } // agate_pris
@@ -165,19 +167,19 @@ namespace geometry {
 namespace traits {
 
 template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType >
-struct tag< agate_pris::noer::geometry::point::primitive< CoordinateType, DimensionCount, ArrayType > >
+struct tag< agate_pris::noer::geometry::model::point::primitive< CoordinateType, DimensionCount, ArrayType > >
 {
     using type = boost::geometry::point_tag;
 };
 
 template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType >
-struct coordinate_type< agate_pris::noer::geometry::point::primitive< CoordinateType, DimensionCount, ArrayType > >
+struct coordinate_type< agate_pris::noer::geometry::model::point::primitive< CoordinateType, DimensionCount, ArrayType > >
 {
     using type = CoordinateType;
 };
 
 template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType >
-struct coordinate_system< agate_pris::noer::geometry::point::primitive< CoordinateType, DimensionCount, ArrayType > >
+struct coordinate_system< agate_pris::noer::geometry::model::point::primitive< CoordinateType, DimensionCount, ArrayType > >
 {
     using type = boost::geometry::cs::cartesian;
 };
@@ -185,7 +187,7 @@ struct coordinate_system< agate_pris::noer::geometry::point::primitive< Coordina
 template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType >
 struct dimension
 <
-    agate_pris::noer::geometry::point::primitive
+    agate_pris::noer::geometry::model::point::primitive
     <
         CoordinateType,
         DimensionCount,
@@ -198,15 +200,15 @@ struct dimension
 template< typename CoordinateType, std::size_t DimensionCount, typename ArrayType, std::size_t Dimension >
 struct access
 <
-    agate_pris::noer::geometry::point::primitive< CoordinateType, DimensionCount, ArrayType >,
+    agate_pris::noer::geometry::model::point::primitive< CoordinateType, DimensionCount, ArrayType >,
     Dimension
 >
 {
-    static inline CoordinateType get( agate_pris::noer::geometry::point::primitive< CoordinateType, DimensionCount, ArrayType > const& p )
+    static inline CoordinateType get( agate_pris::noer::geometry::model::point::primitive< CoordinateType, DimensionCount, ArrayType > const& p )
     {
         return p.template get< Dimension >();
     }
-    static inline void set( agate_pris::noer::geometry::point::primitive< CoordinateType, DimensionCount, ArrayType >& p, const CoordinateType& value )
+    static inline void set( agate_pris::noer::geometry::model::point::primitive< CoordinateType, DimensionCount, ArrayType >& p, const CoordinateType& value )
     {
         p.template set< Dimension >( value );
     }

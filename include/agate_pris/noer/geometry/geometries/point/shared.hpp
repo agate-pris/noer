@@ -16,6 +16,7 @@
 namespace agate_pris {
 namespace noer {
 namespace geometry {
+namespace model {
 namespace point {
 namespace shared {
 
@@ -143,6 +144,7 @@ inline void entity< Point, Getter, Setter >::set( coordinate_type const& v )
 
 } // shared
 } // point
+} // model
 } // collision_detection
 } // noer
 } // agate_pris
@@ -152,39 +154,39 @@ namespace geometry {
 namespace traits {
 
 template< typename Point, typename Getter, typename Setter >
-struct tag< agate_pris::noer::geometry::point::shared::entity< Point, Getter, Setter > >
+struct tag< agate_pris::noer::geometry::model::point::shared::entity< Point, Getter, Setter > >
 {
     using type = point_tag;
 };
 
 template< typename Point, typename Getter, typename Setter >
-struct coordinate_type< agate_pris::noer::geometry::point::shared::entity< Point, Getter, Setter > >
+struct coordinate_type< agate_pris::noer::geometry::model::point::shared::entity< Point, Getter, Setter > >
 {
     using type = typename coordinate_type< Point >::type;
 };
 
 template< typename Point, typename Getter, typename Setter >
-struct coordinate_system< agate_pris::noer::geometry::point::shared::entity< Point, Getter, Setter > >
+struct coordinate_system< agate_pris::noer::geometry::model::point::shared::entity< Point, Getter, Setter > >
 {
     using type = typename coordinate_system< Point >::type;
 };
 
 template< typename Point, typename Getter, typename Setter >
-struct dimension< agate_pris::noer::geometry::point::shared::entity< Point, Getter, Setter > >
+struct dimension< agate_pris::noer::geometry::model::point::shared::entity< Point, Getter, Setter > >
     : dimension< Point >
 {};
 
 template< typename Point, typename Getter, typename Setter, std::size_t Dimension >
-struct access< agate_pris::noer::geometry::point::shared::entity< Point, Getter, Setter >, Dimension >
+struct access< agate_pris::noer::geometry::model::point::shared::entity< Point, Getter, Setter >, Dimension >
 {
-    static inline decltype( auto ) get( agate_pris::noer::geometry::point::shared::entity< Point, Getter, Setter > const& p )
+    static inline decltype( auto ) get( agate_pris::noer::geometry::model::point::shared::entity< Point, Getter, Setter > const& p )
     {
         return p.get< Dimension >();
     }
 
     static inline void set
     (
-        agate_pris::noer::geometry::point::shared::entity< Point, Getter, Setter >& p,
+        agate_pris::noer::geometry::model::point::shared::entity< Point, Getter, Setter >& p,
         typename coordinate_type< Point >::type const& value
     )
     {

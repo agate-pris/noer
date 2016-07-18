@@ -10,6 +10,7 @@
 namespace agate_pris {
 namespace noer {
 namespace geometry {
+namespace model {
 namespace point {
 namespace shared {
 namespace getter {
@@ -36,6 +37,7 @@ check_zero::impl( std::shared_ptr< Point > const& r )
 } // getter
 } // shared
 } // point
+} // model
 } // collision_detection
 } // noer
 } // agate_pris

@@ -10,6 +10,7 @@
 namespace agate_pris {
 namespace noer {
 namespace geometry {
+namespace model {
 namespace point {
 namespace shared {
 namespace setter {
@@ -32,6 +33,7 @@ inline void no_check::impl
 } // setter
 } // shared
 } // point
+} // model
 } // collision_detection
 } // noer
 } // agate_pris
