@@ -131,34 +131,34 @@
       <Filter>geometry\core</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\point\primitive.hpp">
-      <Filter>geometry\point</Filter>
+      <Filter>geometry\geometries\point</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared.hpp">
-      <Filter>geometry\point\shared</Filter>
+      <Filter>geometry\geometries\point\shared</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\getter\check_assert.hpp">
-      <Filter>geometry\point\shared\getter</Filter>
+      <Filter>geometry\geometries\point\shared\getter</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\getter\check_throw.hpp">
-      <Filter>geometry\point\shared\getter</Filter>
+      <Filter>geometry\geometries\point\shared\getter</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\getter\check_zero.hpp">
-      <Filter>geometry\point\shared\getter</Filter>
+      <Filter>geometry\geometries\point\shared\getter</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\getter\no_check.hpp">
-      <Filter>geometry\point\shared\getter</Filter>
+      <Filter>geometry\geometries\point\shared\getter</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\setter\check_assert.hpp">
-      <Filter>geometry\point\shared\setter</Filter>
+      <Filter>geometry\geometries\point\shared\setter</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\setter\check_ignore.hpp">
-      <Filter>geometry\point\shared\setter</Filter>
+      <Filter>geometry\geometries\point\shared\setter</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\setter\check_throw.hpp">
-      <Filter>geometry\point\shared\setter</Filter>
+      <Filter>geometry\geometries\point\shared\setter</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\point\shared\setter\no_check.hpp">
-      <Filter>geometry\point\shared\setter</Filter>
+      <Filter>geometry\geometries\point\shared\setter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -186,16 +186,19 @@
     <Filter Include="geometry\core">
       <UniqueIdentifier>{7e3d6cc0-fb34-4527-ad39-4ed12c31d9d6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="geometry\point">
+    <Filter Include="geometry\geometries">
+      <UniqueIdentifier>{90a0a573-e3c5-437d-b536-0db9c3813d63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="geometry\geometries\point">
       <UniqueIdentifier>{a4de34e4-5603-4b41-96d9-c433987135e4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="geometry\point\shared">
+    <Filter Include="geometry\geometries\point\shared">
       <UniqueIdentifier>{1c66fa01-75e7-40bd-a418-43350c022d6c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="geometry\point\shared\getter">
+    <Filter Include="geometry\geometries\point\shared\getter">
       <UniqueIdentifier>{7c9599c4-e692-4944-b974-9efcd215b2a3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="geometry\point\shared\setter">
+    <Filter Include="geometry\geometries\point\shared\setter">
       <UniqueIdentifier>{0f969ad3-bfbb-4f04-b6cd-2cac59cadc0c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
