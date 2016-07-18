@@ -141,6 +141,7 @@ namespace agate_pris
             {
                 static_assert( std::numeric_limits< Arg >::is_exact, "Number must be exact." );
                 m_repr = static_cast< Repr >( arg );
+                return *this;
             }
 
             // conversion to any exact number
@@ -236,6 +237,7 @@ namespace agate_pris
 		exact_number< Repr >& exact_number< Repr >::operator = ( exact_number< Rhs > const& arg )
 		{
 			m_repr = static_cast< Repr >( arg );
+            return *this;
 		}
 
 		/// @brief \~english compound assignment operator except for `exact_number`
