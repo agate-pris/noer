@@ -13,6 +13,7 @@
 #include <agate_pris/noer/geometry/algorithms/intersects/segment_segment.hpp>
 #include <agate_pris/noer/geometry/algorithms/intersects/segment_triangle.hpp>
 #include <agate_pris/noer/geometry/algorithms/intersects/triangle_triangle.hpp>
+#include <agate_pris/noer/geometry/algorithms/intersects/polymorphic_polymorphic.hpp>
 
 namespace agate_pris {
 namespace noer {

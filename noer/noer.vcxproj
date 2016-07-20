@@ -105,6 +105,7 @@
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\container.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\container_polymorphic.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\point_triangle.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\polymorphic_polymorphic.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\segment_segment.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\segment_triangle.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\triangle_triangle.hpp" />
