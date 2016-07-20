@@ -82,9 +82,6 @@
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_box_box.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects.hpp">
-      <Filter>geometry\algorithms\intersects</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_box_point.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
@@ -159,6 +156,9 @@
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\geometries\point\shared\setter\no_check.hpp">
       <Filter>geometry\geometries\point\shared\setter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects.hpp">
+      <Filter>geometry\algorithms</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
