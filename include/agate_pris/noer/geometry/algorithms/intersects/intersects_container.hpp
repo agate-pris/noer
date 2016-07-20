@@ -35,10 +35,10 @@ inline bool intersects( CollisionDetection1 const& c1, CollisionDetection2 const
         {
             return intersects( a, b );
         };
-        boost::fusion::result_of::any( c2, f );
+        boost::fusion::any( c2, f );
     };
 
-    return boost::fusion::result_of::any( c1, f );
+    return boost::fusion::any( c1, f );
 }
 
 template< typename CollisionDetection1, typename CollisionDetection2, typename AnyTag >
@@ -65,7 +65,7 @@ inline auto intersects( CollisionDetection1 const& object, CollisionDetection2 c
         return intersects( e, object );
     };
 
-    return boost::fusion::result_of::any( container, f );
+    return boost::fusion::any( container, f );
 }
 
 } // collision_detection
