@@ -79,34 +79,34 @@
     <ClInclude Include="..\include\agate_pris\noer\angle\sin_table.hpp">
       <Filter>angle</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_box_box.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\box_box.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_box_point.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\box_point.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_box_segment.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\box_segment.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_box_triangle.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\box_triangle.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_container.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\container.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_container_polymorphic.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\container_polymorphic.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_point_triangle.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\point_triangle.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_segment_segment.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\segment_segment.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_segment_triangle.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\segment_triangle.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\intersects_triangle_triangle.hpp">
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\triangle_triangle.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\core\access.hpp">
