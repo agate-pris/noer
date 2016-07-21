@@ -98,6 +98,7 @@
     <ClInclude Include="..\include\agate_pris\noer\angle\sin_table.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\as_target.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\any_polymorphic.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\box_box.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\box_point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\box_segment.hpp" />

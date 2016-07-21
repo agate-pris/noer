@@ -63,31 +63,6 @@ struct tag< polymorphic_interface< Objects... > >
 };
 }
 
-// overload intersects
-template< typename AnyObject, typename AnyTag, typename... Objects >
-inline auto intersects( polymorphic_interface< Objects... > const& a, AnyObject const& b, polymorphic_tag, AnyTag )
--> std::enable_if_t
-<
-    !std::is_same< AnyTag, container_tag   >::value &&
-    !std::is_same< AnyTag, polymorphic_tag >::value,
-    bool
->
-{
-    return a.intersects( b );
-}
-
-template< typename AnyObject, typename AnyTag, typename... Objects >
-inline auto intersects( AnyObject const& b, polymorphic_interface< Objects... > const& a, AnyTag, polymorphic_tag )
--> std::enable_if_t
-<
-    !std::is_same< AnyTag, container_tag   >::value &&
-    !std::is_same< AnyTag, polymorphic_tag >::value,
-    bool
->
-{
-    return a.intersects( b );
-}
-
 } // collision_detection
 } // noer
 } // agate_pris
