@@ -19,13 +19,13 @@ namespace traits {
 template< typename... Elements >
 struct tag< std::tuple< Elements... > >
 {
-    using type = container_tag;
+    using type = boost_fusion_container_tag;
 };
 
 } // traits
 
 template< typename CollisionDetection1, typename CollisionDetection2 >
-inline bool intersects( CollisionDetection1 const& c1, CollisionDetection2 const& c2, container_tag, container_tag )
+inline bool intersects( CollisionDetection1 const& c1, CollisionDetection2 const& c2, boost_fusion_container_tag, boost_fusion_container_tag )
 {
     // a is element of c1
     auto f = [ &c2 ]( auto& a )
@@ -42,7 +42,7 @@ inline bool intersects( CollisionDetection1 const& c1, CollisionDetection2 const
 }
 
 template< typename CollisionDetection1, typename CollisionDetection2, typename AnyTag >
-inline auto intersects( CollisionDetection1 const& container, CollisionDetection2 const& object, container_tag, AnyTag )
+inline auto intersects( CollisionDetection1 const& container, CollisionDetection2 const& object, boost_fusion_container_tag, AnyTag )
 -> std::enable_if_t< !std::is_same< AnyTag, polymorphic_tag >::value, bool >
 {
     // e is element of container
@@ -55,7 +55,7 @@ inline auto intersects( CollisionDetection1 const& container, CollisionDetection
 }
 
 template< typename CollisionDetection1, typename CollisionDetection2, typename AnyTag >
-inline auto intersects( CollisionDetection1 const& object, CollisionDetection2 const& container, AnyTag, container_tag )
+inline auto intersects( CollisionDetection1 const& object, CollisionDetection2 const& container, AnyTag, boost_fusion_container_tag )
 -> std::enable_if_t< !std::is_same< AnyTag, polymorphic_tag >::value, bool >
 {
     return false;

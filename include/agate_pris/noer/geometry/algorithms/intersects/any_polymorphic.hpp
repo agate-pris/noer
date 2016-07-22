@@ -13,8 +13,8 @@ template< typename Lhs, typename Rhs, typename AnyTag >
 inline auto intersects( Lhs const& lhs, Rhs const& rhs, polymorphic_tag, AnyTag )
 ->std::enable_if_t
 <
-    !std::is_same< AnyTag, container_tag   >::value &&
-    !std::is_same< AnyTag, polymorphic_tag >::value,
+    !std::is_same< AnyTag, boost_fusion_container_tag >::value &&
+    !std::is_same< AnyTag, polymorphic_tag            >::value,
     bool
 >
 {
@@ -25,8 +25,8 @@ template< typename Lhs, typename Rhs, typename AnyTag >
 inline auto intersects( Lhs const& lhs, Rhs const& rhs, AnyTag, polymorphic_tag )
 ->std::enable_if_t
 <
-    !std::is_same< AnyTag, container_tag   >::value &&
-    !std::is_same< AnyTag, polymorphic_tag >::value,
+    !std::is_same< AnyTag, boost_fusion_container_tag >::value &&
+    !std::is_same< AnyTag, polymorphic_tag            >::value,
     bool
 >
 {

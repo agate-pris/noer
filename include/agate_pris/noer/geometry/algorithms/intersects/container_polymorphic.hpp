@@ -14,7 +14,7 @@ namespace noer {
 namespace geometry {
 
 template< typename CollisionDetection1, typename CollisionDetection2 >
-inline bool intersects( CollisionDetection1 const& p, CollisionDetection2 const& c, polymorphic_tag, container_tag )
+inline bool intersects( CollisionDetection1 const& p, CollisionDetection2 const& c, polymorphic_tag, boost_fusion_container_tag )
 {
     // e is element of c
     auto f = [ &p ]( auto& e )
@@ -26,7 +26,7 @@ inline bool intersects( CollisionDetection1 const& p, CollisionDetection2 const&
 }
 
 template< typename CollisionDetection1, typename CollisionDetection2 >
-inline bool intersects( CollisionDetection1 const& c, CollisionDetection2 const& p, container_tag, polymorphic_tag )
+inline bool intersects( CollisionDetection1 const& c, CollisionDetection2 const& p, boost_fusion_container_tag, polymorphic_tag )
 {
     // e is element of c
     auto f = [ &p ]( auto& e )
