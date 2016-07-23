@@ -3,7 +3,11 @@
 #define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_CONTAINER_HPP
 
 #include <type_traits>
+
 #include <agate_pris/noer/geometry/core/tags.hpp>
+#include <agate_pris/noer/geometry/core/overload_priolity.hpp>
+#include <boost/mpl/greater.hpp>
+
 #include <boost/fusion/algorithm/query/any.hpp>
 #include <boost/fusion/include/any.hpp>
 
@@ -43,7 +47,7 @@ inline bool intersects( CollisionDetection1 const& c1, CollisionDetection2 const
 
 template< typename CollisionDetection1, typename CollisionDetection2, typename AnyTag >
 inline auto intersects( CollisionDetection1 const& container, CollisionDetection2 const& object, boost_fusion_container_tag, AnyTag )
--> std::enable_if_t< !std::is_same< AnyTag, polymorphic_tag >::value, bool >
+-> std::enable_if_t< boost::mpl::greater< overload_priolity< boost_fusion_container_tag >, overload_priolity< AnyTag > >::value, bool >
 {
     // e is element of container
     auto f = [ &object ]( auto& e )
@@ -56,7 +60,7 @@ inline auto intersects( CollisionDetection1 const& container, CollisionDetection
 
 template< typename CollisionDetection1, typename CollisionDetection2, typename AnyTag >
 inline auto intersects( CollisionDetection1 const& object, CollisionDetection2 const& container, AnyTag, boost_fusion_container_tag )
--> std::enable_if_t< !std::is_same< AnyTag, polymorphic_tag >::value, bool >
+-> std::enable_if_t< boost::mpl::greater< overload_priolity< boost_fusion_container_tag >, overload_priolity< AnyTag > >::value, bool >
 {
     return false;
     // e is element of container
