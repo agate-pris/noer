@@ -113,6 +113,7 @@
     <ClInclude Include="..\include\agate_pris\noer\geometry\cached_point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\core\access.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\core\coordinate_dimension.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\geometry\core\overload_priolity.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\core\point_order.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\core\point_type.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\core\tag.hpp" />

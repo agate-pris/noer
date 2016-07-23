@@ -166,6 +166,9 @@
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\any_polymorphic.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\geometry\core\overload_priolity.hpp">
+      <Filter>geometry\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="exact_number">
