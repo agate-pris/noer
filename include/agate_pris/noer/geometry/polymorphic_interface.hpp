@@ -1,6 +1,6 @@
 
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_POLYMORPHIC_INTERFACE_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_POLYMORPHIC_INTERFACE_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_POLYMORPHIC_INTERFACE_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_POLYMORPHIC_INTERFACE_HPP
 
 #include <agate_pris/noer/geometry/polymorphic_implement_fwd.hpp>
 #include <agate_pris/noer/geometry/core/tag.hpp>
@@ -67,4 +67,4 @@ struct tag< polymorphic_interface< Objects... > >
 } // noer
 } // agate_pris
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_POLYMORPHIC_INTERFACE_HPP

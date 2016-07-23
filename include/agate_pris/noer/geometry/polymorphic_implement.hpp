@@ -1,6 +1,6 @@
 ﻿
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_POLYMORPHIC_IMPLEMENT_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_POLYMORPHIC_IMPLEMENT_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_POLYMORPHIC_IMPLEMENT_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_POLYMORPHIC_IMPLEMENT_HPP
 
 #include <agate_pris/noer/geometry/algorithms/intersects.hpp>
 #include <agate_pris/noer/geometry/polymorphic_implement_fwd.hpp>
@@ -106,4 +106,4 @@ bool polymorphic_implement< Subject >::intersects( typename polymorphic_interfac
 } // noer
 } // agate_pris
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_POLYMORPHIC_IMPLEMENT_HPP

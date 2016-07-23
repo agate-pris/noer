@@ -1,6 +1,6 @@
 ﻿
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_POINT_TRIANGLE_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_POINT_TRIANGLE_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_POINT_TRIANGLE_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_POINT_TRIANGLE_HPP
 
 #include <utility>
 #include <agate_pris/noer/geometry/core/tags.hpp>
@@ -62,4 +62,4 @@ inline bool intersects( TriangleType const& triangle, PointType const& point, tr
 } // noer
 } // agate_pris
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_POINT_TRIANGLE_HPP

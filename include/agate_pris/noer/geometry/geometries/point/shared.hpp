@@ -1,6 +1,6 @@
 ﻿
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_POINT_SHARED_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_POINT_SHARED_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_GEOMETRIES_POINT_SHARED_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_GEOMETRIES_POINT_SHARED_HPP
 
 #include <utility>
 #include <memory>
@@ -198,4 +198,4 @@ struct access< agate_pris::noer::geometry::model::point::shared::entity< Point, 
 } // geometry
 } // boost
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_GEOMETRIES_POINT_SHARED_HPP

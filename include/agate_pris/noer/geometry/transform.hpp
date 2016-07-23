@@ -1,6 +1,6 @@
 ﻿
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_TRANSFORM_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_TRANSFORM_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_TRANSFORM_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_TRANSFORM_HPP
 
 #include <boost/geometry/algorithms/transform.hpp>
 
@@ -28,4 +28,4 @@ namespace agate_pris
     }
 }
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_TRANSFORM_HPP

@@ -1,6 +1,6 @@
 ﻿
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_TAGS_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_TAGS_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_TAGS_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_TAGS_HPP
 
 #include <boost/geometry/core/tags.hpp>
 #include <boost/mpl/long.hpp>
@@ -61,4 +61,4 @@ struct overload_priolity< boost_fusion_container_tag >
 } // noer
 } // agate_pris
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_TAGS_HPP

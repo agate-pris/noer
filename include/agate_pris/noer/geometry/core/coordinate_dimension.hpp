@@ -1,6 +1,6 @@
 
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_DIMENSION_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_DIMENSION_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_DIMENSION_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_DIMENSION_HPP
 
 #include <utility>
 #include <agate_pris/noer/geometry/core/point_type.hpp>
@@ -21,4 +21,4 @@ struct dimension
 } // noer
 } // agate_pris
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_DIMENSION_HPP

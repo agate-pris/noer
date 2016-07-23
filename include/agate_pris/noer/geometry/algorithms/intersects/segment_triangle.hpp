@@ -1,6 +1,6 @@
 ﻿
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_SEGMENT_TRIANGLE_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_SEGMENT_TRIANGLE_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_SEGMENT_TRIANGLE_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_SEGMENT_TRIANGLE_HPP
 
 #include <agate_pris/noer/geometry/core/coordinate_dimension.hpp>
 #include <agate_pris/noer/geometry/core/point_type.hpp>
@@ -53,4 +53,4 @@ inline bool intersects( TriangleType const& t, SegmentType const& s, triangle_ta
 } // noer
 } // agate_pris
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_SEGMENT_TRIANGLE_HPP

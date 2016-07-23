@@ -1,6 +1,6 @@
 
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_BOX_TRIANGLE_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_BOX_TRIANGLE_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_BOX_TRIANGLE_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_BOX_TRIANGLE_HPP
 
 #include <agate_pris/noer/geometry/core/tags.hpp>
 #include <agate_pris/noer/geometry/core/coordinate_dimension.hpp>
@@ -82,4 +82,4 @@ inline bool intersects( TriangleType const& triangle, BoxType const& box, triang
 } // noer
 } // agate_pris
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_BOX_TRIANGLE_HPP

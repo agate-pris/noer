@@ -1,6 +1,6 @@
 
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_GET_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_GET_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_GET_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_GET_HPP
 
 #include <utility>
 #include <boost/geometry/core/coordinate_type.hpp>
@@ -46,4 +46,4 @@ void set( CollisionDetectionType& cd, const CoordinateType& value )
 } // noer
 } // agate_pris
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_GET_HPP

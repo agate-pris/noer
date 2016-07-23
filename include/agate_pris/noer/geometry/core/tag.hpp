@@ -1,6 +1,6 @@
 
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_TAG_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_TAG_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_TAG_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_TAG_HPP
 
 #include <boost/geometry/core/tag.hpp>
 
@@ -31,4 +31,4 @@ namespace agate_pris
 	}
 }
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_TAG_HPP

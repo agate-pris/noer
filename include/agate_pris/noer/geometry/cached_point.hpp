@@ -1,6 +1,6 @@
 
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_CACHED_POINT_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_CACHED_POINT_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_CACHED_POINT_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_CACHED_POINT_HPP
 
 #include <type_traits>
 #include <utility>
@@ -115,4 +115,4 @@ struct access< agate_pris::noer::geometry::cached_point< Cache, Entity >, Dimens
 } // geometry
 } // boost
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_CACHED_POINT_HPP

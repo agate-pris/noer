@@ -1,6 +1,6 @@
 ﻿
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_POINT_PRIMITIVE_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_POINT_PRIMITIVE_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_GEOMETRIES_POINT_PRIMITIVE_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_GEOMETRIES_POINT_PRIMITIVE_HPP
 
 #include <boost/numeric/ublas/vector.hpp>
 #include <boost/geometry/core/access.hpp>
@@ -218,4 +218,4 @@ struct access
 } // geometry
 } // boost
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_GEOMETRIES_POINT_PRIMITIVE_HPP

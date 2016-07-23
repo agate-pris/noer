@@ -1,6 +1,6 @@
 ﻿
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_HPP
 
 #include <agate_pris/noer/geometry/core/tag.hpp>
 #include <agate_pris/noer/geometry/algorithms/intersects/box_box.hpp>
@@ -33,4 +33,4 @@ inline bool intersects( CollisionDetection1 const& a, CollisionDetection2 const&
 } // noer
 } // agate_pris
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_HPP

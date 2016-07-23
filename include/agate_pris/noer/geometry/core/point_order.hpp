@@ -1,6 +1,6 @@
 
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_POINT_ORDER_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_POINT_ORDER_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_POINT_ORDER_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_POINT_ORDER_HPP
 
 #include <boost/geometry/core/point_order.hpp>
 
@@ -28,4 +28,4 @@ namespace agate_pris
 	}
 }
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_POINT_ORDER_HPP

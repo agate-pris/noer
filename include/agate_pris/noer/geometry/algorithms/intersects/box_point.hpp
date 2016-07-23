@@ -1,6 +1,6 @@
 ﻿
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_BOX_POINT_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_BOX_POINT_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_BOX_POINT_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_BOX_POINT_HPP
 
 #include <agate_pris/noer/geometry/core/tags.hpp>
 #include <boost/geometry/algorithms/intersects.hpp>
@@ -25,4 +25,4 @@ inline bool intersects( PointType const& p, BoxType const& b, point_tag, box_tag
 } // noer
 } // agate_pris
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_BOX_POINT_HPP

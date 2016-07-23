@@ -1,6 +1,6 @@
 ﻿
-#ifndef AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_SEGMENT_SEGMENT_HPP
-#define AGATE_PRIS_NOER_COLLISION_DETECTION_INTERSECTS_SEGMENT_SEGMENT_HPP
+#ifndef AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_SEGMENT_SEGMENT_HPP
+#define AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_SEGMENT_SEGMENT_HPP
 
 #include <agate_pris/noer/geometry/core/tags.hpp>
 #include <agate_pris/noer/geometry/core/coordinate_dimension.hpp>
@@ -48,4 +48,4 @@ bool intersects( SegmentType const& ab, SegmentType const& cd, segment_tag, segm
 } // noer
 } // agate_pris
 
-#endif
+#endif // AGATE_PRIS_NOER_GEOMETRY_INTERSECTS_SEGMENT_SEGMENT_HPP
