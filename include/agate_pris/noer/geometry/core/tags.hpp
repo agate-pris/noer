@@ -10,12 +10,12 @@ namespace agate_pris {
 namespace noer {
 namespace geometry {
 
-using point_tag = boost::geometry::point_tag;
-using box_tag = boost::geometry::box_tag;
-using segment_tag = boost::geometry::segment_tag;
-struct triangle_tag {};
-struct polymorphic_tag {};
-struct stl_container_tag {};
+using  point_tag                  = boost::geometry::point_tag;
+using  box_tag                    = boost::geometry::box_tag;
+using  segment_tag                = boost::geometry::segment_tag;
+struct triangle_tag               {};
+struct polymorphic_tag            {};
+struct stl_container_tag          {};
 struct boost_fusion_container_tag {};
 
 namespace traits {
