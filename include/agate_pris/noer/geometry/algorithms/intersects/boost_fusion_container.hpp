@@ -49,14 +49,7 @@ template< typename CollisionDetection1, typename CollisionDetection2, typename A
 inline auto intersects( CollisionDetection1 const& object, CollisionDetection2 const& container, AnyTag, boost_fusion_container_tag )
 -> std::enable_if_t< boost::mpl::greater< overload_priolity< boost_fusion_container_tag >, overload_priolity< AnyTag > >::value, bool >
 {
-    return false;
-    // e is element of container
-    auto f = [ &object ]( auto& e )
-    {
-        return intersects( e, object );
-    };
-
-    return boost::fusion::any( container, f );
+    return intersects( container, object );
 }
 
 } // collision_detection
