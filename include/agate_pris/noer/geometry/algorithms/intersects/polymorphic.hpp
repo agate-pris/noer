@@ -12,6 +12,12 @@ namespace agate_pris {
 namespace noer {
 namespace geometry {
 
+template< typename Lhs, typename Rhs >
+inline bool intersects( Lhs const& lhs, Rhs const& rhs, polymorphic_tag, polymorphic_tag )
+{
+    return lhs.intersects( rhs );
+}
+
 template< typename Lhs, typename Rhs, typename AnyTag >
 inline auto intersects( Lhs const& lhs, Rhs const& rhs, polymorphic_tag, AnyTag )
 ->std::enable_if_t

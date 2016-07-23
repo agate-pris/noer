@@ -154,9 +154,6 @@
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects.hpp">
       <Filter>geometry\algorithms</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\polymorphic_polymorphic.hpp">
-      <Filter>geometry\algorithms\intersects</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\core\overload_priolity.hpp">
       <Filter>geometry\core</Filter>
     </ClInclude>
