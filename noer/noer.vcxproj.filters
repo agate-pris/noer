@@ -91,9 +91,6 @@
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\box_triangle.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\container_polymorphic.hpp">
-      <Filter>geometry\algorithms\intersects</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\point_triangle.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>

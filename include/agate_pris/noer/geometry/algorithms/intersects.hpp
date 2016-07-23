@@ -8,7 +8,6 @@
 #include <agate_pris/noer/geometry/algorithms/intersects/box_segment.hpp>
 #include <agate_pris/noer/geometry/algorithms/intersects/box_triangle.hpp>
 #include <agate_pris/noer/geometry/algorithms/intersects/boost_fusion_container.hpp>
-#include <agate_pris/noer/geometry/algorithms/intersects/container_polymorphic.hpp>
 #include <agate_pris/noer/geometry/algorithms/intersects/point_triangle.hpp>
 #include <agate_pris/noer/geometry/algorithms/intersects/segment_segment.hpp>
 #include <agate_pris/noer/geometry/algorithms/intersects/segment_triangle.hpp>
