@@ -11,22 +11,9 @@
 #include <boost/fusion/algorithm/query/any.hpp>
 #include <boost/fusion/include/any.hpp>
 
-#include <boost/fusion/adapted/std_tuple.hpp>
-#include <boost/fusion/include/std_tuple.hpp>
-
 namespace agate_pris {
 namespace noer {
 namespace geometry {
-
-namespace traits {
-
-template< typename... Elements >
-struct tag< std::tuple< Elements... > >
-{
-    using type = boost_fusion_container_tag;
-};
-
-} // traits
 
 template< typename CollisionDetection1, typename CollisionDetection2 >
 inline bool intersects( CollisionDetection1 const& c1, CollisionDetection2 const& c2, boost_fusion_container_tag, boost_fusion_container_tag )

@@ -163,6 +163,9 @@
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\polymorphic.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\geometry\geometries\adapted\std_tuple.hpp">
+      <Filter>geometry\geometries\adapted</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="exact_number">
@@ -203,6 +206,9 @@
     </Filter>
     <Filter Include="geometry\geometries\point\shared\setter">
       <UniqueIdentifier>{0f969ad3-bfbb-4f04-b6cd-2cac59cadc0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="geometry\geometries\adapted">
+      <UniqueIdentifier>{b50bed59-6447-4181-9b68-7123096356ee}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
