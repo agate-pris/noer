@@ -117,6 +117,7 @@
     <ClInclude Include="..\include\agate_pris\noer\geometry\core\point_type.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\core\tag.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\core\tags.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\geometry\geometries\adapted\std_list.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\geometries\adapted\std_tuple.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\geometries\point\primitive.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\geometries\point\shared.hpp" />

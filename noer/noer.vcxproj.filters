@@ -169,6 +169,9 @@
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\stl_container.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\geometry\geometries\adapted\std_list.hpp">
+      <Filter>geometry\geometries\adapted</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="exact_number">
