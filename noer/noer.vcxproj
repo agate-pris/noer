@@ -103,7 +103,7 @@
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\box_point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\box_segment.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\box_triangle.hpp" />
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\container.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\boost_fusion_container.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\container_polymorphic.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\point_triangle.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\polymorphic_polymorphic.hpp" />

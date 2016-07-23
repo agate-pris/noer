@@ -91,9 +91,6 @@
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\box_triangle.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\container.hpp">
-      <Filter>geometry\algorithms\intersects</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\container_polymorphic.hpp">
       <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
@@ -168,6 +165,9 @@
     </ClInclude>
     <ClInclude Include="..\include\agate_pris\noer\geometry\core\overload_priolity.hpp">
       <Filter>geometry\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\boost_fusion_container.hpp">
+      <Filter>geometry\algorithms\intersects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
