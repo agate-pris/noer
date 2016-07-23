@@ -15,6 +15,7 @@ using box_tag = boost::geometry::box_tag;
 using segment_tag = boost::geometry::segment_tag;
 struct triangle_tag {};
 struct polymorphic_tag {};
+struct stl_container_tag {};
 struct boost_fusion_container_tag {};
 
 namespace traits {
@@ -45,8 +46,13 @@ struct overload_priolity< polymorphic_tag >
 {};
 
 template<>
-struct overload_priolity< boost_fusion_container_tag >
+struct overload_priolity< stl_container_tag >
     : boost::mpl::long_< 6000 >
+{};
+
+template<>
+struct overload_priolity< boost_fusion_container_tag >
+    : boost::mpl::long_< 7000 >
 {};
 
 } // traits

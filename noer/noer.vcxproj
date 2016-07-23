@@ -107,6 +107,7 @@
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\point_triangle.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\segment_segment.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\segment_triangle.hpp" />
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\stl_container.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\triangle_triangle.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\cached_point.hpp" />
     <ClInclude Include="..\include\agate_pris\noer\geometry\core\access.hpp" />

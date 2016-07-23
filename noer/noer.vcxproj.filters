@@ -166,6 +166,9 @@
     <ClInclude Include="..\include\agate_pris\noer\geometry\geometries\adapted\std_tuple.hpp">
       <Filter>geometry\geometries\adapted</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\geometry\algorithms\intersects\stl_container.hpp">
+      <Filter>geometry\algorithms\intersects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="exact_number">
