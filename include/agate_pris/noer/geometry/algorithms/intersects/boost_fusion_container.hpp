@@ -16,7 +16,11 @@ namespace noer {
 namespace geometry {
 
 template< typename Lhs, typename Rhs >
-inline bool intersects( Lhs const& lhs, Rhs const& rhs, boost_fusion_container_tag, boost_fusion_container_tag )
+inline bool intersects
+(
+    Lhs const& lhs,             Rhs const& rhs,
+    boost_fusion_container_tag, boost_fusion_container_tag
+)
 {
     // e is element of rhs
     auto f = [ &lhs ]( auto& e ) -> bool
@@ -27,9 +31,17 @@ inline bool intersects( Lhs const& lhs, Rhs const& rhs, boost_fusion_container_t
     return boost::fusion::any( rhs, f );
 }
 
-template< typename CollisionDetection1, typename CollisionDetection2, typename AnyTag >
-inline auto intersects( CollisionDetection1 const& container, CollisionDetection2 const& object, boost_fusion_container_tag, AnyTag )
--> std::enable_if_t< boost::mpl::greater< overload_priolity< boost_fusion_container_tag >, overload_priolity< AnyTag > >::value, bool >
+template< typename Container, typename Object, typename AnyTag >
+inline auto intersects
+(
+    Container const& container, Object const& object,
+    boost_fusion_container_tag, AnyTag
+)
+-> std::enable_if_t< boost::mpl::greater
+<
+    overload_priolity< boost_fusion_container_tag >,
+    overload_priolity< AnyTag                     >
+>::value, bool >
 {
     // e is element of container
     auto f = [ &object ]( auto& e )
@@ -40,9 +52,17 @@ inline auto intersects( CollisionDetection1 const& container, CollisionDetection
     return boost::fusion::any( container, f );
 }
 
-template< typename CollisionDetection1, typename CollisionDetection2, typename AnyTag >
-inline auto intersects( CollisionDetection1 const& object, CollisionDetection2 const& container, AnyTag, boost_fusion_container_tag )
--> std::enable_if_t< boost::mpl::greater< overload_priolity< boost_fusion_container_tag >, overload_priolity< AnyTag > >::value, bool >
+template< typename Object, typename Container, typename AnyTag >
+inline auto intersects
+(
+    Object const& object, Container const& container,
+    AnyTag,               boost_fusion_container_tag
+)
+-> std::enable_if_t< boost::mpl::greater
+<
+    overload_priolity< boost_fusion_container_tag >,
+    overload_priolity< AnyTag                     >
+>::value, bool >
 {
     return intersects( container, object );
 }
