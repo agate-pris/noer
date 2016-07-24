@@ -15,21 +15,16 @@ namespace agate_pris {
 namespace noer {
 namespace geometry {
 
-template< typename CollisionDetection1, typename CollisionDetection2 >
-inline bool intersects( CollisionDetection1 const& c1, CollisionDetection2 const& c2, boost_fusion_container_tag, boost_fusion_container_tag )
+template< typename Lhs, typename Rhs >
+inline bool intersects( Lhs const& lhs, Rhs const& rhs, boost_fusion_container_tag, boost_fusion_container_tag )
 {
-    // a is element of c1
-    auto f = [ &c2 ]( auto& a )
+    // e is element of rhs
+    auto f = [ &lhs ]( auto& e ) -> bool
     {
-        // b is elemnt of c2
-        auto f = [ &a ]( auto& b )
-        {
-            return intersects( a, b );
-        };
-        boost::fusion::any( c2, f );
+        return intersects( lhs, e );
     };
 
-    return boost::fusion::any( c1, f );
+    return boost::fusion::any( rhs, f );
 }
 
 template< typename CollisionDetection1, typename CollisionDetection2, typename AnyTag >
