@@ -34,7 +34,7 @@ inline void no_check::impl
 } // shared
 } // point
 } // model
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

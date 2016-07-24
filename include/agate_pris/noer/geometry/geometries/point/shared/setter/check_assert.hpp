@@ -38,7 +38,7 @@ inline void check_assert::impl
 } // shared
 } // point
 } // model
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

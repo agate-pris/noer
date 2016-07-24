@@ -51,7 +51,7 @@ inline auto intersects( Lhs const& lhs, Rhs const& rhs, AnyTag, stl_container_ta
     return intersects( rhs, lhs );
 }
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

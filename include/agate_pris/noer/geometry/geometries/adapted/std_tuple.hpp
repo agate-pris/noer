@@ -22,7 +22,7 @@ struct tag< std::tuple< Elements... > >
 
 } // traits
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

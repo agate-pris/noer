@@ -73,7 +73,7 @@ bool intersects( TriangleType const& abc, TriangleType const& def, triangle_tag,
     return false;
 }
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

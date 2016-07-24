@@ -34,7 +34,7 @@ inline auto intersects( Lhs const& lhs, Rhs const& rhs, AnyTag, polymorphic_tag 
     return rhs.intersects( lhs );
 }
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

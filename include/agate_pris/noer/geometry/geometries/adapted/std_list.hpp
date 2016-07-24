@@ -20,7 +20,7 @@ struct tag< std::list< T > >
 
 } // traits
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

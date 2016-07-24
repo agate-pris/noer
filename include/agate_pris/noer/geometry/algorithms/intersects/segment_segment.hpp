@@ -44,7 +44,7 @@ bool intersects( SegmentType const& ab, SegmentType const& cd, segment_tag, segm
     return acb * adb <= 0 && cad * cbd <= 0;
 }
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

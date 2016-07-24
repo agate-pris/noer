@@ -74,7 +74,7 @@ inline auto& cached_point< Cache, Entity >::get_entity()
     return m_entity;
 }
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

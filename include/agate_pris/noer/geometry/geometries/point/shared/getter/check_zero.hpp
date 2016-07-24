@@ -38,7 +38,7 @@ check_zero::impl( std::shared_ptr< Point > const& r )
 } // shared
 } // point
 } // model
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

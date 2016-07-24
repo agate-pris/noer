@@ -102,7 +102,7 @@ bool polymorphic_implement< Subject >::intersects( typename polymorphic_interfac
     return geometry::intersects( object, holder::get() );
 }
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

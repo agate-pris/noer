@@ -17,7 +17,7 @@ struct dimension
     boost::geometry::dimension< point_type_t< CollisionDetectionType > >::value;
 };
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

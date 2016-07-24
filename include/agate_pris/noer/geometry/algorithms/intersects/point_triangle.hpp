@@ -58,7 +58,7 @@ inline bool intersects( TriangleType const& triangle, PointType const& point, tr
     return intersects( point, triangle );
 }
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

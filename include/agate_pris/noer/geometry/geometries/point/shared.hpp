@@ -145,7 +145,7 @@ inline void entity< Point, Getter, Setter >::set( coordinate_type const& v )
 } // shared
 } // point
 } // model
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

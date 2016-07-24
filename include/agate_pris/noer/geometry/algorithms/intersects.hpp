@@ -29,7 +29,7 @@ inline bool intersects( CollisionDetection1 const& a, CollisionDetection2 const&
     return intersects( a, b, tag_t< CollisionDetection1 >{}, tag_t< CollisionDetection2 >{} );
 }
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

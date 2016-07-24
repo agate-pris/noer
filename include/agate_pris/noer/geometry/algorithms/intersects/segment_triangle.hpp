@@ -49,7 +49,7 @@ inline bool intersects( TriangleType const& t, SegmentType const& s, triangle_ta
     return intersects( s, t );
 }
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

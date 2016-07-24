@@ -9,7 +9,7 @@ namespace geometry {
 template< typename Subject, typename... Objects >
 struct polymorphic_implement;
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

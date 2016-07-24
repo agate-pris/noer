@@ -78,7 +78,7 @@ inline bool intersects( TriangleType const& triangle, BoxType const& box, triang
     return intersects( box, triangle );
 }
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

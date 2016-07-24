@@ -42,7 +42,7 @@ void set( CollisionDetectionType& cd, const CoordinateType& value )
     traits::indexed_access< CollisionDetectionType, Index, Dimension >::set( cd, value );
 }
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

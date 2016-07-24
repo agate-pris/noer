@@ -15,7 +15,7 @@ inline bool intersects( BoxType const& a, BoxType const& b, box_tag, box_tag )
     return boost::geometry::intersects( a, b );
 }
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

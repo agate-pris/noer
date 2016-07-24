@@ -63,7 +63,7 @@ struct tag< polymorphic_interface< Objects... > >
 };
 }
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 

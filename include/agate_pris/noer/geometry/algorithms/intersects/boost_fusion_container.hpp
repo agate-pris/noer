@@ -47,7 +47,7 @@ inline auto intersects( CollisionDetection1 const& object, CollisionDetection2 c
     return intersects( container, object );
 }
 
-} // collision_detection
+} // geometry
 } // noer
 } // agate_pris
 
