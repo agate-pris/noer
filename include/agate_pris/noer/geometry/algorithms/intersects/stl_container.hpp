@@ -23,32 +23,32 @@ inline bool intersects( Lhs const& lhs, Rhs const& rhs, stl_container_tag, stl_c
     return false;
 }
 
-template< typename Lhs, typename Rhs, typename AnyTag >
-inline auto intersects( Lhs const& lhs, Rhs const& rhs, stl_container_tag, AnyTag )
+template< typename Container, typename Object, typename AnyTag >
+inline auto intersects( Container const& container, Object const& object, stl_container_tag, AnyTag )
 -> std::enable_if_t< boost::mpl::greater
 <
     overload_priolity< stl_container_tag >,
     overload_priolity< AnyTag            >
 >::value, bool >
 {
-    for( auto const& e : lhs )
+    for( auto const& e : container )
     {
-        if( intersects( e, rhs ) )
+        if( intersects( e, object ) )
             return true;
     }
 
     return false;
 }
 
-template< typename Lhs, typename Rhs, typename AnyTag >
-inline auto intersects( Lhs const& lhs, Rhs const& rhs, AnyTag, stl_container_tag )
+template< typename Object, typename Container, typename AnyTag >
+inline auto intersects( Object const& object, Container const& container, AnyTag, stl_container_tag )
 -> std::enable_if_t< boost::mpl::greater
     <
     overload_priolity< stl_container_tag >,
     overload_priolity< AnyTag            >
 >::value, bool >
 {
-    return intersects( rhs, lhs );
+    return intersects( container, object );
 }
 
 } // geometry
