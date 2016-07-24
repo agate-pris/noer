@@ -15,6 +15,22 @@ namespace agate_pris {
 namespace noer {
 namespace geometry {
 
+namespace detail {
+
+template< typename Container, typename Object >
+inline bool intersects_boost_fusion_container( Container const& container, Object const& object )
+{
+    // e is element of container
+    auto f = [ &object ]( auto& e ) -> bool
+    {
+        return intersects( object, e );
+    };
+
+    return boost::fusion::any( container, f );
+}
+
+} // detail
+
 template< typename Lhs, typename Rhs >
 inline bool intersects
 (
@@ -22,13 +38,7 @@ inline bool intersects
     boost_fusion_container_tag, boost_fusion_container_tag
 )
 {
-    // e is element of rhs
-    auto f = [ &lhs ]( auto& e ) -> bool
-    {
-        return intersects( lhs, e );
-    };
-
-    return boost::fusion::any( rhs, f );
+    return detail::intersects_boost_fusion_container( lhs, rhs );
 }
 
 template< typename Container, typename Object, typename AnyTag >
@@ -43,13 +53,7 @@ inline auto intersects
     overload_priolity< AnyTag                     >
 >::value, bool >
 {
-    // e is element of container
-    auto f = [ &object ]( auto& e )
-    {
-        return intersects( e, object );
-    };
-
-    return boost::fusion::any( container, f );
+    return detail::intersects_boost_fusion_container( container, object );
 }
 
 template< typename Object, typename Container, typename AnyTag >
@@ -64,7 +68,7 @@ inline auto intersects
     overload_priolity< AnyTag                     >
 >::value, bool >
 {
-    return intersects( container, object );
+    return detail::intersects_boost_fusion_container( container, object );
 }
 
 } // geometry
