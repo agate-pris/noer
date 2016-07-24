@@ -11,25 +11,10 @@ namespace agate_pris {
 namespace noer {
 namespace geometry {
 
-template< typename Lhs, typename Rhs >
-inline bool intersects( Lhs const& lhs, Rhs const& rhs, stl_container_tag, stl_container_tag )
-{
-    for( auto const& e : lhs )
-    {
-        if( intersects( e, rhs ) )
-            return true;
-    }
+namespace detail {
 
-    return false;
-}
-
-template< typename Container, typename Object, typename AnyTag >
-inline auto intersects( Container const& container, Object const& object, stl_container_tag, AnyTag )
--> std::enable_if_t< boost::mpl::greater
-<
-    overload_priolity< stl_container_tag >,
-    overload_priolity< AnyTag            >
->::value, bool >
+template< typename Container, typename Object >
+inline bool intersects_stl_container( Container const& container, Object const& object )
 {
     for( auto const& e : container )
     {
@@ -40,6 +25,25 @@ inline auto intersects( Container const& container, Object const& object, stl_co
     return false;
 }
 
+} // detail
+
+template< typename Lhs, typename Rhs >
+inline bool intersects( Lhs const& lhs, Rhs const& rhs, stl_container_tag, stl_container_tag )
+{
+    return detail::intersects_stl_container( lhs, rhs );
+}
+
+template< typename Container, typename Object, typename AnyTag >
+inline auto intersects( Container const& container, Object const& object, stl_container_tag, AnyTag )
+-> std::enable_if_t< boost::mpl::greater
+<
+    overload_priolity< stl_container_tag >,
+    overload_priolity< AnyTag            >
+>::value, bool >
+{
+    return detail::intersects_stl_container( container, object );
+}
+
 template< typename Object, typename Container, typename AnyTag >
 inline auto intersects( Object const& object, Container const& container, AnyTag, stl_container_tag )
 -> std::enable_if_t< boost::mpl::greater
@@ -48,7 +52,7 @@ inline auto intersects( Object const& object, Container const& container, AnyTag
     overload_priolity< AnyTag            >
 >::value, bool >
 {
-    return intersects( container, object );
+    return detail::intersects_stl_container( container, object );
 }
 
 } // geometry
