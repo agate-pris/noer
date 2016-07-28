@@ -172,6 +172,9 @@
     <ClInclude Include="..\include\agate_pris\noer\geometry\geometries\adapted\std_list.hpp">
       <Filter>geometry\geometries\adapted</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\agate_pris\noer\geometry\arithmetic\arithmetic.hpp">
+      <Filter>geometry\arithmetic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="exact_number">
@@ -215,6 +218,9 @@
     </Filter>
     <Filter Include="geometry\geometries\adapted">
       <UniqueIdentifier>{b50bed59-6447-4181-9b68-7123096356ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="geometry\arithmetic">
+      <UniqueIdentifier>{89aa2c1d-73f2-4868-b79c-e0290abae6c7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
