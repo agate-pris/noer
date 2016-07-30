@@ -299,26 +299,42 @@ constexpr const int denominator( const fixed_point< Repr, Exp >& )
 // non-member operators
 // --------------------
 template< typename Lhs, typename Repr, int Exp >
-std::enable_if_t< std::is_arithmetic< Lhs >::value, Lhs >& operator += ( Lhs& lhs, const fixed_point< Repr, Exp >& rhs )
+std::enable_if_t
+<
+    !std::is_same< std::decay_t< Lhs >, fixed_point< Repr, Exp > >::value,
+    Lhs&
+> operator += ( Lhs& lhs, const fixed_point< Repr, Exp >& rhs )
 {
     return lhs += static_cast< Lhs >( rhs );
 }
 
 template< typename Lhs, typename Repr, int Exp >
-std::enable_if_t< std::is_arithmetic< Lhs >::value, Lhs >& operator -= ( Lhs& lhs, const fixed_point< Repr, Exp >& rhs )
+std::enable_if_t
+<
+    !std::is_same< std::decay_t< Lhs >, fixed_point< Repr, Exp > >::value,
+    Lhs&
+> operator -= ( Lhs& lhs, const fixed_point< Repr, Exp >& rhs )
 {
     return lhs -= static_cast< Lhs >( rhs );
 }
 
 template< typename Lhs, typename Repr, int Exp >
-std::enable_if_t< std::is_arithmetic< Lhs >::value, Lhs >& operator *= ( Lhs& lhs, const fixed_point< Repr, Exp >& rhs )
+std::enable_if_t
+<
+    !std::is_same< std::decay_t< Lhs >, fixed_point< Repr, Exp > >::value,
+    Lhs&
+> operator *= ( Lhs& lhs, const fixed_point< Repr, Exp >& rhs )
 {
     lhs *= numerator( rhs );
     return lhs /= denominator( rhs );
 }
 
 template< typename Lhs, typename Repr, int Exp >
-std::enable_if_t< std::is_arithmetic< Lhs >::value, Lhs >& operator /= ( Lhs& lhs, const fixed_point< Repr, Exp >& rhs )
+std::enable_if_t
+<
+    !std::is_same< std::decay_t< Lhs >, fixed_point< Repr, Exp > >::value,
+    Lhs&
+> operator /= ( Lhs& lhs, const fixed_point< Repr, Exp >& rhs )
 {
     lhs *= denominator( rhs );
     return lhs /= numerator( rhs );
