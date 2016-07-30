@@ -7,6 +7,7 @@
 #include <boost/geometry/core/coordinate_type.hpp>
 #include <boost/call_traits.hpp>
 #include <boost/geometry/core/access.hpp>
+#include <boost/geometry/core/coordinate_dimension.hpp>
 
 namespace agate_pris {
 namespace noer {
@@ -41,6 +42,54 @@ inline void subtract_value( Point& p, Value const& value )
     auto c = bg::get< Dimension >( p );
     c -= value;
     bg::set< Dimension >( p, c );
+}
+
+namespace detail {
+
+template< std::size_t Begin, std::size_t End, bool IsLast = ( Begin + 1 ) == End, bool IsEnd = Begin == End >
+struct add_point;
+
+template< std::size_t Begin, std::size_t End >
+struct add_point< Begin, End, false, true >
+{
+    template< typename Lhs, typename Rhs >
+    static void impl( Lhs&, Rhs const& ) {}
+};
+
+template< std::size_t Begin, std::size_t End >
+struct add_point< Begin, End, true, false >
+{
+    template< typename Lhs, typename Rhs >
+    static void impl( Lhs& lhs, Rhs const& rhs )
+    {
+        namespace bg = ::boost::geometry;
+        auto c = bg::get< Begin >( lhs );
+        c += bg::get< Begin >( rhs );
+        bg::set< Begin >( lhs, c );
+    }
+};
+
+template< std::size_t Begin, std::size_t End >
+struct add_point< Begin, End, false, false >
+{
+    template< typename Lhs, typename Rhs >
+    static void impl( Lhs& lhs, Rhs const& rhs )
+    {
+        constexpr std::size_t border = ( Begin + End ) / 2;
+        add_point< Begin,  border >::impl( lhs, rhs );
+        add_point< border, End    >::impl( lhs, rhs );
+    }
+};
+
+} // detail
+
+template< typename Lhs, typename Rhs >
+inline void add_point( Lhs& lhs, Rhs const& rhs )
+{
+    namespace bg = ::boost::geometry;
+    static_assert( bg::dimension< Lhs >::value == bg::dimension< Rhs >::value, "dimension must be same value." );
+    constexpr std::size_t dimension = bg::dimension< Lhs >::value;
+    detail::add_point< 0, dimension >::impl( lhs, rhs );
 }
 
 } // geometry
