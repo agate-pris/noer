@@ -5,6 +5,7 @@
 #include <type_traits>
 #include <limits>
 #include <boost/type_traits/has_operator.hpp>
+#include <boost/mpl/bool.hpp>
 #include <agate_pris/noer/config/deprecated.hpp>
 
 namespace agate_pris {
@@ -91,6 +92,32 @@ inline auto convert_to( Source const& s )
 
 } // exact_number_hide
 
+namespace detail {
+namespace exact_number {
+
+// check all args are exact
+// ---------------------------------------------------------------------
+
+template< typename... Args >
+struct check;
+
+template< typename Last >
+struct check< Last >
+: boost::mpl::bool_< std::numeric_limits< Last >::is_exact >
+{};
+
+template< typename First, typename Second, typename... Tail >
+struct check< First, Second, Tail... >
+: boost::mpl::bool_
+<
+    std::numeric_limits< First >::is_exact &&
+    check< Second, Tail... >::value
+>
+{};
+
+} // exact_number
+} // detail
+
 /// @class exact_number
 
 /// @brief \~japanese 厳密な数値を取り扱うためのクラステンプレート
@@ -135,17 +162,14 @@ class exact_number
     exact_number< Repr >& operator = ( exact_number< Rhs > const& rhs );
 
     // conversion from any types
-    template< typename Arg >
+    template< typename Arg, typename = std::enable_if_t< detail::exact_number::check< Arg >::value > >
     exact_number( Arg const& arg )
-        : m_repr( static_cast< Repr >( arg ) )
-    {
-        static_assert( std::numeric_limits< Arg >::is_exact, "Number must be exact." );
-    }
-    template< typename Arg >
+    : m_repr( arg )
+    {}
+    template< typename Arg, typename = std::enable_if_t< detail::exact_number::check< Arg >::value > >
     exact_number< Repr >& operator = ( Arg const& arg )
     {
-        static_assert( std::numeric_limits< Arg >::is_exact, "Number must be exact." );
-        m_repr = static_cast< Repr >( arg );
+        m_repr = arg;
         return *this;
     }
 
