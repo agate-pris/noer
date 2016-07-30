@@ -83,6 +83,12 @@ inline auto convert_to( exact_number< Repr > const& n )
     return static_cast< Target >( get( n ) );
 }
 
+template< typename Target, typename Source >
+inline auto convert_to( Source const& s )
+{
+    return static_cast< Target >( s );
+}
+
 } // exact_number_hide
 
 /// @class exact_number
