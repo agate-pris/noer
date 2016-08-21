@@ -137,6 +137,12 @@ inline void add_point( Lhs& lhs, Rhs const& rhs )
     eval_point< eval::add >( lhs, rhs );
 }
 
+template< typename Lhs, typename Rhs >
+inline void subtract_point( Lhs& lhs, Rhs const& rhs )
+{
+    eval_point< eval::sub >( lhs, rhs );
+}
+
 } // geometry
 } // noer
 } // geometry
