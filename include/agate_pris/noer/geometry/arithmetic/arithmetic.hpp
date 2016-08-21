@@ -26,22 +26,63 @@ struct param
 
 } // detail
 
+enum class eval
+{
+    add,
+    sub,
+};
+
+namespace detail {
+
+template< eval Eval, std::size_t Dimension, typename Point, typename Value >
+struct eval_value;
+
 template< std::size_t Dimension, typename Point, typename Value >
-inline void add_value( Point& p, Value const& value )
+struct eval_value< eval::add, Dimension, Point, Value >
+{
+    static void impl( Point&, Value const& );
+};
+
+template< std::size_t Dimension, typename Point, typename Value >
+struct eval_value< eval::sub, Dimension, Point, Value >
+{
+    static void impl( Point&, Value const& );
+};
+
+template<std::size_t Dimension, typename Point, typename Value>
+inline void eval_value< eval::add, Dimension, Point, Value >::impl
+( Point& p, Value const& v )
 {
     namespace bg = ::boost::geometry;
     auto c = bg::get< Dimension >( p );
-    c += value;
+    c += v;
     bg::set< Dimension >( p, c );
 }
 
-template< std::size_t Dimension, typename Point, typename Value >
-inline void subtract_value( Point& p, Value const& value )
+template<std::size_t Dimension, typename Point, typename Value>
+inline void eval_value< eval::sub, Dimension, Point, Value >::impl
+( Point& p, Value const& v )
 {
     namespace bg = ::boost::geometry;
     auto c = bg::get< Dimension >( p );
-    c -= value;
+    c -= v;
     bg::set< Dimension >( p, c );
+}
+
+} // detail
+
+template< std::size_t Dimension, typename Point, typename Value >
+inline void add_value( Point& p, Value const& v )
+{
+    detail::eval_value< eval::add, Dimension, Point, Value >::impl
+    ( p, v );
+}
+
+template< std::size_t Dimension, typename Point, typename Value >
+inline void subtract_value( Point& p, Value const& v )
+{
+    detail::eval_value< eval::sub, Dimension, Point, Value >::impl
+    ( p, v );
 }
 
 namespace detail {
