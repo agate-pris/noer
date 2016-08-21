@@ -122,13 +122,19 @@ struct eval_point< Eval, Begin, End, false, false >
 
 } // detail
 
-template< typename Lhs, typename Rhs >
-inline void add_point( Lhs& lhs, Rhs const& rhs )
+template< eval Eval, typename Lhs, typename Rhs >
+inline void eval_point( Lhs& lhs, Rhs const& rhs )
 {
     namespace bg = ::boost::geometry;
     static_assert( bg::dimension< Lhs >::value == bg::dimension< Rhs >::value, "dimension must be same value." );
     constexpr std::size_t dimension = bg::dimension< Lhs >::value;
-    detail::eval_point< eval::add, 0, dimension >::impl( lhs, rhs );
+    detail::eval_point< Eval, 0, dimension >::impl( lhs, rhs );
+}
+
+template< typename Lhs, typename Rhs >
+inline void add_point( Lhs& lhs, Rhs const& rhs )
+{
+    eval_point< eval::add >( lhs, rhs );
 }
 
 } // geometry
