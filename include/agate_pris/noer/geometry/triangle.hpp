@@ -120,14 +120,14 @@ namespace boost
 		>
 		void envelope( agate_pris::noer::geometry::triangle< PointType, ClockWise, Container > const& t, BoxType& b )
 		{
-			namespace ncd = agate_pris::noer::geometry;
-			auto x = std::minmax( { ncd::get< 0, 0 >( t ), ncd::get< 1, 0 >( t ), ncd::get< 2, 0 >( t ) } );
-			auto y = std::minmax( { ncd::get< 0, 1 >( t ), ncd::get< 1, 1 >( t ), ncd::get< 2, 1 >( t ) } );
+            namespace ng = agate_pris::noer::geometry;
+            auto x = std::minmax( { ng::get< 0, 0 >( t ), ng::get< 1, 0 >( t ), ng::get< 2, 0 >( t ) } );
+            auto y = std::minmax( { ng::get< 0, 1 >( t ), ng::get< 1, 1 >( t ), ng::get< 2, 1 >( t ) } );
 
-			set< 0, 0 >( b, x.first );
-			set< 0, 1 >( b, x.second );
-			set< 1, 0 >( b, y.first );
-			set< 1, 1 >( b, y.second );
+            set< min_corner, 0 >( b, x.first );
+            set< min_corner, 1 >( b, y.first );
+            set< max_corner, 0 >( b, x.second );
+            set< max_corner, 1 >( b, y.second );
 		}
 
 		template
